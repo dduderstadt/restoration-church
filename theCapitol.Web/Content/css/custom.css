@@ -1,0 +1,45 @@
+﻿span
+{
+    color: #b7a602;
+}
+
+a
+{
+    color: #fff;
+}
+
+/* override #home .home-wrapper in style.css */
+.home-wrapper
+{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.home-content > h1
+{
+    /* override UPPERCASE in style.css */
+    text-transform: none;
+    font-size: 6em;
+}
+
+.section-header > .title
+{
+    /* override Capitalize in style.css */
+    text-transform: none;
+}
+
+.sub-text
+{
+    font-size: 3em;
+    font-style: italic;
+}
+
+#footer {
+    margin-top: 30em;
+}

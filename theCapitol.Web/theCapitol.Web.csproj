@@ -181,37 +181,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.default.css" />
     <Content Include="Content\css\style.css" />
-    <Content Include="Content\img\about1.jpg" />
-    <Content Include="Content\img\about2.jpg" />
-    <Content Include="Content\img\author.jpg" />
-    <Content Include="Content\img\background1.jpg" />
-    <Content Include="Content\img\background2.jpg" />
-    <Content Include="Content\img\background3.jpg" />
-    <Content Include="Content\img\blog-post.jpg" />
-    <Content Include="Content\img\blog1.jpg" />
-    <Content Include="Content\img\blog2.jpg" />
-    <Content Include="Content\img\blog3.jpg" />
-    <Content Include="Content\img\logo-alt.png" />
-    <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\perso1.jpg" />
-    <Content Include="Content\img\perso2.jpg" />
-    <Content Include="Content\img\post1.jpg" />
-    <Content Include="Content\img\post2.jpg" />
-    <Content Include="Content\img\post3.jpg" />
-    <Content Include="Content\img\team1.jpg" />
-    <Content Include="Content\img\team2.jpg" />
-    <Content Include="Content\img\team3.jpg" />
-    <Content Include="Content\img\work1.jpg" />
-    <Content Include="Content\img\work2.jpg" />
-    <Content Include="Content\img\work3.jpg" />
-    <Content Include="Content\img\work4.jpg" />
-    <Content Include="Content\img\work5.jpg" />
-    <Content Include="Content\img\work6.jpg" />
+    <Content Include="Content\img\template\about1.jpg" />
+    <Content Include="Content\img\template\about2.jpg" />
+    <Content Include="Content\img\template\author.jpg" />
+    <Content Include="Content\img\template\background1.jpg" />
+    <Content Include="Content\img\template\background2.jpg" />
+    <Content Include="Content\img\template\background3.jpg" />
+    <Content Include="Content\img\template\blog-post.jpg" />
+    <Content Include="Content\img\template\blog1.jpg" />
+    <Content Include="Content\img\template\blog2.jpg" />
+    <Content Include="Content\img\template\blog3.jpg" />
+    <Content Include="Content\img\template\logo-alt.png" />
+    <Content Include="Content\img\template\logo.png" />
+    <Content Include="Content\img\template\perso1.jpg" />
+    <Content Include="Content\img\template\perso2.jpg" />
+    <Content Include="Content\img\template\post1.jpg" />
+    <Content Include="Content\img\template\post2.jpg" />
+    <Content Include="Content\img\template\post3.jpg" />
+    <Content Include="Content\img\template\team1.jpg" />
+    <Content Include="Content\img\template\team2.jpg" />
+    <Content Include="Content\img\template\team3.jpg" />
+    <Content Include="Content\img\theCapitol-logo-bg.png" />
+    <Content Include="Content\img\theCapitol-logo.png" />
+    <Content Include="Content\img\template\work1.jpg" />
+    <Content Include="Content\img\template\work2.jpg" />
+    <Content Include="Content\img\template\work3.jpg" />
+    <Content Include="Content\img\template\work4.jpg" />
+    <Content Include="Content\img\template\work5.jpg" />
+    <Content Include="Content\img\template\work6.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -314,6 +317,18 @@
       <Project>{fe4dbf17-4e10-4bf8-b07e-7fe82b8b08aa}</Project>
       <Name>theCapitol.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Services.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Media.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Team.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

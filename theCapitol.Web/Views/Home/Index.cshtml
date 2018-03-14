@@ -1,31 +1,125 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "welcome to";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!-- home wrapper -->
+<div class="home-wrapper">
+    <div class="container">
+        <div class="row">
+            <!-- home content -->
+            <div class="col-md-10 col-md-offset-1">
+                <div class="home-content">
+                    <h1 class="white-text">we are the<span>Capitol</span></h1>
+                    <p class="white-text sub-text">
+                        are <span>you</span> ready?
+                    </p>
+                    <button class="white-btn">Get Started!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<!-- about -->
+<div id="about" class="section md-padding">
+    <div class="container">
+        <div class="row">
+            <div class="section-header text-center">
+                <h2 class="title">welcome to the<span>Capitol</span></h2>
+            </div>
+            <div class="col-md-4">
+                <div class="about">
+                    <i class="fa fa-cogs"></i>
+                    <h3>Love God</h3>
+                    <p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about">
+                    <i class="fa fa-magic"></i>
+                    <h3>Love People</h3>
+                    <p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="about">
+                    <i class="fa fa-mobile"></i>
+                    <h3>Be Different</h3>
+                    <p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+</div>
+	<!-- why choose us -->
+<div id="features" class="section md-padding bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-header">
+                    <h2 class="title">why choose us</h2>
+                </div>
+                <p>Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris. Ultrices sagittis orci a scelerisque purus.</p>
+                <div class="feature">
+                    <i class="fa fa-check"></i>
+                    <p>Quis varius quam quisque id diam vel quam elementum.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa fa-check"></i>
+                    <p>Mauris augue neque gravida in fermentum.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa fa-check"></i>
+                    <p>Orci phasellus egestas tellus rutrum.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa fa-check"></i>
+                    <p>Nec feugiat nisl pretium fusce id velit ut tortor pretium.</p>
+                </div>
+            </div>
+            <!-- slider -->
+            <div class="col-md-6">
+                <div id="about-slider" class="owl-carousel owl-theme">
+                    <img class="img-responsive" src="~/Content/img/template/about1.jpg" alt="">
+                    <img class="img-responsive" src="~/Content/img/template/about2.jpg" alt="">
+                    <img class="img-responsive" src="~/Content/img/template/about1.jpg" alt="">
+                    <img class="img-responsive" src="~/Content/img/template/about2.jpg" alt="">
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+</div>
+	<!-- testimonial -->
+<div id="testimonial" class="section md-padding">
+    <!-- background image -->
+    <div class="bg-img" style="background-image: url('/Content/img/template/background3.jpg');">
+        <div class="overlay"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- slider -->
+            <div class="col-md-10 col-md-offset-1">
+                <div id="testimonial-slider" class="owl-carousel owl-theme">
+                    <div class="testimonial">
+                        <div class="testimonial-meta">
+                            <img src="~/Content/img/template/perso1.jpg" alt="">
+                            <h3 class="white-text">John Doe</h3>
+                            <span>Web Designer</span>
+                        </div>
+                        <p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-meta">
+                            <img src="~/Content/img/template/perso2.jpg" alt="">
+                            <h3 class="white-text">John Doe</h3>
+                            <span>Web Designer</span>
+                        </div>
+                        <p class="white-text">Molestie at elementum eu facilisis sed odio. Scelerisque in dictum non consectetur a erat. Aliquam id diam maecenas ultricies mi eget mauris.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
