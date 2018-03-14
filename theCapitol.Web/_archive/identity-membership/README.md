@@ -5,7 +5,7 @@
 ## Setup
 1. Copy the UsersAdmin and RolesAdmin folder to the Views folder
 2. Copy the IdentityManagement folder to the root of the web project
-3. Find and replace all instances of CustomIdentityManagement with the name of your web project
+3. Find and replace all instances of theCapitol.Web with the name of your web project
 4. Open the IdentityInitializer.cs file and update the default admin email and password at the top of the class
 5. Add the following to the ConfigureAuth(IAppBuilder app) method of the App_Start/Startup.Auth.cs file below the other app settings.
 

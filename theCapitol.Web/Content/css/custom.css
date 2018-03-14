@@ -41,3 +41,25 @@ span /* keywords/highlights */
 {
     font-size: 1.1em;
 }
+
+.main-nav > li > a:hover,
+.main-nav > li > a:focus,
+.main-nav > li.active > a
+{
+    background: transparent;
+    color: #b7a602;
+}
+
+    .main-nav > li > a:hover:after, .main-nav > li > .active > a:after
+    {
+        width: 100%;
+    }
+
+@media only screen and (min-width: 768px)
+{
+    /* ':after' is the _______ AFTER (under) the link */
+    .main-nav > li > a:after
+    {
+        background-color: #b7a602;
+    }
+}

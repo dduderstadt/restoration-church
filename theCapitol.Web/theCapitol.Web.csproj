@@ -173,6 +173,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IdentityManagement\AdminViewModels.cs" />
+    <Compile Include="IdentityManagement\AppBuilderProvider.cs" />
+    <Compile Include="IdentityManagement\ApplicationRoleManager.cs" />
+    <Compile Include="IdentityManagement\IdentityInitializer.cs" />
+    <Compile Include="IdentityManagement\InitIdentityController.cs" />
+    <Compile Include="IdentityManagement\RolesAdminController.cs" />
+    <Compile Include="IdentityManagement\UsersAdminController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -329,6 +336,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Contact.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsersAdmin\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -36,11 +36,21 @@
                 </div>
                 <!--  nav links  -->
                 <ul class="main-nav nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Home")">the <span>Capitol</span></a></li>
-                    <li><a href="@Url.Action("Services", "Home")">services</a></li>
-                    <li><a href="@Url.Action("Team", "Home")">our team</a></li>
-                    <li><a href="@Url.Action("Media", "Home")">media</a></li>
-                    <li><a href="@Url.Action("Contact", "Home")">contact</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                        <a href="@Url.Action("Index", "Home")">the <span>Capitol</span></a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Services" ? "active" : "")">
+                        <a href="@Url.Action("Services", "Home")">services</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Team" ? "active" : "")">
+                        <a href="@Url.Action("Team", "Home")">our team</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Media" ? "active" : "")">
+                        <a href="@Url.Action("Media", "Home")">media</a>
+                    </li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                        <a href="@Url.Action("Contact", "Home")">contact</a>
+                    </li>
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div>

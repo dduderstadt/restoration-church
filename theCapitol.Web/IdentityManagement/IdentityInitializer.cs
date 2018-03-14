@@ -11,8 +11,9 @@ namespace theCapitol.Web
 {
     public class IdentityInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
-        public string adminUserEmail = "admin@example.com";
-        public string adminPassword = "Admin@123456";
+        //! default admin credentials were here
+        string adminUserEmail;
+        string adminPassword;
 
         //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
         public void Init(ApplicationDbContext db)

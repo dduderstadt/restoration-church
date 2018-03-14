@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f525034fb0734bad9d2e2748e81b6c30" Name="Diagram1">
+        <EntityTypeShape EntityType="theCapitolModel.Article" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="theCapitolModel.ArticlesTag" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="theCapitolModel.Contact" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="theCapitolModel.ContactType" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="theCapitolModel.Leader" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="theCapitolModel.Tag" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="theCapitolModel.FK_Articles_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="theCapitolModel.FK_ArticlesTags_Articles" ManuallyRouted="false" />
+        <AssociationConnector Association="theCapitolModel.FK_ArticlesTags_Tags" ManuallyRouted="false" />
+        <AssociationConnector Association="theCapitolModel.FK_Contacts_ContactTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="theCapitolModel.FK_Leaders_Contacts1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
