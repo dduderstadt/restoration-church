@@ -11,18 +11,18 @@ namespace theCapitol.Web
             //template css (Content/css)
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/css/bootstrap.min.css",
-                "~/Content/css/font-awesome.min.css",
-                "~/Content/css/magnific-popup.css",
                 "~/Content/css/owl.carousel.css",
                 "~/Content/css/owl.theme.default.css",
+                "~/Content/css/magnific-popup.css",
+                "~/Content/css/font-awesome.min.css",
                 "~/Content/css/style.css"));
 
             //template JavaScript (Scripts/js)
             bundles.Add(new ScriptBundle("~/Scripts/js").Include(
                 "~/Scripts/js/jquery.min.js",
                 "~/Scripts/js/bootstrap.min.js",
-                "~/Scripts/js/jquery.magnific-popup.js",
                 "~/Scripts/js/owl.carousel.min.js",
+                "~/Scripts/js/jquery.magnific-popup.js",
                 "~/Scripts/js/main.js"));
         }
     }

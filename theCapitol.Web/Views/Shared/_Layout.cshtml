@@ -8,9 +8,8 @@
     <title>@ViewBag.Title | the Capitol</title>
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
-    @* render css & JavaScript (bundled in BundleConfig) *@
+    @* render css (BundleConfig.cs) *@
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/Scripts/js")
     <!-- custom style (override template) -->
     <link href="~/Content/css/custom.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,7 +36,7 @@
                 </div>
                 <!--  nav links  -->
                 <ul class="main-nav nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Index", "Home")">the<span>Capitol</span></a></li>
+                    <li><a href="@Url.Action("Index", "Home")">the <span>Capitol</span></a></li>
                     <li><a href="@Url.Action("Services", "Home")">services</a></li>
                     <li><a href="@Url.Action("Team", "Home")">our team</a></li>
                     <li><a href="@Url.Action("Media", "Home")">media</a></li>
@@ -46,9 +45,23 @@
                 </ul>
             </div>
         </nav>
+        <!-- home wrapper -->
+        <div class="home-wrapper">
+            <div class="container">
+                <div class="row">
+                    <!-- home content -->
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="home-content">
+                            <h1 class="white-text theCapitol-main">we are the <span>Capitol</span></h1>
+                            <button class="white-btn">Get Started!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="home-wrapper">
+    <div>
         @RenderBody()
     </div>
 
@@ -58,7 +71,7 @@
                 <div class="col-md-12">
                     <!-- footer logo -->
                     <div class="footer-logo">
-                        <a href="@Url.Action("Index", "Home")"><img src="~/Content/img/template/logo-alt.png" alt="logo"></a>
+                        <a class="sub-text" href="@Url.Action("Index", "Home")">the <span>Capitol</span></a>
                     </div>
                     <!-- footer follow -->
                     <ul class="footer-follow">
@@ -91,7 +104,8 @@
             <span></span>
         </div>
     </div>
-
+    @* render scripts (BundleConfig.cs) *@
+    @Scripts.Render("~/Scripts/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>

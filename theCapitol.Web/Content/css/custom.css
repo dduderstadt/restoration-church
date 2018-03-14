@@ -1,41 +1,43 @@
-﻿span
+﻿/*****************
+    site wide 
+*****************/
+
+span /* keywords/highlights */
 {
     color: #b7a602;
+    font-weight: bold;
+    /*text-shadow: 2px 2px 2px #000;*/
 }
 
-a
+.home-content > h1,
+.section-header > .title
 {
+    text-transform: none;
+}
+
+.theCapitol-main
+{
+    font-size: 6.5em;
+    text-shadow: 5px 5px 5px #000;
+}
+
+.sub-text,
+.sub-text:hover
+{
+    font-size: 2.5em;
+    font-style: italic;
     color: #fff;
 }
 
-/* override #home .home-wrapper in style.css */
-/*.home-wrapper
-{
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    text-align: center;
-}*/
+    .sub-text > span
+    {
+        text-shadow: 5px 5px 5px #000;
+    }
 
-.home-content > h1
+/*****************
+    navigation 
+*****************/
+#nav > div > ul > li > a
 {
-    /* override UPPERCASE in style.css */
-    text-transform: none;
-    font-size: 6em;
-}
-
-.section-header > .title
-{
-    /* override Capitalize in style.css */
-    text-transform: none;
-}
-
-.sub-text
-{
-    font-size: 3em;
-    font-style: italic;
+    font-size: 1.1em;
 }
