@@ -48,36 +48,36 @@ namespace theCapitol.Web.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Required(ErrorMessage = "* email is required")]
+        [Display(Name = "email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "* password is required")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "remember me?")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "* email is required")]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "* password is required")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "confirm password")]
+        [Compare("Password", ErrorMessage = "* password & confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
