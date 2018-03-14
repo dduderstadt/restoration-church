@@ -22,6 +22,10 @@
 </head>
 <body>
     <header id="home">
+        <!-- background image -->
+        <div class="bg-img" style="background-image: url('/Content/img/template/background1.jpg');">
+            <div class="overlay"></div>
+        </div>
         <!-- nav -->
         <nav id="nav" class="navbar nav-transparent">
             <div class="container">
@@ -44,13 +48,10 @@
         </nav>
     </header>
 
-    <div>
-        <!-- background image -->
-        <div class="bg-img" style="background-image: url('/Content/img/template/background1.jpg');">
-            <div class="overlay"></div>
-        </div>
+    <div class="home-wrapper">
         @RenderBody()
     </div>
+
     <footer id="footer" class="sm-padding bg-dark">
         <div class="container">
             <div class="row">

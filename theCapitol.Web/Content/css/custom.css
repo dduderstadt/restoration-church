@@ -9,7 +9,7 @@ a
 }
 
 /* override #home .home-wrapper in style.css */
-.home-wrapper
+/*.home-wrapper
 {
     position: absolute;
     left: 0px;
@@ -19,7 +19,7 @@ a
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
-}
+}*/
 
 .home-content > h1
 {
@@ -38,8 +38,4 @@ a
 {
     font-size: 3em;
     font-style: italic;
-}
-
-#footer {
-    margin-top: 30em;
 }
