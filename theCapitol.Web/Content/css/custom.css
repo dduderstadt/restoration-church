@@ -2,7 +2,8 @@
     site wide 
 *****************/
 .field-validation-error,
-.text-danger /* error messages (validation) */
+.text-danger,
+.validation-summary-errors /* error messages (validation) */
 {
     color: #e00006;
     font-weight: bold;

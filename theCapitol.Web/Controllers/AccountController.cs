@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using theCapitol.Web.Models;
+using theCapitol.Data;
 
 namespace theCapitol.Web.Controllers
 {
@@ -17,12 +18,15 @@ namespace theCapitol.Web.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        //instantiate entities connection
+        private theCapitolEntities db = new theCapitolEntities();
+
 
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +38,9 @@ namespace theCapitol.Web.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +124,7 @@ namespace theCapitol.Web.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -151,23 +155,97 @@ namespace theCapitol.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+                //check if the email has been registered
+                var foundConn = db.Connections.Where(x => x.Email == model.Email).FirstOrDefault();
+                if (foundConn != null)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    //if record with email found in database exists,
+                    //return to the View w/error
+                    ModelState.AddModelError("", "* email address has already been registered");
+                    return View(model);
                 }
-                AddErrors(result);
-            }
+                else
+                {
+                    var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    #region invitation code/connection type
+                    int connectionType;
+                    switch (model.InvitationCode)
+                    {
+                        case "86753":
+                            connectionType = 1;
+                            break;
 
+                        case "64068":
+                            connectionType = 2;
+                            break;
+
+                        case "87138":
+                            connectionType = 3;
+                            break;
+
+                        default:
+                            connectionType = 4;
+                            break;
+                    }
+                    #endregion
+                    //create new person (connection) data
+                    var connection = new Connection()
+                    {
+                        FirstName =
+                            (model.FirstName.Substring(0, 1).ToUpper()) +
+                            (model.FirstName.Substring(1, model.FirstName.Length - 1).ToLower()),
+                        LastName =
+                            (model.LastName.Substring(0, 1).ToUpper()) +
+                            (model.LastName.Substring(1, model.FirstName.Length - 1).ToLower()),
+                        Email = model.Email.ToLower(),
+                        ConnectionTypeId = connectionType, //based on invitation code
+                        AspNetUserId = user.Id
+                    };
+
+                    if (result.Succeeded)
+                    {
+                        #region default role/connection type
+                        string role = "";
+                        switch (connection.ConnectionTypeId)
+                        {
+                            case 1:
+                                role = "student";
+                                break;
+
+                            case 2:
+                                role = "parent";
+                                break;
+
+                            case 3:
+                                role = "leader";
+                                break;
+
+                            default:
+                                role = "other";
+                                break;
+                        }
+                        //default user role
+                        UserManager.IsInRole(user.Id, role);
+                        #endregion
+
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Send an email with this link
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        //add connection record to dB
+                        db.Connections.Add(connection);
+                        db.SaveChanges();
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
+                }
+            }
             // If we got this far, something failed, redisplay form
             return View(model);
         }

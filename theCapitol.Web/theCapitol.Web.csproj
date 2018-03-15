@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConnectionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,16 @@
     <Content Include="Content\css\owl.carousel.css" />
     <Content Include="Content\css\owl.theme.default.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\img\band-1.jpeg" />
+    <Content Include="Content\img\band-2.png" />
+    <Content Include="Content\img\camryn-guitar-pic.jpg" />
+    <Content Include="Content\img\crowd-1.jpg" />
+    <Content Include="Content\img\crowd-2.JPG" />
+    <Content Include="Content\img\crowd-3.jpg" />
+    <Content Include="Content\img\crowd-4.jpg" />
+    <Content Include="Content\img\crowd-5.jpg" />
+    <Content Include="Content\img\edgy-bro.png" />
+    <Content Include="Content\img\soundwave-blue.jpg" />
     <Content Include="Content\img\template\about1.jpg" />
     <Content Include="Content\img\template\about2.jpg" />
     <Content Include="Content\img\template\author.jpg" />
@@ -222,6 +233,8 @@
     <Content Include="Content\img\template\work4.jpg" />
     <Content Include="Content\img\template\work5.jpg" />
     <Content Include="Content\img\template\work6.jpg" />
+    <Content Include="Content\img\union-station-color.jpg" />
+    <Content Include="Content\img\union-station.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -230,6 +243,7 @@
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\main.js" />
     <Content Include="Scripts\js\owl.carousel.min.js" />
+    <Content Include="_archive\admin.txt" />
     <Content Include="_archive\template\blog-single.html" />
     <Content Include="_archive\template\css\bootstrap.min.css" />
     <Content Include="_archive\template\css\font-awesome.min.css" />
@@ -366,6 +380,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\UsersAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Connections\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Connections\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Connections\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Connections\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Connections\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

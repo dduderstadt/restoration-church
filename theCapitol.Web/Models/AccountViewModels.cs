@@ -70,7 +70,7 @@ namespace theCapitol.Web.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "* password is required")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "the {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "password")]
         public string Password { get; set; }
@@ -79,6 +79,21 @@ namespace theCapitol.Web.Models
         [Display(Name = "confirm password")]
         [Compare("Password", ErrorMessage = "* password & confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        /*added for Connections*/
+        [Display(Name = "first name")]
+        [Required(ErrorMessage = "*first name is required")]
+        [StringLength(25, ErrorMessage = "* first name cannot exceed 25 characters")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "last name")]
+        [Required(ErrorMessage = "*last name is required")]
+        [StringLength(25, ErrorMessage = "* last name cannot exceed 50 characters")]
+        public string LastName { get; set; }
+
+        [Display(Name = "invitation code")]
+        [StringLength(5, ErrorMessage = "* invitation code invalid")]
+        public string InvitationCode { get; set; }
     }
 
     public class ResetPasswordViewModel
