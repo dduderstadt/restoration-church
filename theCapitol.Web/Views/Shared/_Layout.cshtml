@@ -20,13 +20,13 @@
     <![endif]-->
 </head>
 <body>
-    <header id="home">
-        <!-- background image -->
-        <div class="bg-img" style="background-image: url('/Content/img/template/background1.jpg');">
-            <div class="overlay"></div>
-        </div>
+    @* only apply id="home" on [domain]/Home/Index (index.cshtml-background image) *@
+    <header id="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "home" : "")">
+        @* render background image on Index.cshtml *@
+        @RenderSection("backgroundImage", false)
         <!-- nav -->
-        <nav id="nav" class="navbar nav-transparent">
+        @* nav-transparent only if background image is displayed-[domain]/Home/Index *@
+        <nav id="nav" class="navbar @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "nav-transparent" : "")">
             <div class="container">
                 <div class="navbar-header">
                     <!-- collapsed nav menu -->
@@ -55,33 +55,11 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- admin side nav -->
-        <div id="adminSideNav" class="sideNav">
-            <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
-            <a href="@Url.Action("Index", "Contacts")">Contacts</a>
-        </div>
-
-        <!-- use any element to open the sideNav -->
-        <span onclick="openNav()">ADMIN</span>
-
-        <!-- home wrapper -->
-        <div class="home-wrapper">
-            <div class="container">
-                <div class="row">
-                    <!-- home content -->
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="home-content">
-                            <h1 class="white-text theCapitol-main">we are the <span>Capitol</span></h1>
-                            <button class="white-btn">Get Started!</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @* render "we are..." text on Index.cshtml *@
+        @RenderSection("homeWrapper", false)
     </header>
 
-    <div class="content-wrapper">
+    <div>
         @RenderBody()
     </div>
 
@@ -129,13 +107,3 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-
-    <script>
-        function openNav() {
-            document.getElementById('adminSideNav').style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById('adminSideNav').style.width = "0";
-        }
-    </script>
