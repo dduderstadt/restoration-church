@@ -1,7 +1,6 @@
 ﻿/*****************
     site wide 
 *****************/
-
 .field-validation-error,
 .text-danger /* error messages (validation) */
 {
@@ -11,7 +10,8 @@
     font-size: 16px;
 }
 
-span /* keywords/highlights */
+span /* keywords/highlights */,
+.testimonial-meta > span
 {
     color: #b7a602;
     font-weight: bold;
@@ -104,60 +104,6 @@ span /* keywords/highlights */
 }
 
 /*****************
-  admin side nav 
-*****************/
-.sideNav
-{
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-}
-
-    .sideNav > a
-    {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #b7a602;
-        display: block;
-        transition: 0.3s;
-    }
-
-        .sideNav > a:hover
-        {
-            color: #f1f1f1;
-        }
-
-    .sideNav > .closeBtn
-    {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-@media screen and (max-height: 450px)
-{
-    .sideNav
-    {
-        padding-top: 15px;
-    }
-
-        .sideNav > a
-        {
-            font-size: 18px;
-        }
-}
-
-/*****************
      register 
 *****************/
 /*#register
@@ -233,3 +179,46 @@ span /* keywords/highlights */
         font-weight: bold;
         font-style: italic;
     }
+
+/*****************
+       index
+*****************/
+/*about*/
+.about > i::before
+{
+    color: #6195FF;
+    font-size: 2em;
+}
+/*why we exist*/
+.feature /* override class in style.css */
+{
+    margin: 15px 0px;
+    width: 45%; /* 2 features per "row" */
+    float: left;
+}
+
+    .feature i
+    {
+        float: left;
+        padding: 5px;
+        border-radius: 50%;
+        color: #6195FF;
+        border: 1px solid #6195FF;
+        margin-right: 5px;
+        font-size: 1.3em;
+    }
+
+#about-slider
+{
+    clear: both;
+}
+
+/*.bg-img .overlay-union {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+    background: #000;
+}*/
