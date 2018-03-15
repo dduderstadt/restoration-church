@@ -5,11 +5,24 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="49c6416952af40a0af16031fe6586b59" Name="Diagram1">
-        <EntityTypeShape EntityType="theCapitolModel.Article" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="theCapitolModel.Connection" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="theCapitolModel.Leader" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="theCapitolModel.FK_Articles_Contacts" ManuallyRouted="false" />
-        <AssociationConnector Association="theCapitolModel.FK_Leaders_Contacts1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="theCapitolModel.Leader" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="theCapitolModel.C__MigrationHistory" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="theCapitolModel.Article" Width="1.5" PointX="8.25" PointY="3.5" />
+        <EntityTypeShape EntityType="theCapitolModel.ArticlesTag" Width="1.5" PointX="10.5" PointY="3.625" />
+        <EntityTypeShape EntityType="theCapitolModel.AspNetRole" Width="1.5" PointX="3.75" PointY="6.875" />
+        <EntityTypeShape EntityType="theCapitolModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="theCapitolModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="theCapitolModel.AspNetUser" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="theCapitolModel.Student" Width="1.5" PointX="5.125" PointY="1.375" />
+        <EntityTypeShape EntityType="theCapitolModel.sysdiagram" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="theCapitolModel.Tag" Width="1.5" PointX="8.25" PointY="0.75" />
+        <AssociationConnector Association="theCapitolModel.FK_Articles_Leaders" />
+        <AssociationConnector Association="theCapitolModel.FK_ArticlesTags_Articles1" />
+        <AssociationConnector Association="theCapitolModel.FK_ArticlesTags_Tags" />
+        <AssociationConnector Association="theCapitolModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="theCapitolModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="theCapitolModel.FK_Leaders_AspNetUsers" />
+        <AssociationConnector Association="theCapitolModel.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

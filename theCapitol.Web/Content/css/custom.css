@@ -1,4 +1,11 @@
-﻿/*****************
+﻿/*
+    colors scheme
+    peach       #feaf33
+    baby blue   #6195FF
+
+*/
+
+/*****************
     site wide 
 *****************/
 .field-validation-error,
@@ -14,7 +21,7 @@
 span /* keywords/highlights */,
 .testimonial-meta > span
 {
-    color: #b7a602;
+    color: #feaf33;
     font-weight: bold;
     /*text-shadow: 2px 2px 2px #000;*/
 }
@@ -57,7 +64,7 @@ span /* keywords/highlights */,
 
     .btn-default:hover
     {
-        background-color: #b7a602;
+        background-color: #feaf33;
         color: #000;
         font-weight: bold;
         font-size: 14px;
@@ -66,8 +73,9 @@ span /* keywords/highlights */,
 
 .page-title /* page "title" text */
 {
+    color: #feaf33;
     font-size: 5em;
-    text-shadow: 3px 3px 3px #b7a602;
+    text-shadow: 3px 3px 3px #6195FF;
 }
 
 .section-header /* override .section-header in style.css */
@@ -87,7 +95,7 @@ span /* keywords/highlights */,
 .main-nav > li.active > a
 {
     background: transparent;
-    color: #b7a602;
+    color: #feaf33;
 }
 
     .main-nav > li > a:hover:after, .main-nav > li > .active > a:after
@@ -100,7 +108,7 @@ span /* keywords/highlights */,
     /* ':after' is the _______ AFTER (under) the link */
     .main-nav > li > a:after
     {
-        background-color: #b7a602;
+        background-color: #feaf33;
     }
 }
 

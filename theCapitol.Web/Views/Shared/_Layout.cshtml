@@ -51,6 +51,24 @@
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
                         <a href="@Url.Action("Contact", "Home")">contact</a>
                     </li>
+                    @if (Request.IsAuthenticated && User.IsInRole("Leader") || User.IsInRole("Admin"))
+                    {
+                        //Request.IsAuthenticated will EVENTUALLY represent students/parents (no roles assigned)
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                            <a href="@Url.Action("Index", "Students")">students</a></li>
+                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                                <a href="@Url.Action("Index", "Leaders")">leaders</a>
+                            </li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                            <a href="@Url.Action("Index", "RolesAdmin")">roles</a>
+                        </li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                            <a href="@Url.Action("Index", "UsersAdmin")">users</a>
+                        </li>
+                    }
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div>

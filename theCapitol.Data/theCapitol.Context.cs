@@ -25,8 +25,7 @@ namespace theCapitol.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Article> Articles { get; set; }
-        public virtual DbSet<Connection> Connections { get; set; }
         public virtual DbSet<Leader> Leaders { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }

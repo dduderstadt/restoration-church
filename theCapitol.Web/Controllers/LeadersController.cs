@@ -10,111 +10,107 @@ using theCapitol.Data;
 
 namespace theCapitol.Web.Controllers
 {
-    /// <summary>
-    /// This Controller handles individual person's information collected
-    /// from online user registration and connection cards
-    /// </summary>
-    public class ConnectionsController : Controller
+    public class LeadersController : Controller
     {
         private theCapitolEntities db = new theCapitolEntities();
 
-        // GET: Connections
+        // GET: Leaders
         public ActionResult Index()
         {
-            return View(db.Connections.ToList());
+            return View(db.Leaders.ToList());
         }
 
-        // GET: Connections/Details/5
+        // GET: Leaders/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Connection connection = db.Connections.Find(id);
-            if (connection == null)
+            Leader leader = db.Leaders.Find(id);
+            if (leader == null)
             {
                 return HttpNotFound();
             }
-            return View(connection);
+            return View(leader);
         }
 
-        // GET: Connections/Create
+        // GET: Leaders/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Connections/Create
+        // POST: Leaders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ConnectionId,FirstName,LastName,DateOfBirth,Email,PhNumber,ConnectionTypeId,AspNetUserId")] Connection connection)
+        public ActionResult Create([Bind(Include = "LeaderId,ProfilePic,Notes,IsStudentLeader,AspNetUserId,FirstName,LastName,StreetAddress,City,State,ZipCode,DateOfBirth,Email,PhNumber")] Leader leader)
         {
             if (ModelState.IsValid)
             {
-                db.Connections.Add(connection);
+                db.Leaders.Add(leader);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(connection);
+            return View(leader);
         }
 
-        // GET: Connections/Edit/5
+        // GET: Leaders/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Connection connection = db.Connections.Find(id);
-            if (connection == null)
+            Leader leader = db.Leaders.Find(id);
+            if (leader == null)
             {
                 return HttpNotFound();
             }
-            return View(connection);
+            return View(leader);
         }
 
-        // POST: Connections/Edit/5
+        // POST: Leaders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ConnectionId,FirstName,LastName,DateOfBirth,Email,PhNumber,ConnectionTypeId,AspNetUserId")] Connection connection)
+        public ActionResult Edit([Bind(Include = "LeaderId,ProfilePic,Notes,IsStudentLeader,AspNetUserId,FirstName,LastName,StreetAddress,City,State,ZipCode,DateOfBirth,Email,PhNumber")] Leader leader)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(connection).State = EntityState.Modified;
+                db.Entry(leader).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(connection);
+            return View(leader);
         }
 
-        // GET: Connections/Delete/5
+        // GET: Leaders/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Connection connection = db.Connections.Find(id);
-            if (connection == null)
+            Leader leader = db.Leaders.Find(id);
+            if (leader == null)
             {
                 return HttpNotFound();
             }
-            return View(connection);
+            return View(leader);
         }
 
-        // POST: Connections/Delete/5
+        // POST: Leaders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Connection connection = db.Connections.Find(id);
-            db.Connections.Remove(connection);
+            Leader leader = db.Leaders.Find(id);
+            db.Leaders.Remove(leader);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

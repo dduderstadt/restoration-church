@@ -82,16 +82,17 @@ namespace theCapitol.Web.Models
 
         /*added for Connections*/
         [Display(Name = "first name")]
-        [Required(ErrorMessage = "*first name is required")]
+        [Required(ErrorMessage = "* first name is required")]
         [StringLength(25, ErrorMessage = "* first name cannot exceed 25 characters")]
         public string FirstName { get; set; }
 
         [Display(Name = "last name")]
-        [Required(ErrorMessage = "*last name is required")]
+        [Required(ErrorMessage = "* last name is required")]
         [StringLength(25, ErrorMessage = "* last name cannot exceed 50 characters")]
         public string LastName { get; set; }
 
         [Display(Name = "invitation code")]
+        [Required(ErrorMessage = "* invitation code is required")]
         [StringLength(5, ErrorMessage = "* invitation code invalid")]
         public string InvitationCode { get; set; }
     }

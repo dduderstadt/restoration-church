@@ -15,15 +15,18 @@ namespace theCapitol.Data
     public partial class Leader
     {
         public int LeaderId { get; set; }
-        public int ConnectionId { get; set; }
+        public string ProfilePic { get; set; }
+        public string Notes { get; set; }
+        public bool IsStudentLeader { get; set; }
+        public string AspNetUserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
-        public string ProfilePic { get; set; }
-        public string Notes { get; set; }
-        public bool IsStudentLeader { get; set; }
-    
-        public virtual Connection Connection { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public string Email { get; set; }
+        public string PhNumber { get; set; }
     }
 }

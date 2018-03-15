@@ -12,15 +12,17 @@ namespace theCapitol.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Article
+    public partial class Student
     {
-        public int ArticleId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public int AuthorId { get; set; }
-        public string ArticleImage { get; set; }
-        public Nullable<int> ArticleTagId { get; set; }
-    
-        public virtual Connection Connection { get; set; }
+        public string StudentId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public string Email { get; set; }
+        public string PhNumber { get; set; }
     }
 }
