@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using theCapitol.Web.Models;
 
 namespace theCapitol.Web.Controllers
 {
@@ -64,6 +65,13 @@ namespace theCapitol.Web.Controllers
         //contact form, Google maps, get involved
         public ActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(ContactViewModel contact)
+        {
+            //create and configure MailMessage object to send
             return View();
         }
     }

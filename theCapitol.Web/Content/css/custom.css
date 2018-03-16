@@ -82,6 +82,7 @@ span /* keywords/highlights */,
 {
     margin: 0;
 }
+
 /*****************
     navigation 
 *****************/
@@ -222,12 +223,43 @@ span /* keywords/highlights */,
     clear: both;
 }
 
-/*.bg-img .overlay-union {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    opacity: .8;
-    background: #000;
-}*/
+/*****************
+     contact 
+*****************/
+#contact-form
+{
+    border: 2px dashed red;
+    padding: 1em;
+    width: 40%;
+    float: left;
+}
+
+    #contact-form > form > div.form-horizontal > h4
+    {
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+.contact-form-label
+{
+    color: #000;
+    font-size: 20px;
+}
+
+#contact-form > form > div.form-horizontal > div.form-group > div > input[type=text],
+#contact-form > form > div.form-horizontal > div.form-group > div > input[type=password],
+#contact-form > form > div.form-horizontal > div.form-group > div > input[type=email],
+#contact-form > form > div.form-horizontal > div.form-group > div > textarea
+{
+    border: 2px solid #000;
+    background: #F4F4F4;
+}
+
+/*****************
+  Google Maps API 
+*****************/
+#google-maps
+{
+    border: 2px dashed blue;
+    width: 40%;
+}

@@ -183,6 +183,7 @@
     <Compile Include="IdentityManagement\RolesAdminController.cs" />
     <Compile Include="IdentityManagement\UsersAdminController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -350,7 +351,7 @@
     <Content Include="Views\Home\Team.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\_Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\RolesAdmin\Create.cshtml" />
@@ -383,21 +384,6 @@
     <Content Include="Views\UsersAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Connections\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Connections\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Connections\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Connections\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Connections\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Students\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -426,6 +412,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Leaders\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

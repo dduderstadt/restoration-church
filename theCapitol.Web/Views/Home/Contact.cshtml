@@ -1,4 +1,5 @@
-﻿
+﻿@model theCapitol.Web.Models.ContactViewModel
+
 @{
     ViewBag.Title = "get in touch";
 }
@@ -6,44 +7,114 @@
 <div id="contact" class="section md-padding">
     <div class="container">
         <div class="row">
-            <!-- section-header -->
             <div class="section-header text-center">
                 <h2 class="page-title">@ViewBag.Title</h2>
             </div>
-            <!-- contact -->
+            <!--contact-->
             <div class="col-sm-4">
                 <div class="contact">
                     <i class="fa fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>512-421-3940</p>
+                    <h3>phone</h3>
+                    <p>816.415.1800</p>
                 </div>
             </div>
             <!-- contact -->
             <div class="col-sm-4">
                 <div class="contact">
                     <i class="fa fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>email@support.com</p>
+                    <h3>email</h3>
+                    <p>hello@rcliberty.com</p>
                 </div>
             </div>
             <!-- contact -->
             <div class="col-sm-4">
                 <div class="contact">
                     <i class="fa fa-map-marker"></i>
-                    <h3>Address</h3>
-                    <p>1739 Bubby Drive</p>
+                    <h3>address</h3>
+                    <p>1908 Plumbers Way #400</p>
                 </div>
             </div>
-            <!-- contact form -->
-            <div class="col-md-8 col-md-offset-2">
-                <form class="contact-form">
-                    <input type="text" class="input" placeholder="Name">
-                    <input type="email" class="input" placeholder="Email">
-                    <input type="text" class="input" placeholder="Subject">
-                    <textarea class="input" placeholder="Message"></textarea>
-                    <button class="main-btn">Send message</button>
-                </form>
+        </div> <!--/row-->
+    </div><!--/container-->
+</div><!--/#contact-->
+
+<div id="contact-form">
+    <!-- contact form -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>send us your questions about the <span>Capitol</span></h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2 contact-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @placeholder = "who are you?"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 contact-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @placeholder = "how can we contact you?"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2 contact-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Subject, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @placeholder = "what's this about?"
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2 contact-form-label" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Message, new
+               {
+                   htmlAttributes = new
+                   {
+                       @class = "form-control",
+                       @placeholder = "tell us more..."
+                   }
+               })
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="send email" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
+    }
+</div>
+<div id="google-maps">
+    <h4>google maps API goes here.</h4>
 </div>
