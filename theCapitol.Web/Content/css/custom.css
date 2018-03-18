@@ -228,10 +228,10 @@ span /* keywords/highlights */,
 *****************/
 #contact-form
 {
-    border: 2px dashed red;
     padding: 1em;
-    width: 40%;
+    width: 45%;
     float: left;
+    margin-left: 2em;
 }
 
     #contact-form > form > div.form-horizontal > h4
@@ -260,6 +260,19 @@ span /* keywords/highlights */,
 *****************/
 #google-maps
 {
-    border: 2px dashed blue;
-    width: 40%;
+    padding: 1em;
+    margin-left: 52%;
+    margin-right: 2em;
 }
+
+    #google-maps > h4
+    {
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    #google-maps > #map
+    {
+        height: 330px;
+        width: 100%;
+    }
