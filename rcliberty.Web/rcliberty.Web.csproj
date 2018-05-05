@@ -182,6 +182,31 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\img\attend_btn-img.png" />
+    <Content Include="Content\img\attend_header.png" />
+    <Content Include="Content\img\baptism_sm-tile.png" />
+    <Content Include="Content\img\connect_btn-img.png" />
+    <Content Include="Content\img\connect_header.png" />
+    <Content Include="Content\img\core_tile.png" />
+    <Content Include="Content\img\discover_btn-img.png" />
+    <Content Include="Content\img\discover_header.png" />
+    <Content Include="Content\img\finances_sm-tile.png" />
+    <Content Include="Content\img\give_btn-img.png" />
+    <Content Include="Content\img\give_header.png" />
+    <Content Include="Content\img\grow_btn-img.png" />
+    <Content Include="Content\img\grow_header.png" />
+    <Content Include="Content\img\life-groups_sm-tile.png" />
+    <Content Include="Content\img\life-groups_tile.png" />
+    <Content Include="Content\img\life_btn-img.png" />
+    <Content Include="Content\img\life_header.png" />
+    <Content Include="Content\img\meet-jesus_sm-tile.png" />
+    <Content Include="Content\img\ownership_sm-tile.png" />
+    <Content Include="Content\img\rc-kids_logo.png" />
+    <Content Include="Content\img\read-bible_sm-tile.png" />
+    <Content Include="Content\img\restoration-church_logo.png" />
+    <Content Include="Content\img\the-experience_banner.jpeg" />
+    <Content Include="Content\img\what-was-i-thinking_banner.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -243,7 +268,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>

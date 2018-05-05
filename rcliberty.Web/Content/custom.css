@@ -1,0 +1,5 @@
+﻿/* "nav header img" starting left position */
+.navbar-header > img
+{
+    margin-left: -200px;
+}
