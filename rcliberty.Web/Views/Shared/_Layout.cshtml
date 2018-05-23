@@ -12,7 +12,8 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="spacer"></div>
+    <div class="navbar navbar-inverse navbar-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,54 +21,76 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Content/img/restoration-church_logo.png" alt="Restoration Church Logo"
-                     href="@Url.Action("Index", "Home")" />
+                <a href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/img/restoration-church_logo.png" alt="Restoration Church Logo" />
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @* TODO create white overlay (page load) - nav img *@
                     <li>
                         <a href="@Url.Action("Discover", "Home")">
-                            <img src="~/Content/img/discover_btn-img.png" alt="Discover" />
+                            <img src="~/Content/img/buttons/btn-discover-white.png" alt="Discover"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-discover-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-discover-white.png';" />
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Life", "Home")">
-                            <img src="~/Content/img/life_btn-img.png" alt="Life" />
+                            <img src="~/Content/img/buttons/btn-life-white.png" alt="Life"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-life-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-life-white.png';" />
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Grow", "Home")">
-                            <img src="~/Content/img/grow_btn-img.png" alt="Grow" />
+                            <img src="~/Content/img/buttons/btn-grow-white.png" alt="Grow"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-grow-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-grow-white.png';" />
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Connect", "Home")">
-                            <img src="~/Content/img/connect_btn-img.png" alt="Connect" />
+                            <img src="~/Content/img/buttons/btn-connect-white.png" alt="Connect"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-connect-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-connect-white.png';" />
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Attend", "Home")">
-                            <img src="~/Content/img/attend_btn-img.png" alt="Attend" />
+                            <img src="~/Content/img/buttons/btn-attend-white.png" alt="Attend"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-attend-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-attend-white.png';" />
                         </a>
                     </li>
                     <li>
                         <a href="@Url.Action("Give", "Home")">
-                            <img src="~/Content/img/give_btn-img.png" alt="Give" />
+                            <img src="~/Content/img/buttons/btn-give-white.png" alt="Give"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-give-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-give-white.png';" />
                         </a>
                     </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
+        <div class="spacer"></div>
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+    <div class="spacer"></div>
+    <footer>
+        <h3 id="address">Restoration Church | 1908 Plumbers Way | Liberty, MO</h3>
+        <div id="footer-services">
+            <img class="pull-left" src="~/Content/img/tags/sunday-tag.jpg" />
+            <h4> The Experience 10:30 am <br /> The Capitol 6:00 pm</h4>
+        </div>
+        <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.4748623185687!2d-94.45306099999999!3d39.254791000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c05596699748cd%3A0xd1ba2dfc1c16a90!2s1908+Plumbers+Way+%23400%2C+Liberty%2C+MO+64068!5e0!3m2!1sen!2sus!4v1441998880692" width="404" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+
+
+        <div class="clearfix"></div>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

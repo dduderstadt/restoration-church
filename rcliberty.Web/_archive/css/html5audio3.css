@@ -1,0 +1,501 @@
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	outline:none;
+}
+
+a{ 
+	text-decoration: none; 
+}
+
+body {
+	background:#333;
+}
+
+
+/* wrapper for player and playlist */
+#componentWrapper{
+	position:absolute;
+	top:50%;	
+	left:50%;
+	margin-left:-100px;
+	margin-top:-17px;
+}
+
+/* holder for audio code */	
+#componentWrapper .audioHolder{
+	position:absolute;
+}	
+
+/* player holder */
+#componentWrapper .playerHolder{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:200px;
+	height:35px;
+	background-image: url('../media/data/player_bg2.png');
+	background-repeat: repeat-x; 
+	
+	-moz-box-shadow: 0px 5px 5px #111;
+	-webkit-box-shadow: 0px 5px 5px #111;
+	box-shadow: 0px 5px 5px #111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+	
+}
+
+/* player audio thumb */
+#componentWrapper .player_thumb{
+	position:absolute;
+	top:13px;
+	left:15px;
+	width:80px;
+	height:50px;
+	/*border:3px solid #ccc;*/
+}
+
+/* player audio name mask for the name scroll function. Set width of the scrolling mask here. Aslo adjust height if neccesarry. */
+#componentWrapper .player_mediaName_Mask{
+	position:absolute;
+	top:1px;
+	left:115px;
+	width:80px;
+	height:18px;
+	overflow:hidden;
+	background:#333;
+}
+
+/* player audio name */
+#componentWrapper .player_mediaName{
+	position:absolute;
+	top:0px;
+	left:0px;
+	white-space: nowrap;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#fff;
+}
+
+/* player audio time */
+#componentWrapper .player_mediaTime{
+	position:absolute;
+	top:10px;
+	right:17px;
+	
+	color:#fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+#componentWrapper .player_mediaTime_current{
+	position:relative;
+	top:0px;
+	left:0px;
+	float:left;
+}
+
+#componentWrapper .player_mediaTime_total{
+	position:relative;
+	top:0px;
+	left:0px;
+	float:left;
+}
+
+/* player holder for (previous,play/pause,next) buttons */
+#componentWrapper .player_controls{
+	position:absolute;
+	top:8px;
+	left:15px;
+}
+
+/* player previous button */
+#componentWrapper .controls_prev{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:24px;
+	height:24px;
+}
+
+/* player play/pause button */
+#componentWrapper .controls_toggle{
+	position:absolute;
+	top:0px;
+	left:34px;
+	width:24px;
+	height:24px;
+}
+
+/* player next button */
+#componentWrapper .controls_next{
+	position:absolute;
+	top:0px;
+	left:68px;
+	width:24px;
+	height:24px;
+}
+
+/* player loop button */
+#componentWrapper .player_loop{
+	position:absolute;
+	top:0px;
+	left:180px;
+	width:24px;
+	height:24px;
+}
+
+/* player shuffle button */
+#componentWrapper .player_shuffle{
+	position:absolute;
+	top:0px;
+	left:209px;
+	width:24px;
+	height:24px;
+}
+
+/* player toggle playlist button */
+#componentWrapper .player_togglePlaylist{
+	position:absolute;
+	top:0px;
+	left:238px;
+	width:24px;
+	height:24px;
+}
+
+#componentWrapper .player_volume{
+	position:absolute;
+	top:0px;
+	left:188px;
+	width:24px;
+	height:24px;
+}
+
+/* player volume, serves as hit as well */
+#componentWrapper .volume_seekbar{
+	position:absolute;
+	top:5px;
+	left:221px;
+	/* for hit */
+	width:55px;
+	height:14px;
+	/*background:green;*/
+}
+
+#componentWrapper .volume_bg{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:45px;
+	height:4px;
+	background:#333333;
+}
+
+#componentWrapper .volume_level{
+	position:absolute;
+	top:5px;
+	left:5px;
+	width:0px;
+	height:4px;
+	background:#ffffcc;
+}
+
+#componentWrapper .player_volume_tooltip{
+	position:absolute;
+	top:-10px;
+	/* left is set in code */
+	width:35px;/* width is not automatically set so adjust it yourself if you change font or font size */
+	height:16px;
+	background:#333;
+	display:none;
+	
+	-moz-box-shadow: 1px 1px 1px #222;
+	-webkit-box-shadow: 1px 1px 1px #222;
+	box-shadow: 1px 1px 1px #222;
+}
+
+#componentWrapper .player_volume_tooltip_value{
+	position:absolute;
+	top:2px;
+	/* left is set in code */
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+
+/* player progress, serves as hit as well */
+#componentWrapper .player_progress{
+	position:absolute;
+	top:13px;
+	left:112px;
+	/* for hit */
+	width:85px;
+	height:14px;
+	/*background:green;*/
+}
+
+#componentWrapper .progress_bg{
+	position:absolute;
+	top:5px;
+	left:10px;
+	width:65px;
+	height:4px;
+	background:#222222;
+}
+
+#componentWrapper .load_level{
+	position:absolute;
+	top:5px;
+	left:10px;
+	width:0px;
+	height:4px;
+	background:#444444;
+}
+
+#componentWrapper .progress_level{
+	position:absolute;
+	top:5px;
+	left:10px;
+	width:0px;
+	height:4px;
+	background:#ffffcc;
+}
+
+#componentWrapper .player_progress_tooltip{
+	position:absolute;
+	top:-10px;
+	/* left is set in code */
+	width:70px;/* width is not automatically set so adjust it yourself if you change font or font size */
+	height:16px;
+	background:#333;
+	display:none;
+	
+	-moz-box-shadow: 1px 1px 1px #222;
+	-webkit-box-shadow: 1px 1px 1px #222;
+	box-shadow: 1px 1px 1px #222;
+}
+
+#componentWrapper .player_progress_tooltip_value{
+	position:absolute;
+	top:2px;
+	/* left is set in code */
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+
+
+
+/* playlist holder */	
+#componentWrapper .playlistHolder{
+	position:absolute;
+	top:92px;
+	left:0px;
+	width:388px;
+	height:138px;
+	background:#111;
+	display:none;
+	
+	-moz-box-shadow: 0px 5px 5px #111;
+	-webkit-box-shadow: 0px 5px 5px #111;
+	box-shadow: 0px 5px 5px #111;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#111111')";
+}
+
+#componentWrapper .componentPlaylist{
+	position:absolute;
+	top:20px;
+	left:20px;
+	width:335px;
+	height:110px;
+	/*background:#333;*/
+	overflow:hidden;
+}
+
+/* playlist holder for playlist items */	
+#componentWrapper .playlist_inner{
+	position:relative;
+	top:0px;
+	left:0px;
+}
+
+
+
+
+
+
+/* playlist items */	
+#componentWrapper .componentPlaylist .playlistItem{
+	position:relative;
+	top:0px;
+	left:0px;
+	padding-bottom:8px;
+	clear:left;
+	display:inline-block;
+	
+	color:#ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	width:600px;
+	height:15px;
+	list-style:none;
+}
+
+/* adjust rollover on playlist item */
+#componentWrapper .componentPlaylist .playlistItem a:hover{
+	color:#ffffcc;
+}
+
+/* adjust disabled state on playlist item */
+#componentWrapper .playlistSelected {
+	float:left;
+	color: #FFC;
+}
+
+/* adjust normal state on playlist item */
+#componentWrapper .playlistNonSelected {
+	float:left;
+	color: #fff;
+}
+	
+					  
+	
+	
+	
+/* for parsing feed xml */	
+#componentWrapper .feedParser{
+	display:none;
+}	
+
+/* font calculations */
+#componentWrapper .fontMeasure{
+	position:absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+    white-space: nowrap;
+	visibility:hidden;
+}
+
+
+
+
+					  
+
+/* public functions */	
+#publicFunctions{
+	position: absolute;
+	padding: 10px 25px 20px 20px;
+	background:#444;
+	right:50px;
+	top:50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+	
+	display:none;
+}
+
+#publicFunctions li a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#fff;
+}
+
+#publicFunctions li a:hover, #publicFunctions li .current{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+#previewInfo {
+	position: absolute;
+	padding: 10px 20px 10px 30px;
+	background:#933;
+	left:50px;
+	top:50px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#fff;
+	list-style:circle;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+}
+
+#previewInfo li a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color:#fff;
+}
+
+#previewInfo ul li:nth-child(2),#previewInfo ul li:nth-child(7) {  
+     margin-bottom:12px;
+}    
+
+#previewInfo li a:hover, #previewInfo li .current{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+#previewMenu {
+	position: absolute;
+	width:670px;
+	top:0px;
+	left:50%;
+	margin-left:-335px;
+}
+
+#previewMenu ul{
+    margin: 0; 
+	padding: 0;
+}
+
+#previewMenu li{
+	display:block;
+	float:left;
+	list-style:none;
+}
+
+#previewMenu li a{
+	padding: 2px 10px 2px 10px;
+	background-color:#933;
+	border-right:1px solid #333;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color:#fff;
+	
+	-moz-box-shadow: 2px 2px 5px #222;
+	-webkit-box-shadow: 2px 2px 5px #222;
+	box-shadow: 2px 2px 5px #222;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#222222');
+}
+
+#previewMenu li a:hover, #previewMenu li .current{
+    background-color:#ccc;
+	text-decoration: none;
+}

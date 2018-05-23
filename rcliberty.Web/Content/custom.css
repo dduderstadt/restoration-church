@@ -1,5 +1,63 @@
-﻿/* "nav header img" starting left position */
-.navbar-header > img
+﻿/* BODY */
+/*body
 {
-    margin-left: -200px;
+    background-image: url(/Content/img/backgrounds/bg-main.jpg);
+}*/
+body
+{
+    padding: 0; /* override site.css */
+    width: 100%;
+    background-color: #141213;
 }
+
+/* SPACER */
+.spacer
+{
+    height: 1.2em;
+    background-color: #16a4a8;
+    width: 100%;
+}
+
+/* NAVBAR */
+/* @media max-width: 1200px*/
+.nav.navbar-nav > li > a > img
+{
+    margin-bottom: -60px;
+    margin-left: -20px;
+}
+
+.navbar,
+.navbar-nav
+{
+    border: none; /* override bootstrap.css */
+}
+
+/* FOOTER */
+footer
+{
+    color: #fff;
+}
+
+#address
+{
+    font-weight: 200;
+    font-size: 18px;
+    text-align: center;
+}
+
+#footer-services
+{
+    float: left;
+    width: 15%;
+    margin: 0 20%;
+}
+
+    #footer-services > h4
+    {
+        margin: 15px 0;
+    }
+
+    #map
+    {
+        margin: 0 60%;
+    }
