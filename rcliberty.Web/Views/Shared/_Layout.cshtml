@@ -35,24 +35,24 @@
                         </a>
                     </li>
                     <li>
+                        <a href="@Url.Action("Connect", "Home")">
+                            <img src="~/Content/img/buttons/btn-connect-white.png" alt="Connect"
+                                 onmouseover="this.src = '/Content/img/buttons/btn-connect-gray.png';"
+                                 onmouseout="this.src = '/Content/img/buttons/btn-connect-white.png';" />
+                        </a>
+                    </li>
+                    @*<li>
                         <a href="@Url.Action("Life", "Home")">
                             <img src="~/Content/img/buttons/btn-life-white.png" alt="Life"
                                  onmouseover="this.src = '/Content/img/buttons/btn-life-gray.png';"
                                  onmouseout="this.src = '/Content/img/buttons/btn-life-white.png';" />
                         </a>
-                    </li>
+                    </li>*@
                     <li>
                         <a href="@Url.Action("Grow", "Home")">
                             <img src="~/Content/img/buttons/btn-grow-white.png" alt="Grow"
                                  onmouseover="this.src = '/Content/img/buttons/btn-grow-gray.png';"
                                  onmouseout="this.src = '/Content/img/buttons/btn-grow-white.png';" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Connect", "Home")">
-                            <img src="~/Content/img/buttons/btn-connect-white.png" alt="Connect"
-                                 onmouseover="this.src = '/Content/img/buttons/btn-connect-gray.png';"
-                                 onmouseout="this.src = '/Content/img/buttons/btn-connect-white.png';" />
                         </a>
                     </li>
                     <li>
@@ -89,7 +89,7 @@
 
 
         <div class="clearfix"></div>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <p>&copy; @DateTime.Now.Year - dudercode</p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Discover";
+}
+
+
+<div>
+    <img src="~/Content/img/discover_header.png" />
+</div>
+
+<div class="spacer"></div>
+
+<div id="rc-discover">
+
+    <div class="spacer"></div>
+
+    <div id="rc-discover-accordion">
+        <h2>Our <span class="emphasis">Culture</span></h2>
+        <div>
+            <h4>
+                <span class="emphasis">Restoration Church</span> is a church for people that are sick of "playing church". We believe
+                that every number has a name, every name has a story, and every story matters to God.
+            </h4>
+            <p>
+                Our Sunday morning service - The Experience, is a time where you are able to connect
+                to God through his Word; communicated in modern and life changing ways. You'll notice
+                that the music we play spans multiple styles and various artists. In everything we do,
+                we show a passion and desire of helping people - like you - encounter Jesus.
+            </p>
+        </div>
+
+        <h2>Our <span class="emphasis">Core Values</span></h2>
+        <div>
+            <ul>
+                <li>Found people, find people</li>
+                <li>Growing people change</li>
+                <li>Saved People serve people</li>
+                <li>You can't outgive God</li>
+                <li>You can't do life alone</li>
+            </ul>
+        </div>
+
+        <h2>Our <span class="emphasis">Beliefs</span></h2>
+        <div>
+            <h4>We believe...</h4>
+            <ol>
+                <li><a href="#1">The Scriptures Inspired</a> </li>
+                <li><a href="#2">The One True God</a> </li>
+                <li><a href="#3">The Deity of the Lord Jesus Christ</a> </li>
+                <li><a href="#4">The Fall of Man</a> </li>
+                <li><a href="#5">The Salvation of Man</a> </li>
+                <li><a href="#6">The Ordinances of the Church</a> </li>
+                <li><a href="#7">The Baptism in the Holy Spirit</a> </li>
+                <li><a href="#8">The Initial Physical Evidence of the Baptism in the Holy Spirit</a> </li>
+                <li><a href="#9">Sanctification</a> </li>
+                <li><a href="#10">The Church and Its Mission</a> </li>
+                <li><a href="#11">The Ministry</a> </li>
+                <li><a href="#12">Divine Healing</a> </li>
+                <li><a href="#13">The Blessed Hope</a> </li>
+                <li><a href="#14">The Millennial Reign of Christ</a> </li>
+                <li><a href="#15">The Final Judgment</a> </li>
+                <li><a href="#16">The New Heavens and the New Earth</a> </li>
+            </ol>
+
+            <h4><a href="https://ag.org/Beliefs/Statement-of-Fundamental-Truths" target="_blank">16 Fundamental Truths</a></h4>
+        </div>
+
+        <h2>Our <span class="emphasis">Leaders</span></h2>
+        <div id="rc-discover-leaders">
+            <div class="leaders-img">
+                <img src="~/Content/img/people/jp_heather.jpg" alt="Lead Pastor" />
+            </div>
+            <div class="leaders-content">
+                <div>
+                    <h4 class="leaders-name">JP Stafford</h4>
+                    <h5 class="leaders-title">Lead Pastor</h5>
+                    <p>
+                        JP Stafford is the founding &amp; lead pastor of Restoration Church in Liberty, MO. While a talented communicator
+                        and teacher, he is passionate about speaking the truth as plainly as possible. God has given him a vision and desire
+                        to help people meet Jesus, and each week he shares God's word and how we can apply it to our daily lives.
+                    </p>
+                    <p>JP lives in Liberty, MO with his wife and 2 children.</p>
+                    <p>Twitter: @Html.Raw("@")JohnPStafford</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            $('#rc-discover-accordion').accordion({
+                active: false,
+                collapsible: true,
+                header: "h2",
+                heightStyle: "content"
+            });
+        });
+    </script>
+}

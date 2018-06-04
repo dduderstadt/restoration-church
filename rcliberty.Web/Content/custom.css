@@ -10,11 +10,25 @@ body
     background-color: #141213;
 }
 
-/* SPACER */
+/* SPACERS */
 .spacer
 {
     height: 1.2em;
     background-color: #16a4a8;
+    width: 100%;
+}
+
+.spacer-white
+{
+    height: 1.2em;
+    background-color: #fff;
+    width: 100%;
+}
+
+.spacer-dark
+{
+    height: 1.2em;
+    background-color: #141213;
     width: 100%;
 }
 
@@ -57,7 +71,119 @@ footer
         margin: 15px 0;
     }
 
-    #map
+#map
+{
+    margin: 0 60%;
+}
+
+/* GENERAL */
+.emphasis
+{
+    font-weight: 800;
+    color: #16a4a8;
+}
+
+/* INDEX */
+#rc-main-slider
+{
+    margin-bottom: 1.5em;
+}
+
+#rc-main-content
+{
+    padding: 2em;
+    background-color: #fff;
+    min-height: 15em;
+    width: 100%;
+}
+
+/* DISCOVER */
+#rc-discover
+{
+    background-color: #fff;
+    text-align: justify;
+    padding: 2em;
+}
+
+    #rc-discover > h1
     {
-        margin: 0 60%;
+        letter-spacing: .1em;
+        text-align: center;
+        margin-bottom: 1em;
     }
+
+#rc-discover-leaders
+{
+    padding: 2em;
+}
+
+.leaders-img
+{
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
+.leaders-content
+{
+    margin-left: 50%;
+}
+
+.leaders-name
+{
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+
+.leaders-title
+{
+    font-style: italic;
+    color: #16a4a8;
+    letter-spacing: .05em;
+}
+
+#rc-discover-accordion
+{
+    width: 75%;
+    margin: 0 8em;
+}
+
+    #rc-discover-accordion > h2
+    {
+        background-color: #141213;
+        padding: .5em .5em;
+        color: #fff;
+        border: 3px solid #16a4a8;
+    }
+
+        #rc-discover-accordion > h2:hover
+        {
+            cursor: pointer;
+        }
+
+    #rc-discover-accordion > div
+    {
+        padding: .5em 2em;
+    }
+
+/* GROW */
+#rc-grow
+{
+    background-color: #fff;
+    text-align: justify;
+}
+
+    #rc-grow > .row > .col-md-4 > img
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        box-shadow: 0 4px 8px 0 #141213, 0 6px 20px 0 #141213;
+    }
+
+        #rc-grow > .row > .col-md-4 > img:hover
+        {
+            cursor: pointer; /* indicate img is clickable */
+        }
