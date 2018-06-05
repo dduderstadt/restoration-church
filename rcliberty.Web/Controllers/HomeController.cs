@@ -18,8 +18,10 @@ namespace rcliberty.Web.Controllers
             return View();
         }
 
-        public ActionResult Connect()
+        public ActionResult Sermons()
         {
+            ViewBag.PodcastEpisodes = rcliberty.Web.Models.PodcastModels.GetPodcastEpisodes();
+
             return View();
         }
 

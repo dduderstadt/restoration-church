@@ -49,6 +49,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=106.3.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.106.3.0\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -176,6 +180,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PodcastModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -233,7 +238,7 @@
     <Content Include="Content\img\the-capitol-banner.png" />
     <Content Include="Content\img\the-experience-banner.jpg" />
     <Content Include="Content\img\weird-stuff-banner.jpg" />
-    <Content Include="Content\img\what-was-i-thinking_banner.jpg" />
+    <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -509,7 +514,7 @@
     <Content Include="_archive\help\images\Thumbs.db" />
     <Content Include="_archive\swf\soundmanager2_flash_xdomain.zip" />
     <Content Include="Views\Home\Discover.cshtml" />
-    <Content Include="Views\Home\Connect.cshtml" />
+    <Content Include="Views\Home\Sermons.cshtml" />
     <Content Include="Views\Home\Grow.cshtml" />
   </ItemGroup>
   <ItemGroup>

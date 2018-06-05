@@ -187,3 +187,30 @@ footer
         {
             cursor: pointer; /* indicate img is clickable */
         }
+
+/* SERMONS */
+#rc-sermons-header
+{
+    text-align: center;
+    letter-spacing: 1em;
+    margin: 1.5em 0;
+    text-transform: uppercase;
+}
+
+#rc-sermons
+{
+    color: #fff;
+}
+
+    #rc-sermons > div > h4
+    {
+        text-align: center;
+        letter-spacing: .15em;
+    }
+
+.sermon
+{
+    float: left;
+    width: 37%;
+    margin: 5em;
+}

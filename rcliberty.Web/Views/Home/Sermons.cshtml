@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Sermons";
+}
+
+@*<div>
+        <img src="~/Content/img/connect_header.png" />
+    </div>*@
+
+<div id="rc-sermons">
+
+    <h1 id="rc-sermons-header">Sermons</h1>
+
+    <div class="spacer"></div>
+
+    @foreach (var episode in ViewBag.PodcastEpisodes)
+    {
+        string title = episode.Substring(45).Replace("_", " ");
+        title = title.Substring(0, title.Length - 4);
+
+        <div class="sermon">
+            <h4>@title</h4>
+            <video poster="~/Content/img/restoration-church_logo.png" title="@title" controls>
+                <source src="@episode" type="video/mp4" />
+            </video>
+        </div>
+    }
+</div>
