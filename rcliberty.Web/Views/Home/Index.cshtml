@@ -34,11 +34,23 @@
 <div class="spacer"></div>
 
 <div id="rc-main-content">
-    <div class="pull-left">
+    <div id="core-sub" class="container-half-screen">
         <img src="~/Content/img/core_tile.png" />
     </div>
-    <div class="pull-right">
-        <img src="~/Content/img/life-groups_tile.png" />
+    <div id="life-groups-sub" class="container-half-screen">
+        <a href="@Url.Action("Grow")">
+            <img src="~/Content/img/life-groups_tile.png" />
+        </a>
     </div>
     <div class="clearfix"></div>
 </div>
+
+@section scripts{
+    <script>
+        //redirect to Home/Grow and open the #life-groups-modal
+        $("#life-groups-sub").click(function getPathName() {
+            var path = window.location.pathname;
+            localStorage.setItem("prevPath", path);
+        });
+    </script>
+}

@@ -1,0 +1,58 @@
+﻿@media screen and (max-width: 730px)
+{
+    .container-half-screen
+    {
+        width: 100%;
+        display: normal;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 730px)
+{
+    #sunday-tag
+    {
+        margin-left: 10%;
+    }
+
+    #map
+    {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media screen and (max-width: 730px)
+{
+    .leaders-img
+    {
+        width: 100%;
+        display: normal;
+        float: none;
+    }
+
+    .leaders-content
+    {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 730px)
+{
+    #rc-culture-main-text
+    {
+        line-height: 1.5em;
+    }
+}
+
+@media screen and (max-width: 1200px)
+{
+    .rc-connect-name
+    {
+        width: 100%;
+        position: initial;
+        float: none;
+        display: normal;
+    }
+}

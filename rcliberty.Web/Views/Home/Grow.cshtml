@@ -320,3 +320,16 @@
     </div>
 
 </div>
+
+@section scripts{
+    <script>
+        $().ready(function () {
+            //on page load, if the user clicked "Life Groups" img on Index page, auto load the modal
+            if (localStorage.getItem("prevPath") == "/Home/Index" || localStorage.getItem("prevPath") == "/") {
+                $('#life-groups-modal').modal('show');
+            };
+            //remove the local variable after use
+            localStorage.removeItem("prevPath");
+        });
+    </script>
+}

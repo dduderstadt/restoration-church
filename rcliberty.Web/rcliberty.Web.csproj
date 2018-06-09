@@ -178,6 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PodcastModels.cs" />
@@ -188,6 +189,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
+    <Content Include="Content\datatables.min.css" />
     <Content Include="Content\img\attend_header.png" />
     <Content Include="Content\img\backgrounds\bg2.jpg" />
     <Content Include="Content\img\backgrounds\bg-main.jpg" />
@@ -234,17 +236,22 @@
     <Content Include="Content\img\rc-kids_logo.png" />
     <Content Include="Content\img\read-bible_sm-tile.png" />
     <Content Include="Content\img\restoration-church_logo.png" />
+    <Content Include="Content\img\tags\ag-tag.png" />
+    <Content Include="Content\img\tags\facebook-tag.png" />
     <Content Include="Content\img\tags\sunday-tag.jpg" />
+    <Content Include="Content\img\tags\twitter-tag.png" />
     <Content Include="Content\img\the-capitol-banner.png" />
     <Content Include="Content\img\the-experience-banner.jpg" />
     <Content Include="Content\img\weird-stuff-banner.jpg" />
     <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
+    <Content Include="Content\mobile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\jquery-1.12.1.ui.js" />
     <Content Include="_archive\404.shtml" />
     <Content Include="_archive\assets\example_1.jpg" />
@@ -487,8 +494,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -516,6 +521,7 @@
     <Content Include="Views\Home\Discover.cshtml" />
     <Content Include="Views\Home\Sermons.cshtml" />
     <Content Include="Views\Home\Grow.cshtml" />
+    <Content Include="Views\Home\Connect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rcliberty.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,14 +21,23 @@ namespace rcliberty.Web.Controllers
 
         public ActionResult Sermons()
         {
-            ViewBag.PodcastEpisodes = rcliberty.Web.Models.PodcastModels.GetPodcastEpisodes();
-
-            return View();
+            return View(PodcastModels.GetPodcastEpisodes());
         }
 
         public ActionResult Grow()
         {
             return View();
+        }
+
+        public ActionResult Connect()
+        {
+            return View();
+        }
+
+        [HttpPost, ActionName("Connect")]
+        public ActionResult ContactForm(ContactViewModel contact)
+        {
+            return View(contact);
         }
     }
 }

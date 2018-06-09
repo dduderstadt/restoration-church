@@ -2,8 +2,10 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace rcliberty.Web.Models
@@ -45,6 +47,21 @@ namespace rcliberty.Web.Models
             public List<string> Genres { get; set; }
         }
 
+        public class PodcastDisplayModel
+        {
+            [Display(Name = "Audio")]
+            public string Url { get; set; }
+
+            //[Display(Name = "Date")]
+            //[DisplayFormat(DataFormatString = "{MM/dd/yyyy}")]
+            //public DateTime PublishDate { get; set; }
+
+                [Display(Name = "Date")]
+            public string PublishDate { get; set; }
+
+            public string Title { get; set; }
+        }
+
         public class Results
         {
             public int ResultCount { get; set; }
@@ -68,23 +85,31 @@ namespace rcliberty.Web.Models
             return result.results;
         }
 
-        public static List<string> GetPodcastEpisodes()
+        public static List<PodcastDisplayModel> GetPodcastEpisodes()
         {
             //direct connection (testing)
             //http://jpstafford.podbean.com/feed/
 
-            List<string> episodeUrls = new List<string>();
+            //List<string> episodeUrls = new List<string>();
+            List<PodcastDisplayModel> episodes = new List<PodcastDisplayModel>();
+
             Podcast result = SendPodcastRequest().FirstOrDefault();
             XDocument doc = XDocument.Load(result.FeedUrl);
 
-            //url for all enclosure tags (.m4a files)
-            foreach (XElement e in doc.Descendants("enclosure").Where(x => x.Parent.Name == "item"))
+            //get data to display from XML tags (.m4a files)
+            foreach (XElement e in doc.Descendants("item").Where(x => x.Parent.Name == "channel"))
             {
-                string url = e.Attribute("url").Value;
-                episodeUrls.Add(url);
+                PodcastDisplayModel model = new PodcastDisplayModel();
+                model.Url = e.Element("enclosure").Attribute("url").Value;
+                //model.PublishDate = DateTime.Parse(e.Element("pubDate").Value.Substring(4, 12));
+                model.PublishDate = e.Element("pubDate").Value;
+                model.Title = e.Element("title").Value;
+
+                episodes.Add(model);
             }
 
-            return episodeUrls;
+            //return episodeUrls;
+            return episodes;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<rcliberty.Web.Models.PodcastModels.PodcastDisplayModel>
+
 @{
     ViewBag.Title = "Sermons";
 }
@@ -9,20 +10,39 @@
 
 <div id="rc-sermons">
 
-    <h1 id="rc-sermons-header">Sermons</h1>
+    <h1 id="rc-sermons-header">Past Messages</h1>
 
     <div class="spacer"></div>
 
-    @foreach (var episode in ViewBag.PodcastEpisodes)
-    {
-        string title = episode.Substring(45).Replace("_", " ");
-        title = title.Substring(0, title.Length - 4);
-
-        <div class="sermon">
-            <h4>@title</h4>
-            <video poster="~/Content/img/restoration-church_logo.png" title="@title" controls>
-                <source src="@episode" type="video/mp4" />
-            </video>
-        </div>
-    }
+    <table id="rc-sermons-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.PublishDate)</th>
+                <th>@Html.DisplayNameFor(model => model.Url)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var episode in Model)
+            {
+                <tr>
+                    <td>@episode.Title</td>
+                    <td>@episode.PublishDate</td>
+                    <td>
+                        <video poster="~/Content/img/restoration-church_logo.png" title="@episode.Title" controls>
+                            <source src="@episode.Url" type="video/mp4" />
+                        </video>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+
+@section scripts {
+    <script>
+        $().ready(function () {
+            $('#rc-sermons-table').DataTable();
+        });
+    </script>
+}
