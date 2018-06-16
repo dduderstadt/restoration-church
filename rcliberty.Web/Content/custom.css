@@ -1,4 +1,60 @@
-﻿/* DUDERCODE TAG */
+﻿/* VIDEO - FOR FUNZIES */
+/*#myVideo
+{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}*/
+
+#bg-vid
+{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.overlay
+{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(128, 128, 128, 0.1);
+    z-index: -2;
+}
+
+    .overlay::after
+    {
+        content: "";
+        background: url(/Content/img/backgrounds/rcliberty-service-bw.jpg);
+        opacity: .3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+.container .body-content
+{
+    background-color: #fff;
+}
+/* DUDERCODE TAG */
 #dudercode
 {
     text-align: center;
@@ -26,16 +82,18 @@
     color: #16a4a8;
 }
 
-.link a
+.rc-btn
 {
-    text-decoration: none;
-    color: #141213;
+    color: #fff;
+    background-color: #16a4a8;
+    border-color: #fff;
 }
 
-.link:hover a
-{
-    color: #16a4a8;
-}
+    .rc-btn:hover
+    {
+        color: #fff;
+        background-color: #11979b;
+    }
 
 img
 {
@@ -59,7 +117,7 @@ body
     width: 49%;
 }
 
-/*@media screen and (max-width: 730px)
+@media screen and (max-width: 730px)
 {
     .container-half-screen
     {
@@ -67,7 +125,7 @@ body
         display: normal;
         float: none;
     }
-}*/
+}
 
 /* SPACERS */
 .spacer
@@ -92,24 +150,11 @@ body
 }
 
 /* NAVBAR */
-/* @media max-width: 1200px*/
-/*.nav.navbar-nav > li > a > img
-{
-    margin-bottom: -60px;
-    margin-left: -20px;
-}*/
-
-/*.nav .navbar-nav li
-{
-    font-size: 20px;
-}*/
 .nav.navbar-nav li a
 {
     color: #fff;
     font-size: 20px;
     text-transform: uppercase;
-    letter-spacing: .25em;
-    vertical-align: middle;
 }
 
 .nav.navbar-nav li:hover a
@@ -117,24 +162,53 @@ body
     color: #16a4a8;
 }
 
-.navbar,
+.nav.navbar-nav li.active-nav a
+{
+    /* active navigation link */
+    color: #fff;
+    background-color: #16a4a8;
+}
+
 .navbar-nav
 {
     border: none; /* override bootstrap.css */
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-top: 2em;
+}
+
+    .navbar-nav li
+    {
+        width: 20%;
+    }
+
+@media screen and (max-width: 730px)
+{
+    .navbar-nav
+    {
+        width: initial;
+    }
+
+        .navbar-nav li
+        {
+            margin-top: 0;
+            display: inline;
+        }
 }
 
 #rc-logo
 {
-    /*border: 2px dashed yellow;*/
     float: left;
-    display: inline;
 }
 
-    #rc-logo a img
+@media screen and (max-width: 400px)
+{
+    #rc-logo
     {
-        width: 100%;
-        padding-right: 4em;
+        margin-left: -3.5em;
     }
+}
 
 /* FOOTER */
 footer
@@ -158,7 +232,7 @@ footer
     float: left;
 }
 
-/*@media screen and (max-width: 730px)
+@media screen and (max-width: 730px)
 {
     #sunday-tag
     {
@@ -170,7 +244,7 @@ footer
         width: 90%;
         margin-left: 5%;
     }
-}*/
+}
 
 /* INDEX */
 #rc-main-slider
@@ -253,7 +327,7 @@ footer
     margin-left: 5em;
 }
 
-/*@media screen and (max-width: 730px)
+@media screen and (max-width: 730px)
 {
     .leaders-img
     {
@@ -267,7 +341,7 @@ footer
         width: 100%;
         margin: 0;
     }
-}*/
+}
 
 .leaders-name
 {
@@ -326,13 +400,12 @@ footer
 #rc-sermons-header
 {
     text-align: center;
-    letter-spacing: 1em;
+    letter-spacing: .25em;
     margin: 1.5em 0;
     text-transform: uppercase;
 }
 
 #rc-sermons, #rc-sermons label
-/*, #rc-sermons-table_info*/
 {
     color: #fff;
 }
@@ -405,7 +478,7 @@ footer
     margin: .5em;
 }
 
-/*@media screen and (max-width: 1200px)
+@media screen and (max-width: 1200px)
 {
     .rc-connect-name
     {
@@ -414,7 +487,7 @@ footer
         float: none;
         display: normal;
     }
-}*/
+}
 
 #rc-connect-btn
 {
@@ -437,4 +510,14 @@ footer
 .form-control:focus
 {
     border: 1px solid #16a4a8;
+}
+
+/* GIVE */
+#under-construction,
+#under-construction h1,
+#under-construction h5
+{
+    font-size: 72px;
+    color: #f00;
+    font-weight: bolder;
 }

@@ -89,13 +89,37 @@
 
 @section scripts {
     <script>
-        $(function () {
-            $('#rc-discover-accordion').accordion({
-                active: 0,
-                collapsible: true,
-                header: "h2",
-                heightStyle: "content"
-            });
+        //$(function () {
+        //    $('#rc-discover-accordion').accordion({
+        //        active: 0,
+        //        collapsible: true,
+        //        header: "h2",
+        //        heightStyle: "content"
+        //    });
+        //});
+
+        $().ready(function () {
+            //on page load, if the user clicked "Life Groups" img on Index page, auto load the modal
+            if (localStorage.getItem("prevPath") == "/Home/Index"
+                || localStorage.getItem("prevPath") == "/"
+                || localStorage.getItem("prevPath") == "/Home"
+                || localStorage.getItem("prevPath") == "/Home/") {
+                $('#rc-discover-accordion').accordion({
+                    active: 1,
+                    collapsible: true,
+                    header: "h2",
+                    heightStyle: "content"
+                });
+            } else {
+                $('#rc-discover-accordion').accordion({
+                    active: 0,
+                    collapsible: true,
+                    header: "h2",
+                    heightStyle: "content"
+                });
+            };
+            //remove the local variable after use
+            localStorage.removeItem("prevPath");
         });
     </script>
 }

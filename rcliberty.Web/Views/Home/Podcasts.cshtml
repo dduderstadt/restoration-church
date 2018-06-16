@@ -1,0 +1,47 @@
+﻿@model IEnumerable<rcliberty.Web.Models.PodcastModels.PodcastDisplayModel>
+
+@{
+    ViewBag.Title = "Podcasts";
+}
+
+<div id="rc-sermons">
+
+    <h1 id="rc-sermons-header">Podcasts</h1>
+
+    <div class="spacer"></div>
+
+    <table id="rc-sermons-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.PublishDate)</th>
+                <th>@Html.DisplayNameFor(model => model.Url)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var episode in Model)
+            {
+                <tr>
+                    <td>@episode.Title</td>
+                    <td>@episode.PublishDate</td>
+                    <td>
+                        <audio controls>
+                            <source src="@episode.Url" type="audio/mp4"/>
+                        </audio>
+                        @*<video poster="~/Content/img/restoration-church_logo.png" title="@episode.Title" controls>
+                            <source src="@episode.Url" type="video/mp4" />
+                        </video>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script>
+        $().ready(function () {
+            $('#rc-sermons-table').DataTable();
+        });
+    </script>
+}

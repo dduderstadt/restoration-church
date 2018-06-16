@@ -20,7 +20,7 @@ namespace rcliberty.Web.Models
         [StringLength(15, ErrorMessage = "* Subject cannot exceed 15 characters")]
         public string Subject { get; set; }
 
-        [Required(ErrorMessage = "* Please enter a valid Email to send your message")]
+        [Required(ErrorMessage = "* Please enter a valid Email address to send your message")]
         [EmailAddress]
         [StringLength(100, ErrorMessage = "* Email cannot exceed 100 characters")]
         public string Email { get; set; }

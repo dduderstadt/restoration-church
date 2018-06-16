@@ -57,7 +57,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -155,7 +155,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -235,7 +235,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -272,7 +272,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -313,7 +313,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -325,7 +325,10 @@
     <script>
         $().ready(function () {
             //on page load, if the user clicked "Life Groups" img on Index page, auto load the modal
-            if (localStorage.getItem("prevPath") == "/Home/Index" || localStorage.getItem("prevPath") == "/") {
+            if (localStorage.getItem("prevPath") == "/Home/Index"
+                || localStorage.getItem("prevPath") == "/"
+                || localStorage.getItem("prevPath") == "/Home"
+                || localStorage.getItem("prevPath") == "/Home/") {
                 $('#life-groups-modal').modal('show');
             };
             //remove the local variable after use

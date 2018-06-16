@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using rcliberty.Web.HelpersAndExtensions
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,9 +16,6 @@
     <!-- custom styles -->
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css" />
 
-    <!-- mobile styles -->
-    @* TODO: determine if best practice or leave in custom.css *@
-    <link media="only screen and (max-width: 730px)" href="~/Content/mobile.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="spacer"></div>
@@ -38,34 +37,29 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li class="@Html.IsActive("Home", "Discover")">
                         <a href="@Url.Action("Discover", "Home")">
                             Discover
                         </a>
                     </li>
-                    <li>
+                    <li class="@Html.IsActive("Home", "Connect")">
                         <a href="@Url.Action("Connect", "Home")">
                             Connect
                         </a>
                     </li>
-                    <li>
+                    <li class="@Html.IsActive("Home", "Grow")">
                         <a href="@Url.Action("Grow", "Home")">
                             Grow
                         </a>
                     </li>
-                    <li>
-                        <a href="@Url.Action("Attend", "Home")">
-                            Attend
-                        </a>
-                    </li>
-                    <li>
+                    <li class="@Html.IsActive("Home", "Give")">
                         <a href="@Url.Action("Give", "Home")">
                             Give
                         </a>
                     </li>
-                    <li>
-                        <a href="@Url.Action("Sermons", "Home")">
-                            Past Messages
+                    <li class="@Html.IsActive("Home", "Podcasts")">
+                        <a href="@Url.Action("Podcasts", "Home")">
+                            Podcasts
                         </a>
                     </li>
 
@@ -75,9 +69,29 @@
         </div>
         <div class="spacer"></div>
     </div>
+
+    <!-- video template -->
+    @*<video autoplay muted loop id="myVideo">
+            <source src="~/Content/vid/Tribute-District 12_Bumper.mp4" type="video/mp4" />
+        </video>
+
+        <div class="content">
+            <h1>Heading</h1>
+            <p>Lorem ipsum...</p>
+        </div>*@
+
+
+    @*<video autoplay muted loop id="bg-vid">
+            <source src="~/Content/vid/What A Beautiful Name - Hillsong Worship.mp4" type="video/mp4" />
+        </video>*@
+
+    <div class="overlay"></div>
+
     <div class="container body-content">
         @RenderBody()
     </div>
+
+
     <div class="spacer"></div>
     <footer>
         <h3 id="address">Restoration Church | 1908 Plumbers Way | Liberty, MO</h3>
@@ -105,3 +119,14 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<script>
+    $(function () {
+        $(document.getElementById("nav-links")).children("a").click(function () {
+            //remove classes from all
+            $("li").removeClass("active");
+            //add class to active nav
+            $(this).parent("li").addClass("active");
+        });
+    });
+</script>

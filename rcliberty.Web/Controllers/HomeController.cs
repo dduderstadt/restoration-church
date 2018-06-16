@@ -19,7 +19,7 @@ namespace rcliberty.Web.Controllers
             return View();
         }
 
-        public ActionResult Sermons()
+        public ActionResult Podcasts()
         {
             return View(PodcastModels.GetPodcastEpisodes());
         }
@@ -37,7 +37,23 @@ namespace rcliberty.Web.Controllers
         [HttpPost, ActionName("Connect")]
         public ActionResult ContactForm(ContactViewModel contact)
         {
-            return View(contact);
+            if (ModelState.IsValid)
+            {
+                //send contact
+                return RedirectToAction("Index");
+            }
+
+            return View("Connect", contact);
+        }
+
+        public ActionResult Give()
+        {
+            return View();
+        }
+
+        public ActionResult EventRegistration(BandBattleViewModel model)
+        {
+            return View(model);
         }
     }
 }

@@ -177,7 +177,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HelpersAndExtensions\ViewHelpers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BandBattleViewModel.cs" />
+    <Compile Include="Models\BandMemberViewModel.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -193,6 +196,7 @@
     <Content Include="Content\img\attend_header.png" />
     <Content Include="Content\img\backgrounds\bg2.jpg" />
     <Content Include="Content\img\backgrounds\bg-main.jpg" />
+    <Content Include="Content\img\backgrounds\rcliberty-service-bw.jpg" />
     <Content Include="Content\img\baptism_sm-tile.png" />
     <Content Include="Content\img\buttons\btn-attend-white.png" />
     <Content Include="Content\img\buttons\btn-attend-gray.png" />
@@ -242,9 +246,12 @@
     <Content Include="Content\img\tags\twitter-tag.png" />
     <Content Include="Content\img\the-capitol-banner.png" />
     <Content Include="Content\img\the-experience-banner.jpg" />
+    <Content Include="Content\img\theCapitol-promo-resize2.png" />
+    <Content Include="Content\img\theCapitol-promo.jpg" />
     <Content Include="Content\img\weird-stuff-banner.jpg" />
     <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
-    <Content Include="Content\mobile.css" />
+    <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
+    <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -519,9 +526,10 @@
     <Content Include="_archive\help\images\Thumbs.db" />
     <Content Include="_archive\swf\soundmanager2_flash_xdomain.zip" />
     <Content Include="Views\Home\Discover.cshtml" />
-    <Content Include="Views\Home\Sermons.cshtml" />
+    <Content Include="Views\Home\Podcasts.cshtml" />
     <Content Include="Views\Home\Grow.cshtml" />
     <Content Include="Views\Home\Connect.cshtml" />
+    <Content Include="Views\Home\Give.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
