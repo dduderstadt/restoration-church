@@ -2,6 +2,16 @@
     ViewBag.Title = "Home Page";
 }
 
+<div class="clearfix"></div>
+
+@if (ViewBag.EmailConfirmation != null)
+{
+    <div id="rc-connect-success" class="alert-success">
+        <p>@ViewBag.EmailConfirmation</p>
+    </div>
+}
+
+
 <div id="rc-main-slider" class="carousel slide" data-ride="carousel">
     <!-- indicator icons -->
     <ol class="carousel-indicators">
@@ -64,6 +74,9 @@
             localStorage.setItem("prevPath", path);
         });
 
-
+        //fade out email confirmation
+        setTimeout(function () {
+            $("#rc-connect-success").fadeOut(1000);
+        }, 3000);
     </script>
 }

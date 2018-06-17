@@ -89,17 +89,9 @@
 
 @section scripts {
     <script>
-        //$(function () {
-        //    $('#rc-discover-accordion').accordion({
-        //        active: 0,
-        //        collapsible: true,
-        //        header: "h2",
-        //        heightStyle: "content"
-        //    });
-        //});
-
         $().ready(function () {
-            //on page load, if the user clicked "Life Groups" img on Index page, auto load the modal
+            //on page load, if the user clicked "Core" img on Index page, display
+            //"Core Values" as active - else, display "Our Culture"
             if (localStorage.getItem("prevPath") == "/Home/Index"
                 || localStorage.getItem("prevPath") == "/"
                 || localStorage.getItem("prevPath") == "/Home"

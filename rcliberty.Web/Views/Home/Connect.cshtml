@@ -12,6 +12,12 @@
 
 <div id="rc-connect">
 
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div id="rc-connect-error" class="alert-danger">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+    }
     <div class="container-half-screen">
         <h2>We're in this <span class="emphasis">together</span>...</h2>
         <div id="rc-connect-left">
@@ -96,4 +102,9 @@
 
 @section scripts{
     <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script>
+        setTimeout(function () {
+            $("#rc-connect-error").fadeOut(1000);
+        }, 3000);
+    </script>
 }

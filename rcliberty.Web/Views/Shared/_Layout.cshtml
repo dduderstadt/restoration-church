@@ -62,9 +62,19 @@
                             Podcasts
                         </a>
                     </li>
+                    @*<li class="@Html.IsActive("Home", "EventRegistration")">
+                            <a href="@Url.Action("EventRegistration", "Home")">
+                                Event Reg
+                            </a>
+                        </li>*@
 
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
+            </div>
+            <div id="event-reg" class="rc-btn">
+                <a href="@Url.Action("EventRegistration", "Home")">
+                    Battle of the Bands Registration
+                </a>
             </div>
         </div>
         <div class="spacer"></div>
@@ -129,4 +139,8 @@
             $(this).parent("li").addClass("active");
         });
     });
+
+    setTimeout(function () {
+        $("#rc-connect-success").fadeOut(1000);
+    }, 3000);
 </script>

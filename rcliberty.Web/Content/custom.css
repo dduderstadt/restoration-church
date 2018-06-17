@@ -183,7 +183,15 @@ body
         width: 20%;
     }
 
-@media screen and (max-width: 730px)
+@media screen and (max-width:1890px)
+{
+    .navbar-nav
+    {
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width: 767px)
 {
     .navbar-nav
     {
@@ -247,6 +255,33 @@ footer
 }
 
 /* INDEX */
+#event-reg
+{
+    text-align: center;
+    margin-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+    #event-reg a
+    {
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    #event-reg:hover
+    {
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+        #event-reg:hover a
+        {
+            color: #16a4a8;
+            text-decoration: none;
+        }
+
 #rc-main-slider
 {
     margin-bottom: 1.5em;
@@ -459,6 +494,15 @@ footer
     padding: 1em;
 }
 
+#rc-connect-success,
+#rc-connect-error
+{
+    font-size: 20px;
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
 .field input,
 .field textarea
 {
@@ -513,11 +557,48 @@ footer
 }
 
 /* GIVE */
-#under-construction,
-#under-construction h1,
-#under-construction h5
+
+/* EVENT REGISTRATION */
+#rc-events, #rc-events label
 {
-    font-size: 72px;
-    color: #f00;
-    font-weight: bolder;
+    color: #16a4a8;
+}
+
+#rc-events
+{
+    min-height: 5em;
+    background-color: #fff;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+#rc-events-header
+{
+    text-align: center;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+}
+
+#rc-events-detail
+{
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+    #rc-events-detail h3
+    {
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    #rc-events-detail button
+    {
+        font-weight: 600;
+        font-size: 16px;
+        padding: 1em;
+    }
+
+#rc-events #band-registration p
+{
+    color: #141213;
 }
