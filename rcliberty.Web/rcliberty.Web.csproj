@@ -182,6 +182,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BandBattleViewModel.cs" />
     <Compile Include="Models\BandMemberViewModel.cs" />
+    <Compile Include="Models\BandViewModel.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -532,6 +533,9 @@
     <Content Include="Views\Home\Connect.cshtml" />
     <Content Include="Views\Home\Give.cshtml" />
     <Content Include="Views\Home\EventRegistration.cshtml" />
+    <Content Include="Views\Home\_BandMembers.cshtml" />
+    <Content Include="Views\Home\_BandRegistration.cshtml" />
+    <Content Include="Views\Home\BandRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,9 +55,9 @@ namespace rcliberty.Web.Controllers
                 //configure MailMessage
                 MailMessage msg = new MailMessage(
                     "contact@dudercode.com"
-                    ,"derek@dudercode.com" //TODO update to deployed email - "hello@"
-                    ,"Contact Form - rcliberty.com"
-                    ,body);
+                    , "derek@dudercode.com" //TODO update to deployed email - "hello@"
+                    , "Contact Form - rcliberty.com"
+                    , body);
 
                 try
                 {
@@ -72,7 +72,7 @@ namespace rcliberty.Web.Controllers
                 }
 
                 //ViewBag.EmailConfirmation 
-                    TempData["EmailConfirm"] = $"Your message was sent successfully. Thanks for connecting with us, {contact.FirstName}!";
+                TempData["EmailConfirm"] = $"Your message was sent successfully. Thanks for connecting with us, {contact.FirstName}!";
                 return RedirectToAction("Index");
             }
             return View("Connect", contact);
@@ -83,9 +83,63 @@ namespace rcliberty.Web.Controllers
             return View();
         }
 
-        public ActionResult EventRegistration(BandBattleViewModel model)
+        public ActionResult BandRegistration(BandViewModel bandReg)
         {
-            return View(model);
+            return View();
+        }
+
+        public ActionResult EventRegistration()
+        {
+            ViewBag.BandRegConfirm = TempData["BandRegConfirm"];
+            ViewBag.BandRegError = TempData["BandRegError"];
+            return View();
+        }
+
+        [HttpPost, ActionName("BandRegistration")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EventRegistration(BandViewModel bandReg)
+        {
+            if (ModelState.IsValid)
+            {
+                //build email body
+                string body =
+                    $"<strong>Band Name</strong>: {bandReg.BandName}<br />"
+                    + $"<strong>Contact Name</strong>: {bandReg.ContactName}<br />"
+                    + $"<strong>Contact Email</strong>: {bandReg.ContactInfo}<br />"
+                    + $"<strong>Nbr of Members</strong>: {bandReg.NbrOfMembers}<br />"
+                    + $"<strong>Rhythm Guitar</strong>: {(bandReg.RhythmGuitar == true ? "Yes" : "No")}<br />"
+                    + $"<strong>Lead Guitar</strong>: {(bandReg.LeadGuitar == true ? "Yes" : "No")}<br />"
+                    + $"<strong>Bass Guitar</strong>: {(bandReg.BassGuitar == true ? "Yes" : "No")}<br />"
+                    + $"<strong>Drums </strong>: {(bandReg.Drums == true ? "Yes" : "No")}<br />"
+                    + $"<strong>Other Instruments</strong>: {(bandReg.Other == true ? bandReg.OtherInstrumentDetails : "None")}<br />"
+                    + $"<strong>Nbr of Vocals</strong>: {bandReg.NbrOfVocals}<br />"
+                    + $"<strong>Additional Info</strong>: {bandReg.Details}";
+
+
+                //configure MailMessage
+                MailMessage msg = new MailMessage(
+                    "contact@dudercode.com"
+                    , "derek@dudercode.com" //TODO update to deployed email - "hello@"
+                    , "Band Registration - theCapitol"
+                    , body);
+
+                try
+                {
+                    //send email
+                    EmailSettings.SendEmail(msg);
+                }
+                catch (Exception ex)
+                {
+                    Debug.Write(ex.Message);
+                    TempData["BandRegError"] = "Oops! Something went wrong. Please try again later.";
+                    return RedirectToAction("EventRegistration");
+                }
+
+                //ViewBag.EmailConfirmation 
+                TempData["BandRegConfirm"] = $"Your message was sent successfully. Thanks for registering, {bandReg.BandName}!";
+                return RedirectToAction("EventRegistration");
+            }
+            return View("EventRegistration", bandReg);
         }
     }
 }

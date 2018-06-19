@@ -1,4 +1,4 @@
-﻿@model rcliberty.Web.Models.BandBattleViewModel
+﻿@*@model rcliberty.Web.Models.BandBattleViewModel*@
 
 @{
     ViewBag.Title = "Battle of the Bands";
@@ -8,101 +8,27 @@
 
 <div id="rc-events">
 
-    <h1 id="rc-events-header">Band Registration</h1>
-
-    <div id="rc-events-detail">
-        <h2>1st Annual Battle of the Bands</h2>
-        <h3>$1,000.00 CASH PRIZE</h3>
-        <button class="btn btn-warning" data-toggle="modal" data-target="#band-registration">How Do We Register?</button>
+@if (ViewBag.BandRegConfirm != null)
+{
+    <div id="rc-connect-success" class="alert-success">
+        <p>@ViewBag.BandRegConfirm</p>
     </div>
+}
 
-    <div id="band-registration" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title"><span class="emphasis">Band Registration Instructions</span></h3>
-                </div>
-                <div class="modal-body">
-                    <h4>Battle of the <strong>Bands</strong> - Friday, August 3rd</h4>
-                    <p>
-                        In order to reserve <span class="emphasis">your spot</span> in the Battle of the Bands,
-                        we must receive <i>both</i> your online registration &amp; online payment through
-                        the payment portal at the bottom of the Band Registration page. Your spot in the event will
-                        <span class="emphasis">not</span> be reserved if we do not receive both registration
-                        &amp; payment, no later than <i>Wednesday, July 18th</i>.
-                        <br />
-                        Payment is <strong>due</strong> upon <span class="emphasis">registering</span>
-                        for the event.
-                    </p>
-                    <h3>How To Register:</h3>
-                    <ol>
-                        <li>Fill out &amp; submit your band's online registration located in the "Band Registration" section of this page.</li>
-                        <li>
-                            Submit $25.00 Band Registration fee through the payment portal ("My Online Donation")
-                            <ul>
-                                <li>Type "25.00" and click "Go". <strong>NOTE:</strong> the payment portal will open in a new tab</li>
-                                <li>
-                                    Change the drop down list option from "Tithe/Offering" to <span class="emphasis">"Other"</span>
-                                    and add a comment with <span class="emphasis">your band name</span>
-                                </li>
-                                <li>
-                                    Fill out the remaining required information (Card Information, Card Holder Information) &amp;
-                                    click "Submit".
-                                </li>
-                            </ul>
-                        </li>
-                    </ol>
-                    <p>
-                        <i>NOTE: If you've registered &amp; paid the band registration fee and have not heard from us in 5-10 business days, please contact us.</i>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div id="rc-connect-error" class="alert-danger">
+        <p>@ViewBag.ErrorMessage</p>
     </div>
+}
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+    @* 
+        ***** Create Partial View for new events *****
+    *@
 
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.BandName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BandName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.BandName, "", new { @class = "text-danger" })
-                </div>
-            </div>
+    @Html.Partial("BandRegistration")
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.ContactInfo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ContactInfo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ContactInfo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Register" class="btn rc-btn" />
-                </div>
-            </div>
-        </div>
-    }
-
+    @* Processing Payment *@
     <form name="dForm" id="dForm" method="post" action="https://app.easytithe.com/inline/dedicated/?uid=rest1908133">
         <div id="donorContainer">
             <style type="text/css">

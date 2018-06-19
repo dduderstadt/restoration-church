@@ -127,6 +127,15 @@ body
     }
 }
 
+/*.container-third-screen
+{
+    margin: 0.5%;
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 20%;
+}*/
+
 /* SPACERS */
 .spacer
 {
@@ -570,6 +579,7 @@ footer
     background-color: #fff;
     padding: 1.5em;
     margin-bottom: 1.5em;
+    max-width: 100%;
 }
 
 #rc-events-header
@@ -577,6 +587,14 @@ footer
     text-align: center;
     letter-spacing: .25em;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 460px)
+{
+    #rc-events-header
+    {
+        font-size: 20px;
+    }
 }
 
 #rc-events-detail
@@ -601,4 +619,79 @@ footer
 #rc-events #band-registration p
 {
     color: #141213;
+}
+
+/*#band-registration .container-third-screen {
+    text-align: center;
+}*/
+
+#instrument-section
+{
+    margin-top: 1em;
+}
+
+#band-registration h3
+{
+    text-align: center;
+    color: #141213;
+}
+
+.instruments
+{
+    width: 100%;
+    text-align: center;
+}
+
+.instrument-label
+{
+    display: inline-block;
+    width: 10%;
+    padding: 2px;
+    text-align: right;
+}
+
+@media screen and (max-width: 650px)
+{
+    .instrument-label
+    {
+        display: initial;
+        width: 50%;
+    }
+}
+
+.instrument-checkbox
+{
+    display: inline;
+}
+
+#nbrOfVocalists
+{
+    text-align: center;
+    width: 45%;
+    margin-left: 28%;
+}
+
+#other-instruments,
+#additional-info
+{
+    text-align: center;
+    margin: 0.5em;
+}
+
+    #other-instruments textarea,
+    #additional-info textarea
+    {
+        width: 100%;
+        display: initial;
+    }
+
+#band-registration .text-field
+{
+    margin: 1.5em;
+}
+
+.text-danger
+{
+    color: #ff0000;
+    font-weight: 600;
 }

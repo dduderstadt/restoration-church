@@ -14,10 +14,6 @@ namespace rcliberty.Web.Models
 
         public int NbrOfMembers { get; set; }
 
-        [Display(Name = "Band Members")]
-        [Required(ErrorMessage = "* Please list all band members")]
-        public List<BandMemberViewModel> BandMembers { get; set; }
-
         [Display(Name = "Additional Info")]
         public string Details { get; set; }
 
@@ -27,5 +23,8 @@ namespace rcliberty.Web.Models
         public string ContactInfo { get; set; }
 
         public DateTime RegistrationDate { get; set; }
+
+        [Display(Name = "Band Members")]
+        public List<BandMemberViewModel> BandMembers { get; set; }
     }
 }
