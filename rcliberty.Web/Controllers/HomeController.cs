@@ -54,8 +54,8 @@ namespace rcliberty.Web.Controllers
 
                 //configure MailMessage
                 MailMessage msg = new MailMessage(
-                    "contact@dudercode.com"
-                    , "derek@dudercode.com" //TODO update to deployed email - "hello@"
+                    "dduderstadt@rcliberty.com"
+                    , "dduderstadt@rcliberty.com" //update to deployed email - "hello@"
                     , "Contact Form - rcliberty.com"
                     , body);
 
@@ -118,9 +118,9 @@ namespace rcliberty.Web.Controllers
 
                 //configure MailMessage
                 MailMessage msg = new MailMessage(
-                    "contact@dudercode.com"
-                    , "derek@dudercode.com" //TODO update to deployed email - "hello@"
-                    , "Band Registration - theCapitol"
+                    "dduderstadt@rcliberty.com"
+                    , "dduderstadt@rcliberty.com" //update to deployed email - "hello@"
+                    , "Band Registration - Battle of the Bands"
                     , body);
 
                 try
