@@ -162,6 +162,8 @@ body
 .navbar
 {
     z-index: 1;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 2px;
 }
 
 .nav.navbar-nav li a
@@ -441,11 +443,11 @@ footer
     list-style: none;
 }
 
-#rc-core-values ul li
-{
-    line-height: 2.5em;
-    font-style: normal;
-}
+    #rc-core-values ul li
+    {
+        line-height: 2.5em;
+        font-style: normal;
+    }
 
 #rc-discover-leaders
 {
