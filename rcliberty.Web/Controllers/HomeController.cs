@@ -54,8 +54,8 @@ namespace rcliberty.Web.Controllers
 
                 //configure MailMessage
                 MailMessage msg = new MailMessage(
-                    "dduderstadt@rcliberty.com"
-                    , "dduderstadt@rcliberty.com" //update to deployed email - "hello@"
+                    contact.Email
+                    , "hello@rcliberty.com" //update to deployed email - "hello@"
                     , "Contact Form - rcliberty.com"
                     , body);
 
@@ -118,7 +118,7 @@ namespace rcliberty.Web.Controllers
 
                 //configure MailMessage
                 MailMessage msg = new MailMessage(
-                    "dduderstadt@rcliberty.com"
+                    bandReg.ContactInfo
                     , "dduderstadt@rcliberty.com" //update to deployed email - "hello@"
                     , "Band Registration - Battle of the Bands"
                     , body);

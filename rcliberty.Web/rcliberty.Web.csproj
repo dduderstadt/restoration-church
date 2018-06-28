@@ -195,6 +195,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\datatables.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\attend_header.png" />
     <Content Include="Content\img\backgrounds\bg2.jpg" />
     <Content Include="Content\img\backgrounds\bg-main.jpg" />
@@ -256,6 +257,7 @@
     <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
     <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -480,6 +482,11 @@
     <Content Include="_archive\swf\soundmanager2_flash9.swf" />
     <Content Include="_archive\swf\soundmanager2_flash9_debug.swf" />
     <Content Include="_archive\values.html" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -5,9 +5,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Churches in Liberty Missouri,  Liberty Missouri Churches, Assembly of God Church Liberty Missouri, Northland Kansas City Churches" />"
+    <meta name="description" content="Are you looking for Churches in Liberty, Missouri? Restoration Church is a REAL Church with REAL people.">
     <title>Restoration Church | Churches in Liberty, MO</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/font-awesome")
+
 
     <!-- datatables.net styles -->
     <link href="~/Content/datatables.min.css" rel="stylesheet" type="text/css" />
@@ -57,11 +61,11 @@
                             Give
                         </a>
                     </li>
-                    <li class="@Html.IsActive("Home", "Podcasts")">
-                        <a href="@Url.Action("Podcasts", "Home")">
-                            Podcasts
-                        </a>
-                    </li>
+                    @*<li class="@Html.IsActive("Home", "Podcasts")">
+                            <a href="@Url.Action("Podcasts", "Home")">
+                                Podcasts
+                            </a>
+                        </li>*@
 
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
@@ -89,6 +93,23 @@
     @*<video autoplay muted loop id="bg-vid">
             <source src="~/Content/vid/What A Beautiful Name - Hillsong Worship.mp4" type="video/mp4" />
         </video>*@
+    <!-- fixed sidebar (social nav) -->
+
+    <nav id="side-nav">
+        <p href="#" id="close" onclick="closeSideNav()">&times;</p>
+        <div onclick="openSideNav()">
+            <ul>
+                <li class="nav-item">
+                    <a class="social-link" href="https://www.facebook.com/restoration.church.liberty/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="social-link" href="https://twitter.com/Rest_Church1" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                </li>
+            </ul>
+            <p href="#" id="social" class="social-text" @*onclick="openSideNav()"*@>social</p>
+        </div>
+    </nav>
+
 
     <div class="overlay"></div>
 
@@ -99,7 +120,10 @@
 
     <div class="spacer"></div>
     <footer>
-        <h3 id="address">Restoration Church | 1908 Plumbers Way | Liberty, MO</h3>
+        <h3 id="address">
+            Restoration Church | 1908 Plumbers Way | Liberty, MO<br /><br />
+            hello@rcliberty.com | 816.415.1800
+        </h3>
         <div class="container-half-screen">
             <img id="sunday-tag" src="~/Content/img/tags/sunday-tag.jpg" />
             <h4 id="service-times">
@@ -138,4 +162,22 @@
     setTimeout(function () {
         $("#rc-connect-success").fadeOut(1000);
     }, 3000);
+
+    $(function () {
+        $('#social').addClass('hidden');
+    });
+
+    var isClosed = false;
+
+    function closeSideNav() {
+        document.getElementById('side-nav').style.left = "-80px";
+        isClosed = true;
+        $('#social').removeClass('hidden');
+    };
+
+    function openSideNav() {
+        document.getElementById('side-nav').style.left = "0px";
+        isClosed = false;
+        $('#social').addClass('hidden');
+    };
 </script>

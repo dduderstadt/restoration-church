@@ -27,6 +27,10 @@ namespace rcliberty.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            //styles.font-awesome
+            bundles.Add(new StyleBundle("~/bundles/font-awesome").Include(
+                "~/Content/font-awesome.min.css")); //<- font-awesome v4.7.0 on 6/27/18
         }
     }
 }
