@@ -53,10 +53,10 @@ namespace rcliberty.Web.Models
             public string Url { get; set; }
 
             //[Display(Name = "Date")]
-            //[DisplayFormat(DataFormatString = "{MM/dd/yyyy}")]
+            //[DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
             //public DateTime PublishDate { get; set; }
 
-                [Display(Name = "Date")]
+            [Display(Name = "Date")]
             public string PublishDate { get; set; }
 
             public string Title { get; set; }
@@ -102,7 +102,7 @@ namespace rcliberty.Web.Models
                 PodcastDisplayModel model = new PodcastDisplayModel();
                 model.Url = e.Element("enclosure").Attribute("url").Value;
                 //model.PublishDate = DateTime.Parse(e.Element("pubDate").Value.Substring(4, 12));
-                model.PublishDate = e.Element("pubDate").Value;
+                model.PublishDate = Convert.ToDateTime(e.Element("pubDate").Value.Substring(0, 16)).ToString("yyyy / MM / dd");
                 model.Title = e.Element("title").Value;
 
                 episodes.Add(model);

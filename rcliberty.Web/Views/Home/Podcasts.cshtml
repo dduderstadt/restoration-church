@@ -26,11 +26,11 @@
                     <td>@episode.PublishDate</td>
                     <td>
                         <audio controls>
-                            <source src="@episode.Url" type="audio/mp4"/>
+                            <source src="@episode.Url" type="audio/mp4" />
                         </audio>
                         @*<video poster="~/Content/img/restoration-church_logo.png" title="@episode.Title" controls>
-                            <source src="@episode.Url" type="video/mp4" />
-                        </video>*@
+                                <source src="@episode.Url" type="video/mp4" />
+                            </video>*@
                     </td>
                 </tr>
             }
@@ -41,7 +41,14 @@
 @section scripts {
     <script>
         $().ready(function () {
-            $('#rc-sermons-table').DataTable();
+            $('#rc-sermons-table').DataTable(
+                { "order": [[1, "desc"]] }
+               //{
+               //    "processing": true,
+               //    "serverSide": true,
+               //    "ajax": "Models/PodcastModel.cs"
+               //}
+                );
         });
     </script>
 }
