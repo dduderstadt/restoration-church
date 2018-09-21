@@ -83,6 +83,11 @@ namespace rcliberty.Web.Controllers
             return View();
         }
 
+        public ActionResult Ministries()
+        {
+            return View();
+        }
+
         public ActionResult BandRegistration(BandViewModel bandReg)
         {
             return View();

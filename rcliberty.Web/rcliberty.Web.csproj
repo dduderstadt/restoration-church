@@ -229,6 +229,7 @@
     <Content Include="Content\img\connect_header.png" />
     <Content Include="Content\img\core_tile.png" />
     <Content Include="Content\img\discover_header.png" />
+    <Content Include="Content\img\duck-dynasty-promo-banner.png" />
     <Content Include="Content\img\fight-night-banner.jpg" />
     <Content Include="Content\img\finances_sm-tile.png" />
     <Content Include="Content\img\give_header.png" />
@@ -545,6 +546,7 @@
     <Content Include="Views\Home\_BandMembers.cshtml" />
     <Content Include="Views\Home\_BandRegistration.cshtml" />
     <Content Include="Views\Home\BandRegistration.cshtml" />
+    <Content Include="Views\Home\Ministries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

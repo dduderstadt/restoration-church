@@ -49,6 +49,11 @@
                             Discover
                         </a>
                     </li>
+                    <li class="@Html.IsActive("Home", "Ministries")">
+                        <a href="@Url.Action("Ministries", "Home")">
+                            Ministries
+                        </a>
+                    </li>
                     <li class="@Html.IsActive("Home", "Connect")">
                         <a href="@Url.Action("Connect", "Home")">
                             Connect
@@ -124,7 +129,7 @@
     <div class="spacer"></div>
     <footer>
         <h3 id="address">
-            Restoration Church | 1908 Plumbers Way | Liberty, MO<br /><br />
+            Restoration Church | 1908 Plumbers Way | Liberty, MO | 64068<br /><br />
             hello@rcliberty.com | 816.415.1800
         </h3>
         <div class="container-half-screen">
