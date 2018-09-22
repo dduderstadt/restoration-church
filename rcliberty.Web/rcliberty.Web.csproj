@@ -252,10 +252,13 @@
     <Content Include="Content\img\tags\twitter-tag.png" />
     <Content Include="Content\img\the-capitol-banner.png" />
     <Content Include="Content\img\the-experience-banner.jpg" />
+    <Content Include="Content\img\the-experience-color-wide.jpg" />
+    <Content Include="Content\img\theCapitol-logo-md.png" />
     <Content Include="Content\img\theCapitol-promo-resize2.png" />
     <Content Include="Content\img\theCapitol-promo.jpg" />
     <Content Include="Content\img\weird-stuff-banner.jpg" />
     <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
+    <Content Include="Content\theCapitol-logo-md.png" />
     <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
     <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
     <Content Include="favicon.ico" />

@@ -676,7 +676,127 @@ footer
     border: 1px solid #16a4a8;
 }
 
-/* GIVE */
+/* MINISTRIES */
+#rc-ministries
+{
+    background-color: #fff;
+    text-align: justify;
+    padding: 2em;
+}
+
+    #rc-ministries .container-half-screen
+    {
+        padding: 1em;
+    }
+
+        #rc-ministries .container-half-screen p
+        {
+            padding: 1em;
+            width: 75%;
+            display: inline-block;
+        }
+
+.rc-ministries-detail
+{
+    border: 2px solid #16a4a8;
+    min-height: 12em;
+    padding: 1em;
+}
+
+#the-experience
+{
+    font-size: 18px;
+    display: inline-block;
+}
+
+    #the-experience .rc-ministries-detail
+    {
+        display: inline-block;
+        height: auto;
+    }
+
+    #the-experience #the-experience-img
+    {
+        text-align: center;
+    }
+
+#the-experience-img img
+{
+    width: 75%;
+}
+
+.ministry-logo
+{
+    float: left;
+    max-width: 25%;
+}
+
+#rc-kids-logo
+{
+    margin-top: 15%;
+}
+
+#rc-ministries-accordion > h2
+{
+    background-color: #141213;
+    padding: .5em .5em;
+    color: #fff;
+    border: 3px solid #16a4a8;
+}
+
+    #rc-ministries-accordion > h2:hover
+    {
+        cursor: pointer;
+    }
+
+#rc-ministries-accordion > div
+{
+    padding: .5em 2em;
+}
+
+@media screen and (max-width: 1200px)
+{
+    #rc-ministries .container-half-screen
+    {
+        width: 100%;
+    }
+
+    .rc-ministries-detail
+    {
+        /*height: 5em;*/
+    }
+
+    #rc-kids-logo
+    {
+        margin: 0;
+    }
+
+    .ministry-logo
+    {
+        display: inline-block;
+        float: left;
+        text-align: center;
+    }
+
+        .ministry-logo img
+        {
+            max-height: 10em;
+            width: auto;
+        }
+}
+
+@media screen and (max-width: 992px)
+{
+    #rc-ministries .container-half-screen p
+    {
+        width: 100%;
+    }
+
+    .ministry-logo
+    {
+        display: none;
+    }
+}
 
 /* EVENT REGISTRATION */
 #rc-events, #rc-events label
