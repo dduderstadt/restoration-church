@@ -201,6 +201,14 @@ body
         width: 16%;
     }
 
+@media screen and (max-width: 1199px)
+{
+    .navbar-nav li
+    {
+        width: 33%;
+    }
+}
+
 @media screen and (max-width:1890px)
 {
     .navbar-nav
@@ -680,7 +688,6 @@ footer
 #rc-ministries
 {
     background-color: #fff;
-    text-align: justify;
     padding: 2em;
 }
 
