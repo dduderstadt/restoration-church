@@ -90,6 +90,9 @@ namespace rcliberty.Web.Models
             //direct connection (testing)
             //http://jpstafford.podbean.com/feed/
 
+            //TODO podcast by series w/logo (testing)
+            //https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog254166/Red_Ink_Jesus_Logo-FB.jpg
+
             //List<string> episodeUrls = new List<string>();
             List<PodcastDisplayModel> episodes = new List<PodcastDisplayModel>();
 
