@@ -12,6 +12,17 @@ using rcliberty.Web.Models;
 
 namespace rcliberty.Web.Controllers
 {
+    /// <summary>
+    /// Added for easy access to access Account/Login (vs. hidden link)
+    /// </summary>
+    public class LoginController : Controller
+    {
+        public ActionResult Index()
+        {
+            return RedirectToAction("Login", "Account");
+        }
+    }
+
     [Authorize]
     public class AccountController : Controller
     {

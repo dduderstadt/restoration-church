@@ -661,7 +661,8 @@ footer
     }
 }
 
-#rc-connect-btn
+#rc-connect-btn,
+#rc-login-btn
 {
     color: #16a4a8;
     font-weight: 600;
@@ -669,7 +670,8 @@ footer
     text-transform: uppercase;
 }
 
-    #rc-connect-btn:hover
+    #rc-connect-btn:hover,
+    #rc-login-btn:hover
     {
         background-color: #16a4a8;
         color: #fff;
@@ -802,6 +804,122 @@ footer
     .ministry-logo
     {
         display: none;
+    }
+}
+
+/* ADMIN LOGIN */
+#rc-login
+{
+    background-color: #fff;
+    padding: 2em;
+}
+
+#rc-login-header > h1
+{
+    font-size: 7em;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 992px)
+{
+    #rc-login-header > h1
+    {
+        font-size: 4em;
+    }
+}
+
+#rc-login-header > h3
+{
+    color: #16a4a8;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#rc-login-fields
+{
+    margin-left: 10em;
+}
+
+    #rc-login-fields .form-group
+    {
+        display: inline;
+    }
+
+    #rc-login-fields label
+    {
+        font-size: 1.2em;
+        text-align: right;
+    }
+
+    #rc-login-fields input[type=text],
+    #rc-login-fields input[type=password]
+    {
+        border: 2px solid rgba(34,34,34, 0.8);
+        font-size: 1.2em;
+        display: inline;
+        min-width: 70%;
+    }
+
+    #rc-login-fields input[type=submit]
+    {
+        font-size: 1.2em;
+        min-width: 32.8%;
+        margin-left: 26.5%;
+    }
+
+@media screen and (max-width: 1199px)
+{
+    #rc-login-fields input[type=submit]
+    {
+        min-width: 36.7%;
+    }
+}
+
+@media screen and (max-width: 991px)
+{
+    #rc-login-fields input[type=submit]
+    {
+        min-width: 66.7%;
+        margin-left: 2.7%;
+    }
+}
+
+@media screen and (max-width: 635px)
+{
+    #rc-login-header > h1,
+    #rc-login-header > h3
+    {
+        font-size: 2em;
+    }
+
+    #rc-login-fields
+    {
+        margin-left: 15%;
+    }
+
+        #rc-login-fields input
+        {
+            width: 200%;
+        }
+}
+
+@media screen and (max-width: 520px)
+{
+    #rc-login-fields
+    {
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 443px)
+{
+    #rc-login-fields
+    {
+        margin: 0;
+        width: 135%;
     }
 }
 

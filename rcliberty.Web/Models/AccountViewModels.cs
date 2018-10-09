@@ -48,14 +48,14 @@ namespace rcliberty.Web.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Required(ErrorMessage = "* Please enter your account email")]
+        [Display(Name = "email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "* Please enter your account password")]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "password")]
         public string Password { get; set; }
 
         [Display(Name = "Remember me?")]
