@@ -111,8 +111,8 @@
     @*<video autoplay muted loop id="bg-vid">
             <source src="~/Content/vid/What A Beautiful Name - Hillsong Worship.mp4" type="video/mp4" />
         </video>*@
-    <!-- fixed sidebar (social nav) -->
 
+    <!-- side nav (social) -->
     <nav id="side-nav">
         <p href="#" id="close" onclick="closeSideNav()">&times;</p>
         <div onclick="openSideNav()">
@@ -129,19 +129,19 @@
     </nav>
 
 
-    <div class="overlay"></div>
+    <div class="bg-overlay"></div>
 
-    <!-- display live-notification Sundays between 10am & 12pm -->
+    <!-- display live-notification Sundays between 10am & 12pm (use CST or UCT?) //! commented out until release -->
     @*@if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday
                          && DateTime.Now.Hour >= 10
                          && DateTime.Now.Hour <= 12)
-        {*@
+        {
     <!-- live notification (live stream modal) -->
     <div id="live-notification" class="blink">
         <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
         <p>Now streaming <span class="emphasis">The Experience</span></p>
     </div>
-    @*}*@
+    }*@
 
     <!-- live-video-modal -->
     <div id="live-video" class="modal fade" role="dialog">

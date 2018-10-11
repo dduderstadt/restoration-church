@@ -15,7 +15,7 @@
     color: #f1f1f1;
     width: 100%;
     padding: 20px;
-}*/
+}
 
 #bg-vid
 {
@@ -24,9 +24,9 @@
     bottom: 0;
     min-height: 100%;
     min-width: 100%;
-}
+}*/
 
-.overlay
+.bg-overlay
 {
     position: fixed;
     right: 0;
@@ -37,7 +37,7 @@
     z-index: -2;
 }
 
-    .overlay::after
+    .bg-overlay::after
     {
         content: "";
         background: url(/Content/img/backgrounds/rcliberty-service-bw.jpg);
@@ -50,10 +50,10 @@
         z-index: -1;
     }
 
-.container .body-content
+/*.container .body-content
 {
     background-color: #fff;
-}
+}*/
 /* DUDERCODE TAG */
 #dudercode
 {
@@ -121,6 +121,11 @@ body
         opacity: 1.0;
         /*font-weight: 800;*/
     }
+
+.modal
+{
+    overflow-y: auto;
+}
 
 /* LIVE STREAM */
 .rc-live-btn
@@ -777,6 +782,15 @@ footer
     padding: 2em;
 }
 
+#rc-ministries-header
+{
+    text-align: center;
+    letter-spacing: .25em;
+    margin: 1.5em 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
     #rc-ministries .container-half-screen
     {
         padding: 1em;
@@ -1135,3 +1149,4 @@ footer
     color: #ff0000;
     font-weight: 600;
 }
+
