@@ -25,6 +25,8 @@
 
 </head>
 <body>
+
+
     <div class="spacer"></div>
 
 
@@ -121,37 +123,45 @@
 
     <div class="overlay"></div>
 
+    <!-- display live-notification Sundays between 10am & 12pm -->
+    @*@if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday
+                         && DateTime.Now.Hour >= 10
+                         && DateTime.Now.Hour <= 12)
+        {*@
+    <!-- live notification (live stream modal) -->
+    <div id="live-notification" class="blink">
+        <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
+        <p>Now streaming <span class="emphasis">The Experience</span></p>
+    </div>
+    @*}*@
 
-    @******************************************************@
-    <!-- TODO dynamically display modal button on Sunday AM 30 min prior to service (DateTime.Now)-->
-    
-    <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#live-video">LIVE STREAM</button>
-
-    <!-- Modal -->
+    <!-- live-video-modal -->
     <div id="live-video" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
-            <!-- Modal content-->
+            <!-- content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">LIVE STREAM | @DateTime.Now.Date.DayOfWeek</h4>
+                    <h4 class="modal-title">
+                        <span class="emphasis">The Experience</span>
+                        <span style="font-weight: 800;">|</span>
+                        <span style="color: #ff0000; font-weight: 800;">LIVE</span><br />
+                        <b>@DateTime.Now.Date.ToLongDateString()</b>
+                    </h4>
                 </div>
+
                 <div class="modal-body">
-                    <!-- TEST: LIVESTREAM -->
-                    <iframe id="ls_embed_1539200673" src="https://livestream.com/accounts/27837009/events/8408291/player?width=960&height=540&enableInfoAndActivity=true&defaultDrawer=feed&autoPlay=true&mute=false" width="960" height="540" frameborder="0" scrolling="no" allowfullscreen> </iframe>
-                    <script type="text/javascript" data-embed_id="ls_embed_1539200673" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+                    <!-- The Experience live stream -->
+                    <iframe id="ls_embed_1539231289" src="https://livestream.com/accounts/27837009/events/8408291/player?width=960&height=540&enableInfoAndActivity=true&defaultDrawer=feed&autoPlay=true&mute=false" width="960" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
         </div>
     </div>
-    @******************************************************@
-
 
     <div class="container body-content">
         @RenderBody()
@@ -185,11 +195,13 @@
     <!-- datatables.net scripts -->
     <script src="~/Scripts/datatables.min.js" type="text/javascript"></script>
     @*<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>*@
-    @RenderSection("scripts", required: false)
+    <!-- livestream script-->
+    <script type="text/javascript" data-embed_id="ls_embed_1539231289" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>                 @RenderSection("scripts", required: false)
 </body>
 </html>
 
 <script>
+    //========== active nav ==========
     $(function () {
         $(document.getElementById("nav-links")).children("a").click(function () {
             //remove classes from all
@@ -199,10 +211,12 @@
         });
     });
 
+    //========== confirm connect ==========
     setTimeout(function () {
         $("#rc-connect-success").fadeOut(1000);
     }, 3000);
 
+    //========== side nav ==========
     $(function () {
         $('#social').addClass('hidden');
     });
@@ -220,4 +234,13 @@
         isClosed = false;
         $('#social').addClass('hidden');
     };
+
+    //========== live notification ==========
+    //function stopBlink() {
+    //    $('#live-notification').removeClass('blink');
+    //}
+
+    //function startBlink() {
+    //    $('#live-notification').addClass('blink');
+    //}
 </script>

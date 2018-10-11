@@ -107,6 +107,92 @@ body
     background-color: #141213;
 }
 
+.close
+{
+    color: #141213;
+    opacity: 1.0;
+    font-weight: 800;
+    font-size: 2em;
+}
+
+    .close:hover
+    {
+        color: #ff0000;
+        opacity: 1.0;
+        /*font-weight: 800;*/
+    }
+
+/* LIVE STREAM */
+.rc-live-btn
+{
+    color: #141213;
+    background-color: #fff;
+    border: 0.1em solid #ff0000;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    padding: 0.1em;
+    font-weight: 800;
+}
+
+    .rc-live-btn:hover
+    {
+        color: #fff;
+        background-color: #16a4a8;
+        border: 0.1em solid #fff;
+    }
+
+.dot
+{
+    height: 0.8em;
+    width: 0.8em;
+    background-color: #ff0000;
+    border-radius: 50%;
+    color: #ff0000;
+    display: inline-block;
+}
+
+#live-notification
+{
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    top: 17%;
+    overflow-x: hidden;
+    margin: 0em 3em;
+    text-align: center;
+}
+
+    #live-notification p
+    {
+        color: #fff;
+        padding-top: 0.5em;
+    }
+
+.blink
+{
+    opacity: 1;
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker
+{
+    50%
+    {
+        opacity: 0;
+    }
+}
+
+#live-video
+{
+    margin-top: 5%;
+}
+
+    #live-video iframe
+    {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
 /* RESPONSIVE CONTAINERS */
 .container-half-screen
 {
@@ -196,9 +282,7 @@ body
 
     .navbar-nav li
     {
-        /*width: 20%;*/
-        /* width: 25%;  w/o podcasts link */
-        width: 16%;
+        width: 16.6%;
     }
 
 @media screen and (max-width: 1199px)
