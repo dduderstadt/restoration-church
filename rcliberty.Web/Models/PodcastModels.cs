@@ -114,5 +114,10 @@ namespace rcliberty.Web.Models
             //return episodeUrls;
             return episodes;
         }
+
+        //TODO create MSSQL database (brainstorm)
+        //media: podcasts (linking), episodes, categories
+        //identity: ASP.NET tables
+        //admin dashboard: images (file upload)
     }
 }

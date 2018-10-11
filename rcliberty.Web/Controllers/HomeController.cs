@@ -28,6 +28,11 @@ namespace rcliberty.Web.Controllers
             return View(PodcastModels.GetPodcastEpisodes());
         }
 
+        public ActionResult Media()
+        {
+            return View();
+        }
+
         public ActionResult Grow()
         {
             return View();
