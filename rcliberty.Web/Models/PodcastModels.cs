@@ -115,7 +115,10 @@ namespace rcliberty.Web.Models
             return episodes;
         }
 
-        //TODO create MSSQL database (brainstorm)
+        //TODO add () to create new series if it doesn't exist
+        //TODO add () to add episode to Db table (organize by series)
+
+        //create MSSQL database (brainstorm)
         //media: podcasts (linking), episodes, categories
         //identity: ASP.NET tables
         //admin dashboard: images (file upload)
