@@ -131,16 +131,15 @@
 
     <div class="bg-overlay"></div>
 
-    <!-- display live-notification Sundays between 10am & 12pm (use CST or UCT?) //! commented out until release -->
     @if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday
-                         && DateTime.Now.Hour >= 10
-                         && DateTime.Now.Hour <= 12)
-        {
+                                 && DateTime.UtcNow.Hour >= 15
+                                 && DateTime.UtcNow.Hour <= 17)
+    {
     <!-- live notification (live stream modal) -->
-    <div id="live-notification" class="blink">
-        <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
-        <p>Now streaming <span class="emphasis">The Experience</span></p>
-    </div>
+        <div id="live-notification" class="blink">
+            <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
+            <p>Now streaming <span class="emphasis">The Experience</span></p>
+        </div>
     }
 
     <!-- live-video-modal -->
