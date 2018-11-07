@@ -30,7 +30,7 @@ namespace rcliberty.Web.Controllers
 
         public ActionResult Media()
         {
-            return View();
+            return View(PodcastModels.GetAllSeries());
         }
 
         public ActionResult Grow()
