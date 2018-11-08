@@ -118,66 +118,92 @@ namespace rcliberty.Web.Models
                 model.Id = guid.Substring(guid.LastIndexOf('-') + 1);
 
                 episodes.Add(model);
-                InsertRecords(model);
+                //InsertRecords(model);
+                SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True");
+                PopulatePodcastData(model, conn);
             }
             return episodes;
         }
 
-        public static void InsertRecords(Episode model)
+        //public static void InsertRecords(Episode model)
+        //{
+        //    CreateSeries(model);
+        //    CreateEpisode(model);
+        //}
+
+        //public static void CreateSeries(Episode model)
+        //{
+        //    var marker = model.Title.IndexOf('-');
+        //    var series = model.Title.Substring(0, marker - 1);
+
+        //    using (SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True"))
+        //    {
+        //        conn.Open();
+
+        //        SqlCommand getAllSeries = new SqlCommand("SELECT Name FROM Series WHERE Name = @name", conn);
+        //        getAllSeries.Parameters.AddWithValue("@name", series);
+
+        //        SqlDataReader reader = getAllSeries.ExecuteReader();
+
+        //        if (!reader.HasRows)
+        //        {
+        //            reader.Close();
+
+        //            string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
+        //            using (SqlCommand cmd = new SqlCommand(insertSeries, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@name", series);
+        //                cmd.ExecuteNonQuery();
+        //            }
+        //        }
+        //    }
+        //}
+
+        public static void PopulatePodcastData(Episode model, SqlConnection conn)
         {
-            CreateSeries(model);
-            CreateEpisode(model);
-        }
-
-        public static void CreateSeries(Episode model)
-        {
-            var marker = model.Title.IndexOf('-');
-            var series = model.Title.Substring(0, marker - 1);
-
-            using (SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True"))
-            {
-                conn.Open();
-
-                SqlCommand getAllSeries = new SqlCommand("SELECT Name FROM Series WHERE Name = @name", conn);
-                getAllSeries.Parameters.AddWithValue("@name", series);
-
-                SqlDataReader reader = getAllSeries.ExecuteReader();
-
-                if (!reader.HasRows)
-                {
-                    reader.Close();
-
-                    string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
-                    using (SqlCommand cmd = new SqlCommand(insertSeries, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@name", series);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-
-        public static void CreateEpisode(Episode model)
-        {
-            using (SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True"))
+            using (conn)
             {
                 conn.Open();
 
                 int location = model.Title.IndexOf("-");
                 string episodeTitle = model.Title.Substring(location + 2);
                 string series = model.Title.Substring(0, location - 1);
+                
+                #region Series
+
+                SqlCommand getAllSeries = new SqlCommand("SELECT Name FROM Series WHERE Name = @name", conn);
+                getAllSeries.Parameters.AddWithValue("@name", series);
+
+                SqlDataReader rdrSeries = getAllSeries.ExecuteReader();
+
+                if (!rdrSeries.HasRows)
+                {
+                    rdrSeries.Close();
+
+                    string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
+                    using (SqlCommand cmdInsertSeries = new SqlCommand(insertSeries, conn))
+                    {
+                        cmdInsertSeries.Parameters.AddWithValue("@name", series);
+                        cmdInsertSeries.ExecuteNonQuery();
+                    }
+                }
+                rdrSeries.Close();
+
+                #endregion
+
+                #region Episodes
 
                 SqlCommand getAllEpisodes = new SqlCommand("SELECT Title FROM Episodes WHERE Title = @title", conn);
                 getAllEpisodes.Parameters.AddWithValue("@title", episodeTitle);
 
-                SqlDataReader reader = getAllEpisodes.ExecuteReader();
+                SqlDataReader rdrEpisodes = getAllEpisodes.ExecuteReader();
 
-                if (!reader.HasRows)
+                if (!rdrEpisodes.HasRows)
                 {
-                    reader.Close();
+                    rdrEpisodes.Close();
 
                     string insertEpisode = "INSERT INTO Episodes ([Id], [Title], [Date], [AudioUrl], [SeriesId]) VALUES(@id, @title, @date, @audioUrl, @seriesId)";
-                    using (SqlCommand cmd = new SqlCommand(insertEpisode, conn))
+                    using (SqlCommand cmdInsertEpisode = new SqlCommand(insertEpisode, conn))
                     {
                         int seriesId = 0;
                         using (SqlCommand getSeriesId = new SqlCommand("SELECT Id FROM Series WHERE Name = @name", conn))
@@ -190,14 +216,16 @@ namespace rcliberty.Web.Models
                             }
                             rdrSeriesId.Close();
                         }
-                        cmd.Parameters.AddWithValue("@id", model.Id);
-                        cmd.Parameters.AddWithValue("@title", episodeTitle);
-                        cmd.Parameters.AddWithValue("@date", model.PublishDate);
-                        cmd.Parameters.AddWithValue("@audioUrl", model.Url);
-                        cmd.Parameters.AddWithValue("@seriesId", seriesId);
-                        cmd.ExecuteNonQuery();
+                        cmdInsertEpisode.Parameters.AddWithValue("@id", model.Id);
+                        cmdInsertEpisode.Parameters.AddWithValue("@title", episodeTitle);
+                        cmdInsertEpisode.Parameters.AddWithValue("@date", model.PublishDate);
+                        cmdInsertEpisode.Parameters.AddWithValue("@audioUrl", model.Url);
+                        cmdInsertEpisode.Parameters.AddWithValue("@seriesId", seriesId);
+                        cmdInsertEpisode.ExecuteNonQuery();
                     }
                 }
+                rdrEpisodes.Close();
+                #endregion
             }
         }
 
