@@ -168,6 +168,8 @@ namespace rcliberty.Web.Models
                 int location = model.Title.IndexOf("-");
                 string episodeTitle = model.Title.Substring(location + 2);
                 string series = model.Title.Substring(0, location - 1);
+                //TODO refactor image to determine true extension of image
+                string image = series.Replace(' ', '-').Replace("&", "and").ToLower() + ".jpg";
                 
                 #region Series
 
@@ -181,9 +183,11 @@ namespace rcliberty.Web.Models
                     rdrSeries.Close();
 
                     string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
+                    //string insertSeries = "INSERT INTO Series ([Name], [Image]) VALUES(@name, @image)";
                     using (SqlCommand cmdInsertSeries = new SqlCommand(insertSeries, conn))
                     {
                         cmdInsertSeries.Parameters.AddWithValue("@name", series);
+                        //cmdInsertSeries.Parameters.AddWithValue("@image", image);
                         cmdInsertSeries.ExecuteNonQuery();
                     }
                 }
