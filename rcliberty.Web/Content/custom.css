@@ -165,6 +165,8 @@ body
     overflow-x: hidden;
     margin: 0em 3em;
     text-align: center;
+    width: 15%;
+    display: inline-block;
 }
 
     #live-notification p
@@ -791,17 +793,17 @@ footer
     color: #fff;
 }
 
-    #rc-ministries .container-half-screen
+#rc-ministries .container-half-screen
+{
+    padding: 1em;
+}
+
+    #rc-ministries .container-half-screen p
     {
         padding: 1em;
+        width: 75%;
+        display: inline-block;
     }
-
-        #rc-ministries .container-half-screen p
-        {
-            padding: 1em;
-            width: 75%;
-            display: inline-block;
-        }
 
 .rc-ministries-detail
 {
@@ -1149,4 +1151,3 @@ footer
     color: #ff0000;
     font-weight: 600;
 }
-
