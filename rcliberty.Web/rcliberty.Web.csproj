@@ -226,6 +226,7 @@
     <Content Include="Content\img\buttons\twitter_footer2.jpg" />
     <Content Include="Content\img\buttons\watch1.png" />
     <Content Include="Content\img\buttons\watch2.png" />
+    <Content Include="Content\img\christmas-eve-banner.jpg" />
     <Content Include="Content\img\connect_header.png" />
     <Content Include="Content\img\core_tile.png" />
     <Content Include="Content\img\discover_header.png" />
@@ -236,6 +237,7 @@
     <Content Include="Content\img\grow_header.png" />
     <Content Include="Content\img\headers\header-nav-bg.png" />
     <Content Include="Content\img\headers\header-nav-spacer.png" />
+    <Content Include="Content\img\just-believe-banner.jpg" />
     <Content Include="Content\img\life-groups_sm-tile.png" />
     <Content Include="Content\img\life-groups_tile.png" />
     <Content Include="Content\img\life_header.png" />
