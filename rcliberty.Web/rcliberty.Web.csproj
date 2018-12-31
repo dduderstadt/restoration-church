@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -249,6 +250,12 @@
     <Content Include="Content\img\real-facts-banner.jpg" />
     <Content Include="Content\img\red-ink-jesus-banner.jpg" />
     <Content Include="Content\img\restoration-church_logo.png" />
+    <Content Include="Content\img\series\duck-dynasty.jpg" />
+    <Content Include="Content\img\series\fight-night.jpg" />
+    <Content Include="Content\img\series\just-believe.jpg" />
+    <Content Include="Content\img\series\myths-and-facts.jpg" />
+    <Content Include="Content\img\series\red-ink-jesus.jpg" />
+    <Content Include="Content\img\spirit-power-unleashed-banner.jpg" />
     <Content Include="Content\img\tags\ag-tag.png" />
     <Content Include="Content\img\tags\facebook-tag.png" />
     <Content Include="Content\img\tags\sunday-tag.jpg" />
@@ -264,6 +271,8 @@
     <Content Include="Content\theCapitol-logo-md.png" />
     <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
     <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
+    <Content Include="db\rcliberty_generate-podcast-tables-SCHEMA-ONLY.sql" />
+    <Content Include="db\rcliberty_table-data-test-query.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

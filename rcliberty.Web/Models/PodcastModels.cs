@@ -182,12 +182,12 @@ namespace rcliberty.Web.Models
                 {
                     rdrSeries.Close();
 
-                    string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
-                    //string insertSeries = "INSERT INTO Series ([Name], [Image]) VALUES(@name, @image)";
+                    //string insertSeries = "INSERT INTO Series ([Name]) VALUES(@name)";
+                    string insertSeries = "INSERT INTO Series ([Name], [Image]) VALUES(@name, @image)";
                     using (SqlCommand cmdInsertSeries = new SqlCommand(insertSeries, conn))
                     {
                         cmdInsertSeries.Parameters.AddWithValue("@name", series);
-                        //cmdInsertSeries.Parameters.AddWithValue("@image", image);
+                        cmdInsertSeries.Parameters.AddWithValue("@image", image);
                         cmdInsertSeries.ExecuteNonQuery();
                     }
                 }
