@@ -226,6 +226,7 @@
     <Content Include="Content\img\buttons\twitter_footer2.jpg" />
     <Content Include="Content\img\buttons\watch1.png" />
     <Content Include="Content\img\buttons\watch2.png" />
+    <Content Include="Content\img\christmas-eve-banner.jpg" />
     <Content Include="Content\img\connect_header.png" />
     <Content Include="Content\img\core_tile.png" />
     <Content Include="Content\img\discover_header.png" />
