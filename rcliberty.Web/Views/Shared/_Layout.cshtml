@@ -94,33 +94,12 @@
                             Podcasts
                         </a>
                     </li>
-
+                    @*@Html.Partial("_LoginPartial")*@
                 </ul>
-                @*@Html.Partial("_LoginPartial")*@
             </div>
-            @*<div id="event-reg" class="rc-btn">
-                    <a href="@Url.Action("EventRegistration", "Home")">
-                        Battle of the Bands Registration
-                    </a>
-                </div>*@
         </div>
         <div class="spacer"></div>
     </div>
-
-    <!-- video template -->
-    @*<video autoplay muted loop id="myVideo">
-            <source src="~/Content/vid/Tribute-District 12_Bumper.mp4" type="video/mp4" />
-        </video>
-
-        <div class="content">
-            <h1>Heading</h1>
-            <p>Lorem ipsum...</p>
-        </div>*@
-
-
-    @*<video autoplay muted loop id="bg-vid">
-            <source src="~/Content/vid/What A Beautiful Name - Hillsong Worship.mp4" type="video/mp4" />
-        </video>*@
 
     <!-- side nav (social) -->
     <nav id="side-nav">
@@ -145,7 +124,7 @@
                                                  && DateTime.UtcNow.Hour >= 15
                                                  && DateTime.UtcNow.Hour <= 17)
     {
-    <!-- live notification (live stream modal) -->
+        <!-- live notification (live stream modal) -->
         <div id="live-notification" class="blink">
             <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
             <p>Now streaming <span class="emphasis"><br />The Experience</span></p>

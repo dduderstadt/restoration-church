@@ -443,7 +443,7 @@ footer
     }
 }
 
-.social-link img
+.social-link img, .admin-link img
 {
     max-width: 2em;
 }

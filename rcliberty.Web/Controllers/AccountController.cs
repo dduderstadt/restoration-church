@@ -68,7 +68,7 @@ namespace rcliberty.Web.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = Url.Action("Index", "Admin");
             return View();
         }
 
