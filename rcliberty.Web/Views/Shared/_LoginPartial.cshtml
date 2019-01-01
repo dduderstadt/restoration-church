@@ -1,22 +1,35 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    @*<ul class="nav navbar-nav navbar-right">*@
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <li data-toggle="collapse" data-target="#myacct" class="collapsed">
+            <a href="#"><i class="fa fa-user fa-lg fa-fw sidebar-icon"></i> My Account <span class="arrow"></span></a>
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    @*</ul>*@
+
+        <li>
+            <ul class="sub-menu collapse" id="myacct">
+                <li>
+                    <a href="@Url.Action("Index", "Manage", null)" title="Manage">
+                        <i class="fa fa-angle-double-right"></i>
+                        @User.Identity.GetUserName().Substring(0, User.Identity.GetUserName().IndexOf("@")).ToUpper() Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">
+                        <i class="fa fa-angle-double-right"></i> Log Out
+                    </a>
+                </li>
+            </ul>
+        </li>
     }
 }
 @*else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}*@
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }*@

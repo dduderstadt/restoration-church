@@ -30,18 +30,21 @@
     <!-- custom styles -->
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css" />
 
+    <!-- admin styles -->
+    <link href="~/Content/admin-dashboard.css" rel="stylesheet" type="text/css" />
+
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 
     <!-- Google analytics (Global site tag -- gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127337513-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127337513-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
 
-        gtag('config', 'UA-127337513-1');
-    </script>
+            gtag('config', 'UA-127337513-1');
+        </script>*@
 
 </head>
 <body>
@@ -116,6 +119,71 @@
             <p href="#" id="social" class="social-text" @*onclick="openSideNav()"*@>social</p>
         </div>
     </nav>
+
+    <!-- admin nav -->
+    @if (User.IsInRole("Admin"))
+    {
+    <nav id="rc-admin-nav" class="nav-side-menu">
+        <p href="#" id="close" onclick="closeAdminNav()">&times;</p>
+        
+        <div onclick="openAdminNav()">
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard fa-lg fa-fw sidebar-icon"></i> Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart fa-lg fa-fw sidebar-icon"></i> Google Analytics</a>
+                    </li>
+
+                    <li data-toggle="collapse" data-target="#account" class="collapsed">
+                        <a href="#"><i class="fa fa-puzzle-piece fa-lg fa-fw sidebar-icon"></i> Accounts <span class="arrow"></span></a>
+                    </li>
+
+                    <li>
+                        <ul class="sub-menu collapse" id="account">
+                            <li><a href="@Url.Action("Index", "UsersAdmin")"><i class="fa fa-angle-double-right"></i> Users</a></li>
+                            <li><a href="@Url.Action("Index", "RolesAdmin")"><i class="fa fa-angle-double-right"></i> Roles</a></li>
+                        </ul>
+                    </li>
+
+                    <li data-toggle="collapse" data-target="#cms" class="collapsed">
+                        <a href="#"><i class="fa fa-cogs fa-lg fa-fw sidebar-icon"></i> Site Content <span class="arrow"></span></a>
+                    </li>
+
+                    <li>
+                        <ul class="sub-menu collapse" id="cms">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Sermon Series</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Messages </a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Images</a></li>
+                        </ul>
+                    </li>
+
+                    <li data-toggle="collapse" data-target="#help" class="collapsed">
+                        <a href="#"><i class="fa fa-life-ring fa-lg fa-fw sidebar-icon"></i> Help <span class="arrow"></span></a>
+                    </li>
+
+                    <li>
+                        <ul class="sub-menu collapse" id="help">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Documentation</a></li>
+                            <li>
+                                <a href="http://www.github.com/dduderstadt/restoration-church" target="_blank">
+                                    <i class="fa fa-angle-double-right"></i> Code on GitHub <small><i class="fa fa-external-link"></i></small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+            <div href="#" id="rc-admin" class="brand">administrator</div>
+        </div>
+    </nav>
+    }
 
 
     <div class="bg-overlay"></div>
@@ -198,14 +266,14 @@
 
 <script>
     //========== active nav ==========
-    $(function () {
-        $(document.getElementById("nav-links")).children("a").click(function () {
-            //remove classes from all
-            $("li").removeClass("active");
-            //add class to active nav
-            $(this).parent("li").addClass("active");
-        });
-    });
+    //$(function () {
+    //    $(document.getElementById("nav-links")).children("a").click(function () {
+    //        //remove classes from all
+    //        $("li").removeClass("active");
+    //        //add class to active nav
+    //        $(this).parent("li").addClass("active");
+    //    });
+    //});
 
     //========== confirm connect ==========
     setTimeout(function () {
@@ -230,6 +298,27 @@
         isClosed = false;
         $('#social').addClass('hidden');
     };
+
+    //========== admin nav ==========
+    $(function () {
+        document.getElementById('rc-admin-nav').style.right = "-180px";
+            $('#rc-admin').addClass('hidden');
+    });
+
+    var isAdminClosed = false;
+
+    function closeAdminNav() {
+        document.getElementById('rc-admin-nav').style.right = "-180px";
+        isAdminClosed = true;
+        $('#rc-admin').addClass('hidden');
+    };
+
+    function openAdminNav() {
+        document.getElementById('rc-admin-nav').style.right = "0px";
+        isAdminClosed = false;
+        $('#rc-admin').removeClass('hidden');
+    }
+
 
     //========== live notification ==========
     //function stopBlink() {
