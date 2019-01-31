@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace rcliberty.Web.Models
@@ -53,12 +51,17 @@ namespace rcliberty.Web.Models
             [Display(Name = "Audio")]
             public string Url { get; set; }
 
-            [Display(Name = "Date")]
+            [Display(Name = "Date")] //TODO remove BEFORE deploying new media page to PROD
             public string PublishDate { get; set; }
+
+            [Display(Name = "Date")]
+            public DateTime PublishDateTime { get; set; }
 
             public string Title { get; set; }
 
             public string Id { get; set; }
+
+            public int SeriesId { get; set; }
         }
 
         public class Series
@@ -66,6 +69,12 @@ namespace rcliberty.Web.Models
             public int Id { get; set; }
             public string Name { get; set; }
             public string Image { get; set; }
+        }
+
+        public class SeriesEpisodeViewModel
+        {
+            public List<Series> Series { get; set; }
+            public List<Episode> Episodes { get; set; }
         }
 
         public class Results
@@ -170,7 +179,7 @@ namespace rcliberty.Web.Models
                 string series = model.Title.Substring(0, location - 1);
                 //TODO refactor image to determine true extension of image
                 string image = series.Replace(' ', '-').Replace("&", "and").ToLower() + ".jpg";
-                
+
                 #region Series
 
                 SqlCommand getAllSeries = new SqlCommand("SELECT Name FROM Series WHERE Name = @name", conn);
@@ -233,30 +242,63 @@ namespace rcliberty.Web.Models
             }
         }
 
-        public static List<Series> GetAllSeries()
+        public static List<Series> GetSeriesData()
         {
-            List<Series> seriesList = new List<Series>();
+            List<Series> series = new List<Series>();
 
             using (SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=rcliberty;Integrated Security=True;"))
             {
                 conn.Open();
 
-                SqlCommand cmdGetAllSeries = new SqlCommand("SELECT * FROM Series", conn);
-                SqlDataReader rdrSeries = cmdGetAllSeries.ExecuteReader();
+                SqlCommand cmdGetData = new SqlCommand("SELECT * FROM Series s ", conn);
+                SqlDataReader rdrData = cmdGetData.ExecuteReader();
 
-                while (rdrSeries.Read())
+                while (rdrData.Read())
                 {
-                    Series s = new Series();
-                    s.Id = (int)rdrSeries["Id"];
-                    s.Name = (string)rdrSeries["Name"];
-                    s.Image = (rdrSeries["Image"] == DBNull.Value) ? string.Empty : (string)rdrSeries["Image"];
+                    Series s = new Series
+                    {
+                        Id = (int)rdrData["Id"],
+                        Name = (string)rdrData["Name"],
+                        Image = (rdrData["Image"] == DBNull.Value) ? string.Empty : (string)rdrData["Image"]
 
-                    seriesList.Add(s);
+                    };
+
+                    series.Add(s);
                 }
             }
 
-            return seriesList;
+            return series;
         }
+
+        public static List<Episode> GetEpisodeData()
+        {
+            List<Episode> episodes = new List<Episode>();
+
+            using (SqlConnection conn = new SqlConnection("Data Source=.\\sqlexpress;Initial Catalog=rcliberty;Integrated Security=True;"))
+            {
+                conn.Open();
+
+                SqlCommand cmdGetData = new SqlCommand("SELECT * FROM Episodes e", conn);
+                SqlDataReader rdrData = cmdGetData.ExecuteReader();
+
+                while (rdrData.Read())
+                {
+                    Episode e = new Episode
+                    {
+                        Title = (string)rdrData["Title"],
+                        PublishDateTime = (DateTime)rdrData["Date"],
+                        Url = (string)rdrData["AudioUrl"],
+                        SeriesId = (int)rdrData["SeriesId"]
+                    };
+
+                    episodes.Add(e);
+                }
+            }
+
+            return episodes;
+        }
+
+
 
 
         //create MSSQL database (brainstorm)

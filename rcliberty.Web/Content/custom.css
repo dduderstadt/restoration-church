@@ -907,6 +907,27 @@ footer
     }
 }
 
+/* EVENTS */
+.rc-media-img-tiles
+{
+    padding: 1em;
+    float: left;
+    width: 33%;
+}
+
+.rc-media-episodes
+{
+    text-align: center;
+    margin: 1em;
+    padding-bottom: 1em;
+    border: 2px solid #16a4a8;
+}
+
+    .rc-media-episodes h3
+    {
+        font-weight: bolder;
+    }
+
 /* ADMIN LOGIN */
 #rc-login
 {

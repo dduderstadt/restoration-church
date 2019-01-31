@@ -1,16 +1,64 @@
-﻿@model IEnumerable<rcliberty.Web.Models.PodcastModels.Series>
+﻿@using rcliberty.Web.Models;
+@model rcliberty.Web.Models.PodcastModels.SeriesEpisodeViewModel
 
 @{
+    /**/
+
     ViewBag.Title = "Media";
 }
 
 <h2>Media</h2>
 
-@foreach (var item in Model)
+@foreach (PodcastModels.Series s in Model.Series.OrderBy(s => s.Name))
 {
-    <div class="col-md-4">
-        <h2>@item.Name</h2>
-        <p>@item.Id</p>
-        <img class="series-img" src="~/Content/img/series/@item.Image" />
+    @*<div class="col-md-4">
+            <h2>@item.Name</h2>
+            <p>@item.Id</p>
+            <img class="series-img" src="~/Content/img/series/@item.Image" />
+        </div>*@
+
+    string modalId = s.Name.Replace(' ', '-').Replace("&", "and").ToLower();
+
+    <div class="rc-media-img-tiles">
+        <img src="~/Content/img/series/@s.Image" data-toggle="modal" data-target="#@modalId-modal" />
+    </div>
+
+
+    <!-- series modal -->
+    <div id="@modalId-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">
+                        <span class="emphasis">
+                            @s.Name | @Model.Episodes.Where(e => e.SeriesId == s.Id).Count()
+                            @(Model.Episodes.Where(e => e.SeriesId == s.Id).Count() != 1 ? "Episodes" : "Episode")
+                        </span>
+                    </h3>
+                </div>
+                <div class="modal-body">
+                    <img src="~/Content/img/series/@s.Image" />
+                    <div class="spacer-dark"></div>
+                    @foreach (var e in Model.Episodes.Where(ep => ep.SeriesId == s.Id).OrderBy(ep => ep.PublishDateTime))
+                    {
+                        <div class="rc-media-episodes">
+                            <h3>@e.Title</h3>
+                            <h4><i>@e.PublishDateTime.ToString("d")</i></h4>
+                            <div>
+                                <audio controls>
+                                    <source src="@e.Url" type="audio/mp4" />
+                                </audio>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 }
+
