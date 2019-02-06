@@ -123,66 +123,66 @@
     <!-- admin nav -->
     @if (User.IsInRole("Admin"))
     {
-    <nav id="rc-admin-nav" class="nav-side-menu">
-        <p href="#" id="close" onclick="closeAdminNav()">&times;</p>
-        
-        <div onclick="openAdminNav()">
-            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <nav id="rc-admin-nav" class="nav-side-menu">
+            <p href="#" id="close" onclick="closeAdminNav()">&times;</p>
 
-            <div class="menu-list">
+            <div onclick="openAdminNav()">
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-                <ul id="menu-content" class="menu-content collapse out">
-                    <li>
-                        <a href="#"><i class="fa fa-dashboard fa-lg fa-fw sidebar-icon"></i> Dashboard</a>
-                    </li>
+                <div class="menu-list">
 
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart fa-lg fa-fw sidebar-icon"></i> Google Analytics</a>
-                    </li>
+                    <ul id="menu-content" class="menu-content collapse out">
+                        <li>
+                            <a href="#"><i class="fa fa-dashboard fa-lg fa-fw sidebar-icon"></i> Dashboard</a>
+                        </li>
 
-                    <li data-toggle="collapse" data-target="#account" class="collapsed">
-                        <a href="#"><i class="fa fa-puzzle-piece fa-lg fa-fw sidebar-icon"></i> Accounts <span class="arrow"></span></a>
-                    </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart fa-lg fa-fw sidebar-icon"></i> Google Analytics</a>
+                        </li>
 
-                    <li>
-                        <ul class="sub-menu collapse" id="account">
-                            <li><a href="@Url.Action("Index", "UsersAdmin")"><i class="fa fa-angle-double-right"></i> Users</a></li>
-                            <li><a href="@Url.Action("Index", "RolesAdmin")"><i class="fa fa-angle-double-right"></i> Roles</a></li>
-                        </ul>
-                    </li>
+                        <li data-toggle="collapse" data-target="#account" class="collapsed">
+                            <a href="#"><i class="fa fa-puzzle-piece fa-lg fa-fw sidebar-icon"></i> Accounts <span class="arrow"></span></a>
+                        </li>
 
-                    <li data-toggle="collapse" data-target="#cms" class="collapsed">
-                        <a href="#"><i class="fa fa-cogs fa-lg fa-fw sidebar-icon"></i> Site Content <span class="arrow"></span></a>
-                    </li>
+                        <li>
+                            <ul class="sub-menu collapse" id="account">
+                                <li><a href="@Url.Action("Index", "UsersAdmin")"><i class="fa fa-angle-double-right"></i> Users</a></li>
+                                @*<li><a href="@Url.Action("Index", "RolesAdmin")"><i class="fa fa-angle-double-right"></i> Roles</a></li>*@
+                            </ul>
+                        </li>
 
-                    <li>
-                        <ul class="sub-menu collapse" id="cms">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Sermon Series</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Messages </a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Images</a></li>
-                        </ul>
-                    </li>
+                        <li data-toggle="collapse" data-target="#cms" class="collapsed">
+                            <a href="#"><i class="fa fa-cogs fa-lg fa-fw sidebar-icon"></i> Site Content <span class="arrow"></span></a>
+                        </li>
 
-                    <li data-toggle="collapse" data-target="#help" class="collapsed">
-                        <a href="#"><i class="fa fa-life-ring fa-lg fa-fw sidebar-icon"></i> Help <span class="arrow"></span></a>
-                    </li>
+                        <li>
+                            <ul class="sub-menu collapse" id="cms">
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Sermon Series</a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Messages </a></li>
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Images</a></li>
+                            </ul>
+                        </li>
 
-                    <li>
-                        <ul class="sub-menu collapse" id="help">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Documentation</a></li>
-                            <li>
-                                <a href="http://www.github.com/dduderstadt/restoration-church" target="_blank">
-                                    <i class="fa fa-angle-double-right"></i> Code on GitHub <small><i class="fa fa-external-link"></i></small>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @Html.Partial("_LoginPartial")
-                </ul>
+                        <li data-toggle="collapse" data-target="#help" class="collapsed">
+                            <a href="#"><i class="fa fa-life-ring fa-lg fa-fw sidebar-icon"></i> Help <span class="arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <ul class="sub-menu collapse" id="help">
+                                <li><a href="#"><i class="fa fa-angle-double-right"></i> Documentation</a></li>
+                                <li>
+                                    <a href="http://www.github.com/dduderstadt/restoration-church" target="_blank">
+                                        <i class="fa fa-angle-double-right"></i> Code on GitHub <small><i class="fa fa-external-link"></i></small>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </div>
+                <div href="#" id="rc-admin" class="brand">administrator</div>
             </div>
-            <div href="#" id="rc-admin" class="brand">administrator</div>
-        </div>
-    </nav>
+        </nav>
     }
 
 
@@ -260,7 +260,8 @@
     <script src="~/Scripts/datatables.min.js" type="text/javascript"></script>
     @*<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>*@
     <!-- live stream script-->
-    <script type="text/javascript" data-embed_id="ls_embed_1539231289" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>                 @RenderSection("scripts", required: false)
+    <script type="text/javascript" data-embed_id="ls_embed_1539231289" src="https://livestream.com/assets/plugins/referrer_tracking.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 
@@ -285,7 +286,7 @@
         $('#social').addClass('hidden');
     });
 
-    var isClosed = false;
+    var isClosed = true;
 
     function closeSideNav() {
         document.getElementById('side-nav').style.left = "-80px";
@@ -302,7 +303,7 @@
     //========== admin nav ==========
     $(function () {
         document.getElementById('rc-admin-nav').style.right = "-180px";
-            $('#rc-admin').addClass('hidden');
+        $('#rc-admin').addClass('hidden');
     });
 
     var isAdminClosed = false;
