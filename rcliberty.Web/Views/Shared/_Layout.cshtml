@@ -45,7 +45,6 @@
 
             gtag('config', 'UA-127337513-1');
         </script>*@
-
 </head>
 <body>
 
@@ -105,7 +104,8 @@
     </div>
 
     <!-- side nav (social) -->
-    <nav id="side-nav">
+    @*<nav id="side-nav">*@
+    <nav id="side-nav" style="left: -80px;">
         <p href="#" id="close" onclick="closeSideNav()">&times;</p>
         <div onclick="openSideNav()">
             <ul>
@@ -189,8 +189,8 @@
     <div class="bg-overlay"></div>
 
     @if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday
-                                                 && DateTime.UtcNow.Hour >= 15
-                                                 && DateTime.UtcNow.Hour <= 17)
+        && DateTime.UtcNow.Hour >= 15
+        && DateTime.UtcNow.Hour < 17)
     {
         <!-- live notification (live stream modal) -->
         <div id="live-notification" class="blink">
@@ -251,7 +251,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <p id="dudercode">&copy; <span class="emphasis">@DateTime.Now.Year</span> - duder<span class="emphasis">code</span></p>
+        <p id="dudercode">&copy; <span class="emphasis">@DateTime.Now.Year</span> - <a href="http://www.dudercode.com" target="_blank">duder<span class="emphasis">code</span></a></p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
@@ -266,27 +266,24 @@
 </html>
 
 <script>
-    //========== active nav ==========
-    //$(function () {
-    //    $(document.getElementById("nav-links")).children("a").click(function () {
-    //        //remove classes from all
-    //        $("li").removeClass("active");
-    //        //add class to active nav
-    //        $(this).parent("li").addClass("active");
-    //    });
-    //});
-
     //========== confirm connect ==========
     setTimeout(function () {
         $("#rc-connect-success").fadeOut(1000);
     }, 3000);
 
     //========== side nav ==========
-    $(function () {
-        $('#social').addClass('hidden');
-    });
+    //$(function () {
+    //    $('#social').addClass('hidden');
+    //});
 
     var isClosed = true;
+
+    $(function () {
+        //document.getElementById('side-nav').style.left = "-80px";
+        isClosed = true;
+        $('#social').removeClass('hidden');
+    });
+
 
     function closeSideNav() {
         document.getElementById('side-nav').style.left = "-80px";
@@ -319,7 +316,6 @@
         isAdminClosed = false;
         $('#rc-admin').removeClass('hidden');
     }
-
 
     //========== live notification ==========
     //function stopBlink() {
