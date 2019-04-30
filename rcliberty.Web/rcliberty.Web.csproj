@@ -254,6 +254,7 @@
     <Content Include="Content\img\rc-kids_logo.png" />
     <Content Include="Content\img\read-bible_sm-tile.png" />
     <Content Include="Content\img\real-facts-banner.jpg" />
+    <Content Include="Content\img\red-cross-the-real-story-of-jesus.jpg" />
     <Content Include="Content\img\red-ink-jesus-banner.jpg" />
     <Content Include="Content\img\restoration-church_logo.png" />
     <Content Include="Content\img\series\duck-dynasty.jpg" />
@@ -274,6 +275,7 @@
     <Content Include="Content\img\theCapitol-promo.jpg" />
     <Content Include="Content\img\weird-stuff-banner.jpg" />
     <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
+    <Content Include="Content\img\who-am-i-banner.jpg" />
     <Content Include="Content\theCapitol-logo-md.png" />
     <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
     <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
@@ -584,9 +586,11 @@
     <Content Include="Views\InitAdmin\Index.cshtml" />
     <Content Include="Views\InitAdmin\Error.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddNewSeries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img\!test\" />
     <Folder Include="_archive\assets\used\" />
   </ItemGroup>
   <ItemGroup>
@@ -595,6 +599,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rcliberty.Data\rcliberty.Data.csproj">
+      <Project>{c5732530-43e3-4131-9288-46119490b762}</Project>
+      <Name>rcliberty.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
