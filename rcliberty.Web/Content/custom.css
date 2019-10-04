@@ -91,24 +91,19 @@
     font-size: 3em;
 }
 
-    .overlay-text
-    /*.container .body-content
+/* DUDERCODE TAG */
+#dudercode
 {
-    background-color: #fff;
-}*/
-    /* DUDERCODE TAG */
-    #dudercode
-    {
-        text-align: center;
-        font-weight: 600;
-        letter-spacing: 10px;
-    }
-
-#dudercode a
-{
-    color: #fff;
-    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 10px;
 }
+
+    #dudercode a
+    {
+        color: #fff;
+        text-decoration: none;
+    }
 
 /* TAGS (images) */
 .img-tag-sm
@@ -477,11 +472,38 @@ footer
     float: left;
 }
 
+#service-times
+{
+    float: right;
+    margin-right: 10%;
+}
+
+@media screen and (max-width: 1671px)
+{
+    #service-times
+    {
+        margin-right: 5%;
+    }
+}
+
+@media screen and (max-width: 1490px)
+{
+    #service-times
+    {
+        margin-right: 0;
+    }
+}
+
 @media screen and (max-width: 730px)
 {
     #sunday-tag
     {
         margin-left: 10%;
+    }
+
+    #service-times
+    {
+        float: none;
     }
 
     #map
@@ -776,20 +798,20 @@ footer
     min-width: 100%;
 }
 
-.rc-connect-name
+/*.rc-connect-name
 {
     width: 47%;
     position: relative;
     float: left;
     display: inline-block;
-}
+}*/
 
 .text-field
 {
     margin: .5em;
 }
 
-@media screen and (max-width: 1200px)
+/*@media screen and (max-width: 1200px)
 {
     .rc-connect-name
     {
@@ -798,7 +820,7 @@ footer
         float: none;
         display: normal;
     }
-}
+}*/
 
 #rc-connect-btn,
 #rc-login-btn

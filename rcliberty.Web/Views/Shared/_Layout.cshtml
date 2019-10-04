@@ -22,7 +22,6 @@
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/bundles/font-awesome")
 
-
     <!-- datatables.net styles -->
     <link href="~/Content/datatables.min.css" rel="stylesheet" type="text/css" />
     @*<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />*@
@@ -30,11 +29,10 @@
     <!-- custom styles -->
     <link href="~/Content/custom.css" rel="stylesheet" type="text/css" />
 
-    <!-- admin styles -->
-    <link href="~/Content/admin-dashboard.css" rel="stylesheet" type="text/css" />
-
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+
+    @RenderSection("css", false)
 
     <!-- Google analytics (Global site tag -- gtag.js) -->
     @*<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127337513-1"></script>
@@ -251,7 +249,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <p id="dudercode">&copy; <span class="emphasis">@DateTime.Now.Year</span> - <a href="http://www.dudercode.com" target="_blank">duder<span class="emphasis">code</span></a></p>
+        <p id="dudercode" class="text-center">&copy; <span class="emphasis">@DateTime.Now.Year</span> - <a href="http://www.dudercode.com" target="_blank">duder<span class="emphasis">code</span></a></p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

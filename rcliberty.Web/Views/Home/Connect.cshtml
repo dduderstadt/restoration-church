@@ -46,10 +46,10 @@
                 @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
                 <div class="field">
-                    <div class="rc-connect-name text-field">
+                    <div class="text-field">
                         @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name" } })
                     </div>
-                    <div class="rc-connect-name text-field">
+                    <div class="text-field">
                         @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
                     </div>
                     <div class="clearfix"></div>
