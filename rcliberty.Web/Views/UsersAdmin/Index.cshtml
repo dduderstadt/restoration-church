@@ -1,13 +1,13 @@
 @model IEnumerable<rcliberty.Web.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Account/User Management";
 }
 
-<h2>Index</h2>
+<h1 class="admin-header">@ViewBag.Title</h1>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add a New User", "Create", null, new { @class = "btn btn-default admin-create-btn" })
 </p>
 <table class="table">
     <tr>
