@@ -43,6 +43,9 @@
 
             gtag('config', 'UA-127337513-1');
         </script>*@
+
+    <!-- shared JavaScript -->
+    <script type="text/javascript" src="~/Scripts/shared.js"></script>
 </head>
 <body>
 
@@ -95,10 +98,50 @@
                         </a>
                     </li>
                     @*@Html.Partial("_LoginPartial")*@
+                    <li id="rc-guest" style="margin-top: 1%;">
+                        <a href="#" data-toggle="modal" data-target="#rc-guest-visit">
+                            Plan Your Visit
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="spacer"></div>
+    </div>
+
+    @if (TempData["EmailConfirm"] != null)
+    {
+        <div id="rc-connect-success" class="alert-success">
+            <p>@TempData["EmailConfirm"]</p>
+        </div>
+    }
+
+    @if (TempData["EmailError"] != null)
+    {
+        <div id="rc-connect-error" class="alert-danger">
+            <p>@TempData["EmailError"]</p>
+        </div>
+    }
+
+    <div id="rc-guest-visit" class="modal fade in"
+         tab-index="-1" role="document" aria-labeledby="planYourVisit" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="planYourVisit"><span class="emphasis">Plan Your Visit to RC Liberty</span></h3>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>*@
+                </div>
+                <div class="modal-body">
+                    @Html.Partial("_GuestVisit")
+                </div>
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Nevermind</button>
+                        <button type="submit" class="btn rc-btn">See you soon!</button>
+                    </div>*@
+            </div>
+        </div>
     </div>
 
     <!-- side nav (social) -->
@@ -240,8 +283,8 @@
             <img id="sunday-tag" src="~/Content/img/tags/sunday-tag.jpg" />
             <h4 id="service-times">
                 The <span class="emphasis">Experience</span> 10:30 am
-                <br />
-                The <span class="emphasis">Capitol</span> 6:00 pm
+                @*<br />
+                The <span class="emphasis">Capitol</span> 6:00 pm*@
             </h4>
         </div>
         <div class="container-half-screen">
@@ -263,64 +306,26 @@
 </body>
 </html>
 
+<script type="text/javascript" src="~/Scripts/contact-forms.js"></script>
+
 <script>
-    //========== confirm connect ==========
-    setTimeout(function () {
-        $("#rc-connect-success").fadeOut(1000);
-    }, 3000);
-
-    //========== side nav ==========
-    //$(function () {
-    //    $('#social').addClass('hidden');
-    //});
-
-    var isClosed = true;
-
-    $(function () {
-        //document.getElementById('side-nav').style.left = "-80px";
-        isClosed = true;
-        $('#social').removeClass('hidden');
+    $(window).load(function () {
+        getViewportWidth();
     });
 
-
-    function closeSideNav() {
-        document.getElementById('side-nav').style.left = "-80px";
-        isClosed = true;
-        $('#social').removeClass('hidden');
-    };
-
-    function openSideNav() {
-        document.getElementById('side-nav').style.left = "0px";
-        isClosed = false;
-        $('#social').addClass('hidden');
-    };
-
-    //========== admin nav ==========
-    $(function () {
-        document.getElementById('rc-admin-nav').style.right = "-180px";
-        $('#rc-admin').addClass('hidden');
+    $(window).resize(function () {
+        getViewportWidth();
     });
-
-    var isAdminClosed = false;
-
-    function closeAdminNav() {
-        document.getElementById('rc-admin-nav').style.right = "-180px";
-        isAdminClosed = true;
-        $('#rc-admin').addClass('hidden');
-    };
-
-    function openAdminNav() {
-        document.getElementById('rc-admin-nav').style.right = "0px";
-        isAdminClosed = false;
-        $('#rc-admin').removeClass('hidden');
-    }
-
-    //========== live notification ==========
-    //function stopBlink() {
-    //    $('#live-notification').removeClass('blink');
-    //}
-
-    //function startBlink() {
-    //    $('#live-notification').addClass('blink');
-    //}
 </script>
+
+@if (TempData["GuestVisitFieldValues"] != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(TempData["GuestVisitFieldValues"])
+    </script>
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <script type="text/javascript" src="~/Scripts/admin.js"></script>
+}

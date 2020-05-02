@@ -1,6 +1,4 @@
-﻿@model rcliberty.Web.Models.ContactViewModel
-
-@{
+﻿@{
     ViewBag.Title = "Connect";
 }
 
@@ -12,12 +10,13 @@
 
 <div id="rc-connect">
 
-    @if (ViewBag.ErrorMessage != null)
+    @*@if (TempData["EmailError"] != null)
     {
         <div id="rc-connect-error" class="alert-danger">
-            <p>@ViewBag.ErrorMessage</p>
+            <p>@TempData["EmailError"]</p>
         </div>
-    }
+    }*@
+
     <div class="container-half-screen">
         <h2>We're in this <span class="emphasis">together</span>...</h2>
         <div id="rc-connect-left">
@@ -38,59 +37,48 @@
 
     <div class="container-half-screen">
         <h2><span class="emphasis">Connect</span> with us</h2>
-        @using (Html.BeginForm("Connect", "Home", FormMethod.Post))
-            {
+        <form method="post" action="/Home/Connect">
             @Html.AntiForgeryToken()
-
             <div class="form-horizontal">
-                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-                <div class="field">
-                    <div class="text-field">
-                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "First Name" } })
+                <div id="connectName">
+                    <div id="connectFName">
+                        <div>
+                            <input type="text" class="form-control" id="rcConnectFirstName" name="FirstName" placeholder="First Name" required maxlength="15" />
+                        </div>
                     </div>
-                    <div class="text-field">
-                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Last Name" } })
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-
-                <div class="field">
-                    <div class="text-field">
-                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control", @placeholder = "Subject" } })
+                    <div id="connectLName">
+                        <div>
+                            <input type="text" class="form-control" id="rcConnectLastName" name="LastName" placeholder="Last Name" maxlength="25" />
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="text-field">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "you@email.com" } })
+                <div id="connectDetail">
+                    <div id="connectSubject">
+                        <div>
+                            <input type="text" class="form-control" placeholder="Subject" id="rcConnectSubject" name="Subject" maxlength="15" />
+                        </div>
+                    </div>
+                    <div id="connectEmail">
+                        <div>
+                            <input type="email" class="form-control" placeholder="you@email.com" id="rcConnectEmail" name="Email" required />
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="text-field">
-                        @Html.EditorFor(model => model.Message, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control",
-                           @placeholder = "Your Message",
-                           @cols = 5,
-                           @rows = 10
-                       }
-                   })
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <textarea class="form-control text-box multi-line" id="rcConnectMessage" name="Message" placeholder="Please type your message here" rows="8" style="resize: none;" required></textarea>
                     </div>
                 </div>
 
-                <div class="field">
-                    <div class="text-field">
-                        <input id="rc-connect-btn" type="submit" value="Connect" class="btn btn-default" />
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <input id="rc-connect-btn" type="submit" value="Connect" class="btn btn-default" style="width: 100%;" />
                     </div>
                 </div>
-
-                <div class="clearfix"></div>
             </div>
-        }
+        </form>
     </div>
 
     <div class="clearfix"></div>
@@ -98,9 +86,25 @@
 
 @section scripts{
     <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
-    <script>
-        setTimeout(function () {
-            $("#rc-connect-error").fadeOut(1000);
-        }, 3000);
+    <script type="text/javascript">
+        //setTimeout(function () {
+        //    $("#rc-connect-error").fadeOut(1000);
+        //}, 3000);
+
+        function PopulateFieldsOnError(firstName, lastName, subject, email, message) {
+            $('#rcConnectFirstName').val(firstName);
+            $('#rcConnectLastName').val(lastName);
+            $('#rcConnectSubject').val(subject);
+            $('#rcConnectEmail').val(email);
+            $('#rcConnectMessage').val(message);
+        }
+
     </script>
+
+    @if(TempData["ConnectFieldValues"] != null)
+    {
+        <script type="text/javascript">
+            @Html.Raw(TempData["ConnectFieldValues"])
+        </script>
+    }
 }

@@ -119,8 +119,8 @@ namespace rcliberty.Web.Models
 
                 episodes.Add(model);
                 //InsertRecords(model);
-                SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True");
-                PopulatePodcastData(model, conn);
+                //SqlConnection conn = new SqlConnection("Data Source =.\\sqlexpress; Initial Catalog = rcliberty; Integrated Security = True");
+                //PopulatePodcastData(model, conn);
             }
             return episodes;
         }

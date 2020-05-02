@@ -10,12 +10,17 @@ namespace rcliberty.Web.HelpersAndExtensions
     {
         public static string IsActive(this HtmlHelper html, string controller, string action)
         {
-            var routeData = html.ViewContext.RouteData;
+            return ((controller == GetCurrentController(html) && action == GetCurrentAction(html)) ? "active-nav" : "");
+        }
 
-            string currAction = (string)routeData.Values["action"];
-            string currController = (string)routeData.Values["controller"];
+        public static string GetCurrentAction(this HtmlHelper html)
+        {
+            return (string)html.ViewContext.RouteData.Values["action"];
+        }
 
-            return ((controller == currController && action == currAction) ? "active-nav" : "");
+        public static string GetCurrentController(this HtmlHelper html)
+        {
+            return (string)html.ViewContext.RouteData.Values["controller"];
         }
     }
 }

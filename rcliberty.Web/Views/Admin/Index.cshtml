@@ -3,10 +3,27 @@
     ViewBag.Title = "Index";
 }
 
-<div>
-    <h1 id="rc-admin-header">ADMIN DASHBOARD</h1>
-</div>
-
 <div id="rc-admin-dash">
 
+    <div>
+        <h1 id="rc-admin-header">ADMIN DASHBOARD</h1>
+    </div>
+
+    @* TODO Add tiled layout for standards *@
+    <div class="rc-admin-tile">
+
+    </div>
+    <div class="rc-admin-tile">
+
+    </div>
+    <div class="rc-admin-tile">
+
+    </div>
+
+    @* TODO Add instructions for using the admin dashboard *@
 </div>
+
+@section css {
+    <!-- admin styles -->
+    <link href="~/Content/admin-dashboard.css" rel="stylesheet" type="text/css" />
+}

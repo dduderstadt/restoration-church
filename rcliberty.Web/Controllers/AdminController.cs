@@ -1,6 +1,4 @@
 ﻿using rcliberty.Data;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -47,6 +45,7 @@ namespace rcliberty.Web.Controllers
                                 series.Name.Replace(' ', '-').Replace("&", "and").ToLower() + ext;
 
                             //TODO Update with real folder structure for series image uploads
+                            //TODO Resize the image and use a thumbnail to for series graphic
                             string path = Path.Combine(Server.MapPath("~/Content/img/!test/"), imageName);
                             seriesImage.SaveAs(path);
                             series.Image = imageName;
@@ -66,5 +65,7 @@ namespace rcliberty.Web.Controllers
 
             return View(series);
         }
+
+        // GET: AddSeriesEpisode
     }
 }
