@@ -1,0 +1,659 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D101DE3B-3FF4-4ACA-963F-84A8F4662C57}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>rcliberty.Web</RootNamespace>
+    <AssemblyName>rcliberty.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp, Version=106.3.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.106.3.0\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\IdentityManagement.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InitAdminController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\UsersAdminController.cs" />
+    <Compile Include="EmailSettings.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HelpersAndExtensions\ViewHelpers.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PodcastModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\admin-dashboard.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\datatables.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\!test\new-test-series.jpg" />
+    <Content Include="Content\img\!test\test-series-1.jpg" />
+    <Content Include="Content\img\!test\test.jpg" />
+    <Content Include="Content\img\attend_header.png" />
+    <Content Include="Content\img\backgrounds\bg2.jpg" />
+    <Content Include="Content\img\backgrounds\bg-main.jpg" />
+    <Content Include="Content\img\backgrounds\rcliberty-service-bw.jpg" />
+    <Content Include="Content\img\baptism_sm-tile.png" />
+    <Content Include="Content\img\battle-storm-banner.jpg" />
+    <Content Include="Content\img\breakout-banner.jpg" />
+    <Content Include="Content\img\buttons\btn-attend-white.png" />
+    <Content Include="Content\img\buttons\btn-attend-gray.png" />
+    <Content Include="Content\img\buttons\btn-connect-white.png" />
+    <Content Include="Content\img\buttons\btn-connect-gray.png" />
+    <Content Include="Content\img\buttons\btn-discover-white.png" />
+    <Content Include="Content\img\buttons\btn-discover-gray.png" />
+    <Content Include="Content\img\buttons\email_icon.jpg" />
+    <Content Include="Content\img\buttons\facebook_icon.jpg" />
+    <Content Include="Content\img\buttons\btn-give-white.png" />
+    <Content Include="Content\img\buttons\btn-give-gray.png" />
+    <Content Include="Content\img\buttons\btn-grow-white.png" />
+    <Content Include="Content\img\buttons\btn-grow-gray.png" />
+    <Content Include="Content\img\buttons\itunes.png" />
+    <Content Include="Content\img\buttons\btn-life-white.png" />
+    <Content Include="Content\img\buttons\btn-life-gray.png" />
+    <Content Include="Content\img\buttons\main1.png" />
+    <Content Include="Content\img\buttons\main2.png" />
+    <Content Include="Content\img\buttons\new_here1.png" />
+    <Content Include="Content\img\buttons\new_here2.png" />
+    <Content Include="Content\img\buttons\phone_icon.jpg" />
+    <Content Include="Content\img\buttons\podbean.png" />
+    <Content Include="Content\img\buttons\twitter_footer.jpg" />
+    <Content Include="Content\img\buttons\twitter_footer2.jpg" />
+    <Content Include="Content\img\buttons\watch1.png" />
+    <Content Include="Content\img\buttons\watch2.png" />
+    <Content Include="Content\img\christmas-eve-banner.jpg" />
+    <Content Include="Content\img\connect_header.png" />
+    <Content Include="Content\img\core_tile.png" />
+    <Content Include="Content\img\discover_header.png" />
+    <Content Include="Content\img\duck-dynasty-promo-banner.png" />
+    <Content Include="Content\img\everything-banner.jpg" />
+    <Content Include="Content\img\fight-night-banner.jpg" />
+    <Content Include="Content\img\finances_sm-tile.png" />
+    <Content Include="Content\img\give_header.png" />
+    <Content Include="Content\img\grow_header.png" />
+    <Content Include="Content\img\headers\header-nav-bg.png" />
+    <Content Include="Content\img\headers\header-nav-spacer.png" />
+    <Content Include="Content\img\just-believe-banner.jpg" />
+    <Content Include="Content\img\life-groups_sm-tile.png" />
+    <Content Include="Content\img\life-groups_tile.png" />
+    <Content Include="Content\img\life_header.png" />
+    <Content Include="Content\img\meet-jesus_sm-tile.png" />
+    <Content Include="Content\img\MOVE-banner.jpg" />
+    <Content Include="Content\img\ownership_sm-tile.png" />
+    <Content Include="Content\img\people\jp_heather.jpg" />
+    <Content Include="Content\img\rc-kids_logo.png" />
+    <Content Include="Content\img\read-bible_sm-tile.png" />
+    <Content Include="Content\img\real-facts-banner.jpg" />
+    <Content Include="Content\img\red-cross-the-real-story-of-jesus.jpg" />
+    <Content Include="Content\img\red-ink-jesus-banner.jpg" />
+    <Content Include="Content\img\restoration-church_logo.png" />
+    <Content Include="Content\img\series\duck-dynasty.jpg" />
+    <Content Include="Content\img\series\fight-night.jpg" />
+    <Content Include="Content\img\series\just-believe.jpg" />
+    <Content Include="Content\img\series\myths-and-facts.jpg" />
+    <Content Include="Content\img\series\red-ink-jesus.jpg" />
+    <Content Include="Content\img\series\spirit.jpg" />
+    <Content Include="Content\img\spirit-power-unleashed-banner.jpg" />
+    <Content Include="Content\img\tags\ag-tag.png" />
+    <Content Include="Content\img\tags\facebook-tag.png" />
+    <Content Include="Content\img\tags\sunday-tag.jpg" />
+    <Content Include="Content\img\tags\twitter-tag.png" />
+    <Content Include="Content\img\the-capitol-banner.png" />
+    <Content Include="Content\img\the-experience-banner.jpg" />
+    <Content Include="Content\img\the-experience-color-wide.jpg" />
+    <Content Include="Content\img\theCapitol-logo-md.png" />
+    <Content Include="Content\img\theCapitol-promo-resize2.png" />
+    <Content Include="Content\img\theCapitol-promo.jpg" />
+    <Content Include="Content\img\tis-the-season-banner.jpg" />
+    <Content Include="Content\img\ultimate-protection-banner.jpg" />
+    <Content Include="Content\img\weird-stuff-banner.jpg" />
+    <Content Include="Content\img\what-was-i-thinking-banner.jpg" />
+    <Content Include="Content\img\who-am-i-banner.jpg" />
+    <Content Include="Content\theCapitol-logo-md.png" />
+    <Content Include="Content\vid\Tribute-District 12_Bumper.mp4" />
+    <Content Include="Content\vid\What A Beautiful Name - Hillsong Worship.mp4" />
+    <Content Include="db\rcliberty_generate-podcast-tables-SCHEMA-ONLY.sql" />
+    <Content Include="db\rcliberty_table-data-test-query.sql" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ReadMe.txt" />
+    <Content Include="Scripts\admin.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\datatables.min.js" />
+    <Content Include="Scripts\jquery-1.12.1.ui.js" />
+    <Content Include="Scripts\contact-forms.js" />
+    <Content Include="Scripts\shared.js" />
+    <Content Include="_archive\404.shtml" />
+    <Content Include="_archive\assets\example_1.jpg" />
+    <Content Include="_archive\assets\example_2.jpg" />
+    <Content Include="_archive\assets\example_3.jpg" />
+    <Content Include="_archive\assets\example_4.jpg" />
+    <Content Include="_archive\assets\serie_1.jpg" />
+    <Content Include="_archive\assets\serie_2.jpg" />
+    <Content Include="_archive\assets\serie_3.jpg" />
+    <Content Include="_archive\assets\serie_4.jpg" />
+    <Content Include="_archive\assets\slide_1.jpg" />
+    <Content Include="_archive\assets\slide_2.jpg" />
+    <Content Include="_archive\assets\slide_3.jpg" />
+    <Content Include="_archive\assets\slide_4.jpg" />
+    <Content Include="_archive\assets\slide_5.jpg" />
+    <Content Include="_archive\assets\slide_6.jpg" />
+    <Content Include="_archive\assets\slide_7.jpg" />
+    <Content Include="_archive\assets\slide_8.jpg" />
+    <Content Include="_archive\assets\slide_9.jpg" />
+    <Content Include="_archive\assets\trans_1.jpg" />
+    <Content Include="_archive\assets\trans_2.jpg" />
+    <Content Include="_archive\attend.html" />
+    <Content Include="_archive\attend_preview.html" />
+    <Content Include="_archive\baptism.html" />
+    <Content Include="_archive\beliefs.html" />
+    <Content Include="_archive\buttons\attend1.png" />
+    <Content Include="_archive\buttons\attend2.png" />
+    <Content Include="_archive\buttons\connect1.png" />
+    <Content Include="_archive\buttons\connect2.png" />
+    <Content Include="_archive\buttons\discover1.png" />
+    <Content Include="_archive\buttons\discover2.png" />
+    <Content Include="_archive\buttons\email_icon.jpg" />
+    <Content Include="_archive\buttons\facebook_icon.jpg" />
+    <Content Include="_archive\buttons\give1.png" />
+    <Content Include="_archive\buttons\give2.png" />
+    <Content Include="_archive\buttons\grow1.png" />
+    <Content Include="_archive\buttons\grow2.png" />
+    <Content Include="_archive\buttons\itunes.png" />
+    <Content Include="_archive\buttons\life1.png" />
+    <Content Include="_archive\buttons\life2.png" />
+    <Content Include="_archive\buttons\main1.png" />
+    <Content Include="_archive\buttons\main2.png" />
+    <Content Include="_archive\buttons\new_here1.png" />
+    <Content Include="_archive\buttons\new_here2.png" />
+    <Content Include="_archive\buttons\phone_icon.jpg" />
+    <Content Include="_archive\buttons\podbean.png" />
+    <Content Include="_archive\buttons\twitter_footer.jpg" />
+    <Content Include="_archive\buttons\twitter_footer2.jpg" />
+    <Content Include="_archive\buttons\watch1.png" />
+    <Content Include="_archive\buttons\watch2.png" />
+    <Content Include="_archive\connect.html" />
+    <Content Include="_archive\connect2.html" />
+    <Content Include="_archive\connect_10_2064752317.jpg" />
+    <Content Include="_archive\connect_15_4153099168.jpg" />
+    <Content Include="_archive\connect_18_3639597999.jpg" />
+    <Content Include="_archive\connect_19_3639597999.jpg" />
+    <Content Include="_archive\connect_22_3639597999.jpg" />
+    <Content Include="_archive\connect_24_3639597999.jpg" />
+    <Content Include="_archive\connect_26_3639597999.jpg" />
+    <Content Include="_archive\connect_28_3639597999.jpg" />
+    <Content Include="_archive\connect_2_3639597999.jpg" />
+    <Content Include="_archive\connect_30_3639597999.jpg" />
+    <Content Include="_archive\connect_32_3639597999.jpg" />
+    <Content Include="_archive\connect_36_2064752317.jpg" />
+    <Content Include="_archive\connect_38_3639597999.jpg" />
+    <Content Include="_archive\connect_40_3639597999.jpg" />
+    <Content Include="_archive\connect_43_3639597999.jpg" />
+    <Content Include="_archive\connect_44_3639597999.jpg" />
+    <Content Include="_archive\connect_46_3639597999.jpg" />
+    <Content Include="_archive\connect_48_3639597999.jpg" />
+    <Content Include="_archive\connect_4_3639597999.jpg" />
+    <Content Include="_archive\connect_5_3639597999.jpg" />
+    <Content Include="_archive\connect_7_3639597999.jpg" />
+    <Content Include="_archive\connect_8_3639597999.jpg" />
+    <Content Include="_archive\css\html5audio.css" />
+    <Content Include="_archive\css\html5audio2.css" />
+    <Content Include="_archive\css\html5audio3.css" />
+    <Content Include="_archive\css\html5audio4.css" />
+    <Content Include="_archive\css\html5audio5.css" />
+    <Content Include="_archive\css\html5audio_multiple.css" />
+    <Content Include="_archive\css\jquery.jscrollpane.css" />
+    <Content Include="_archive\discover.html" />
+    <Content Include="_archive\event.html" />
+    <Content Include="_archive\favicon.ico" />
+    <Content Include="_archive\favicon2.ico" />
+    <Content Include="_archive\favicon3.ico" />
+    <Content Include="_archive\feed.php" />
+    <Content Include="_archive\finances.html" />
+    <Content Include="_archive\give.html" />
+    <Content Include="_archive\grow.html" />
+    <Content Include="_archive\help\css\reset.css" />
+    <Content Include="_archive\help\css\style.css" />
+    <Content Include="_archive\help\images\comment.gif" />
+    <Content Include="_archive\help\images\dots.gif" />
+    <Content Include="_archive\home2.html" />
+    <Content Include="_archive\images\bg2.jpg" />
+    <Content Include="_archive\images\bg_main.jpg" />
+    <Content Include="_archive\images\bottom_bg.png" />
+    <Content Include="_archive\images\crosshatch.png" />
+    <Content Include="_archive\images\current_series_graphic\current_series.jpg" />
+    <Content Include="_archive\images\footer_spacer.jpg" />
+    <Content Include="_archive\images\headers\attend_header.png" />
+    <Content Include="_archive\images\headers\connect_header.png" />
+    <Content Include="_archive\images\headers\discover_header.png" />
+    <Content Include="_archive\images\headers\event_header.png" />
+    <Content Include="_archive\images\headers\give_header.png" />
+    <Content Include="_archive\images\headers\grow_header.png" />
+    <Content Include="_archive\images\headers\life_header.png" />
+    <Content Include="_archive\images\header_bg.png" />
+    <Content Include="_archive\images\header_spacer.png" />
+    <Content Include="_archive\images\image_map_spacer.png" />
+    <Content Include="_archive\images\jp_heather.jpg" />
+    <Content Include="_archive\images\left_bk.jpg" />
+    <Content Include="_archive\images\left_sidebar.jpg" />
+    <Content Include="_archive\images\left_sidebar_bottom.png" />
+    <Content Include="_archive\images\rc_kids_logo.png" />
+    <Content Include="_archive\images\restoration_church_logo.png" />
+    <Content Include="_archive\images\restoration_church_logo2.png" />
+    <Content Include="_archive\images\restoration_church_logo_blog.jpg" />
+    <Content Include="_archive\images\restoration_church_logo_blog2.jpg" />
+    <Content Include="_archive\images\right_bk.jpg" />
+    <Content Include="_archive\images\sidebar\attend_sidebar.png" />
+    <Content Include="_archive\images\sidebar\back_sidebar.png" />
+    <Content Include="_archive\images\sidebar\bottom_sidebar.png" />
+    <Content Include="_archive\images\sidebar\connect_sidebar.png" />
+    <Content Include="_archive\images\sidebar\discover_sidebar.png" />
+    <Content Include="_archive\images\sidebar\give_sidebar.png" />
+    <Content Include="_archive\images\sidebar\grow_sidebar.png" />
+    <Content Include="_archive\images\sidebar\life_sidebar.png" />
+    <Content Include="_archive\images\sub_body_bg-bottom.png" />
+    <Content Include="_archive\images\sub_body_bg-lg.png" />
+    <Content Include="_archive\images\sub_body_bg-top.png" />
+    <Content Include="_archive\images\sub_body_bg.png" />
+    <Content Include="_archive\images\sub_bottom_bg.png" />
+    <Content Include="_archive\images\sunday_tag.jpg" />
+    <Content Include="_archive\images\tagline.png" />
+    <Content Include="_archive\images\tags\baptism.png" />
+    <Content Include="_archive\images\tags\finances.png" />
+    <Content Include="_archive\images\tags\life_groups.png" />
+    <Content Include="_archive\images\tags\meet_jesus.png" />
+    <Content Include="_archive\images\tags\ownership.png" />
+    <Content Include="_archive\images\tags\read_bible.png" />
+    <Content Include="_archive\images\values_list.jpg" />
+    <Content Include="_archive\images\wednesday_tag.jpg" />
+    <Content Include="_archive\index.html" />
+    <Content Include="_archive\index_10_581872638.jpg" />
+    <Content Include="_archive\index_11_2320905882.jpg" />
+    <Content Include="_archive\index_12_581872638.jpg" />
+    <Content Include="_archive\index_14_581872638.jpg" />
+    <Content Include="_archive\index_15_581872638.jpg" />
+    <Content Include="_archive\index_16_581872638.jpg" />
+    <Content Include="_archive\index_17_581872638.jpg" />
+    <Content Include="_archive\index_18_581872638.jpg" />
+    <Content Include="_archive\index_19_581872638.jpg" />
+    <Content Include="_archive\index_20_581872638.jpg" />
+    <Content Include="_archive\index_21_581872638.jpg" />
+    <Content Include="_archive\index_22_581872638.jpg" />
+    <Content Include="_archive\index_23_581872638.jpg" />
+    <Content Include="_archive\index_24_581872638.jpg" />
+    <Content Include="_archive\index_25_581872638.jpg" />
+    <Content Include="_archive\index_26_581872638.jpg" />
+    <Content Include="_archive\index_27_581872638.jpg" />
+    <Content Include="_archive\index_28_581872638.jpg" />
+    <Content Include="_archive\index_29_581872638.jpg" />
+    <Content Include="_archive\index_2_581872638.jpg" />
+    <Content Include="_archive\index_30_2970208121.jpg" />
+    <Content Include="_archive\index_30_829260154.jpg" />
+    <Content Include="_archive\index_31_581872638.jpg" />
+    <Content Include="_archive\index_3_581872638.jpg" />
+    <Content Include="_archive\index_4_581872638.jpg" />
+    <Content Include="_archive\index_5_581872638.jpg" />
+    <Content Include="_archive\index_6_581872638.jpg" />
+    <Content Include="_archive\index_7_581872638.jpg" />
+    <Content Include="_archive\index_8_581872638.jpg" />
+    <Content Include="_archive\index_9_581872638.jpg" />
+    <Content Include="_archive\javascript\jquery.min.js" />
+    <Content Include="_archive\javascript\slider\jquery.slider.js" />
+    <Content Include="_archive\javascript\slider\jquery.slider.min.js" />
+    <Content Include="_archive\javascript\slider\themes\carbono\images\jquery-slider-theme.gif" />
+    <Content Include="_archive\javascript\slider\themes\carbono\images\jquery-slider-theme.png" />
+    <Content Include="_archive\javascript\slider\themes\carbono\jquery.slider.css" />
+    <Content Include="_archive\javascript\slider\themes\carbono\jquery.slider.ie6.css" />
+    <Content Include="_archive\javascript\slider\themes\default\images\jquery-slider-rotator-left.png" />
+    <Content Include="_archive\javascript\slider\themes\default\images\jquery-slider-rotator-right.png" />
+    <Content Include="_archive\javascript\slider\themes\default\images\jquery-slider-theme.gif" />
+    <Content Include="_archive\javascript\slider\themes\default\images\jquery-slider-theme.png" />
+    <Content Include="_archive\javascript\slider\themes\default\jquery.slider.css" />
+    <Content Include="_archive\javascript\slider\themes\default\jquery.slider.ie6.css" />
+    <Content Include="_archive\javascript\slider\themes\fresh\images\jquery-slider-theme.gif" />
+    <Content Include="_archive\javascript\slider\themes\fresh\images\jquery-slider-theme.png" />
+    <Content Include="_archive\javascript\slider\themes\fresh\jquery.slider.css" />
+    <Content Include="_archive\javascript\slider\themes\fresh\jquery.slider.ie6.css" />
+    <Content Include="_archive\javascript\slider\themes\minimalist\images\jquery-slider-theme.gif" />
+    <Content Include="_archive\javascript\slider\themes\minimalist\images\jquery-slider-theme.png" />
+    <Content Include="_archive\javascript\slider\themes\minimalist\jquery.slider.css" />
+    <Content Include="_archive\javascript\slider\themes\minimalist\jquery.slider.ie6.css" />
+    <Content Include="_archive\js\jquery-1.7.min.js" />
+    <Content Include="_archive\js\jquery.apPlaylistManager.min.js" />
+    <Content Include="_archive\js\jquery.apTextScroller.min.js" />
+    <Content Include="_archive\js\jquery.easing.1.3.js" />
+    <Content Include="_archive\js\jquery.html5audio.min.js" />
+    <Content Include="_archive\js\jquery.html5audio2.min.js" />
+    <Content Include="_archive\js\jquery.jscrollpane.min.js" />
+    <Content Include="_archive\js\jquery.mousewheel.min.js" />
+    <Content Include="_archive\js\soundmanager2-nodebug-jsmin.js" />
+    <Content Include="_archive\layout-styles.css" />
+    <Content Include="_archive\life.html" />
+    <Content Include="_archive\life_groups.html" />
+    <Content Include="_archive\media.html" />
+    <Content Include="_archive\meet_jesus.html" />
+    <Content Include="_archive\ownership.html" />
+    <Content Include="_archive\pastor.html" />
+    <Content Include="_archive\read_bible.html" />
+    <Content Include="_archive\swf\soundmanager2.swf" />
+    <Content Include="_archive\swf\soundmanager2_debug.swf" />
+    <Content Include="_archive\swf\soundmanager2_flash9.swf" />
+    <Content Include="_archive\swf\soundmanager2_flash9_debug.swf" />
+    <Content Include="_archive\values.html" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="_archive\assets\Thumbs.db" />
+    <Content Include="_archive\help\images\Thumbs.db" />
+    <Content Include="_archive\swf\soundmanager2_flash_xdomain.zip" />
+    <Content Include="Views\Home\Discover.cshtml" />
+    <Content Include="Views\Home\Podcasts.cshtml" />
+    <Content Include="Views\Home\Grow.cshtml" />
+    <Content Include="Views\Home\Connect.cshtml" />
+    <Content Include="Views\Home\Give.cshtml" />
+    <Content Include="Views\Home\EventRegistration.cshtml" />
+    <Content Include="Views\Home\_BandMembers.cshtml" />
+    <Content Include="Views\Home\_BandRegistration.cshtml" />
+    <Content Include="Views\Home\BandRegistration.cshtml" />
+    <Content Include="Views\Home\Ministries.cshtml" />
+    <Content Include="Views\Home\Media.cshtml" />
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Views\UsersAdmin\Delete.cshtml" />
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\InitAdmin\Success.cshtml" />
+    <Content Include="Views\InitAdmin\Index.cshtml" />
+    <Content Include="Views\InitAdmin\Error.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddNewSeries.cshtml" />
+    <Content Include="Views\Shared\_GuestVisit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="_archive\assets\used\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rcliberty.Data\rcliberty.Data.csproj">
+      <Project>{c5732530-43e3-4131-9288-46119490b762}</Project>
+      <Name>rcliberty.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55807</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55807/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

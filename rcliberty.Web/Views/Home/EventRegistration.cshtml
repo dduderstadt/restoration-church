@@ -1,0 +1,68 @@
+﻿@*@model rcliberty.Web.Models.BandBattleViewModel*@
+
+@{
+    ViewBag.Title = "Battle of the Bands";
+}
+
+<div class="spacer"></div>
+
+<div id="rc-events">
+
+@if (ViewBag.BandRegConfirm != null)
+{
+    <div id="rc-connect-success" class="alert-success">
+        <p>@ViewBag.BandRegConfirm</p>
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div id="rc-connect-error" class="alert-danger">
+        <p>@ViewBag.ErrorMessage</p>
+    </div>
+}
+
+    @* 
+        ***** Create Partial View for new events *****
+    *@
+
+    @Html.Partial("BandRegistration")
+
+    @* Processing Payment *@
+    <form name="dForm" id="dForm" method="post" action="https://app.easytithe.com/inline/dedicated/?uid=rest1908133">
+        <div id="donorContainer">
+            <style type="text/css">
+                input:focus
+                {
+                    background-position: 0px 0px;
+                }
+            </style>
+            <div style="margin:15px auto 15px auto;width:313px;height:173px;background-image:url(//app.easytithe.com/inline/images/inline-shell.png);background-repeat:no-repeat;">
+                <div style="height:14px;font-size:1px;line-height:1px;overflow:hidden;margin:0px;padding:0px;"></div>
+                <div style="color:#336699;font-size:24px;height:30px;line-height:30px;overflow:hidden;font-weight:900;margin:0px 0px 0px 22px;padding:0px 0px 0px 0px;font-style:italic;font-family:calibri,arial;">My Online Donation</div>
+                <div style="color:#969696;margin:0px 0px 0px 22px;background-image:url(//app.easytithe.com/inline/images/check.png);background-repeat:no-repeat;line-height:19px;height:19px;overflow:hidden;font-size:15px;padding:0px 0px 0px 27px;font-family:calibri,arial;">No Registration Required</div>
+                <div style="height:40px;margin-left:22px;margin-top:18px;">
+                    <div style="float:left;height:40px;overflow:hidden;">
+                        <img src="//app.easytithe.com/inline/images/sdollar.png">
+                    </div>
+                    <div style="float:left;height:40px;overflow:hidden;">
+                        <input type="text" style="border:none;height:40px;width:138px;background-image:url(//app.easytithe.com/inline/images/tbg.png);background-size:1px 40px;background-repeat:repeat-x;background-color:#ffffff;margin:0px 0px 0px 0px;text-align:center;color:#999999;font-size:18px;font-family:calibri,arial;font-weight:100;padding:0px 0px 0px 0px;border-radius:0px;" name="preAmount" id="preAmount" value="Enter Amount" onclick="jsasp.initPreAmount();" onkeyup="jsasp.validateNumber(this);" onkeypress="if(event.keyCode==13){jsasp.goPreDonor();}" onblur="jsasp.cPreAmt();">
+                    </div>
+                    <div style="float:left;height:40px;overflow:hidden;width:72px;background-color:#336699;">
+                        <img src="//app.easytithe.com/inline/images/go.png" style="cursor:pointer;" onclick="jsasp.goPreDonor();">
+                    </div>
+                </div>
+                <div style="margin-top:23px;text-align:center;font-size:11px;font-family:tahoma,arial;color:#828282;">
+                    256 Bit Encrypted SSL
+                    <a href="http://www.easytithe.com/dl/?uid=rest1908133" target="_blank" style="text-decoration:none;color:#336699;margin-left:25px;">
+                        View Donor Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    <script language="JavaScript" id="dScript" src="//app.easytithe.com/inline/js.asp?uid=rest1908133"></script>
+}

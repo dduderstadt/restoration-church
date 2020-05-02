@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Discover";
+}
+
+
+<div>
+    <img src="~/Content/img/discover_header.png" />
+</div>
+
+<div class="spacer"></div>
+
+<div id="rc-discover">
+
+    <div class="spacer"></div>
+
+    <div id="rc-discover-accordion">
+        <h2>Our <span class="emphasis">Culture</span></h2>
+        <div>
+            <p id="rc-culture-main-text">
+                <span class="emphasis">Restoration Church</span> is a church for people that are sick of "playing church". We believe
+                that every number has a name, every name has a story, and every story matters to God.
+            </p>
+            <p>
+                Our Sunday morning service - The Experience, is a time where you are able to connect
+                to God through his Word; communicated in modern and life changing ways. You'll notice
+                that the music we play spans multiple styles and various artists. In everything we do,
+                we show a passion and desire of helping people - like you - encounter Jesus.
+            </p>
+        </div>
+
+        <h2>Our <span class="emphasis">Core Values</span></h2>
+        <div id="rc-core-values">
+            <ul>
+                <li>Found People, Find People</li>
+                <li>Growing People Change</li>
+                <li>Saved People, Serve People</li>
+                <li>You Can't Outgive God</li>
+                <li>You Can't Do Life Alone</li>
+            </ul>
+        </div>
+
+        <h2>Our <span class="emphasis">Beliefs</span></h2>
+        <div>
+            <h4>We believe...</h4>
+            <ol>
+                <li><h5>The Scriptures Inspired</h5> </li>
+                <li><h5>The One True God</h5> </li>
+                <li><h5>The Deity of the Lord Jesus Christ</h5> </li>
+                <li><h5>The Fall of Man</h5> </li>
+                <li><h5>The Salvation of Man</h5> </li>
+                <li><h5>The Ordinances of the Church</h5> </li>
+                <li><h5>The Baptism in the Holy Spirit</h5> </li>
+                <li><h5>The Initial Physical Evidence of the Baptism in the Holy Spirit</h5> </li>
+                <li><h5>Sanctification</h5> </li>
+                <li><h5>The Church and Its Mission</h5> </li>
+                <li><h5>The Ministry</h5> </li>
+                <li><h5>Divine Healing</h5> </li>
+                <li><h5>The Blessed Hope</h5> </li>
+                <li><h5>The Millennial Reign of Christ</h5> </li>
+                <li><h5>The Final Judgment</h5> </li>
+                <li><h5>The New Heavens and the New Earth</h5> </li>
+            </ol>
+            <a href="https://ag.org/Beliefs/Statement-of-Fundamental-Truths" target="_blank">
+                <img class="img-tag-sm pull-right" src="~/Content/img/tags/ag-tag.png">
+            </a>
+            <div class="clearfix"></div>
+        </div>
+
+        <h2>Our <span class="emphasis">Leaders</span></h2>
+        <div id="rc-discover-leaders">
+            <div class="leaders-img">
+                <img src="~/Content/img/people/jp_heather.jpg" alt="Lead Pastor" />
+            </div>
+            <div class="leaders-content">
+                <h4 class="leaders-name">JP Stafford</h4>
+                <h5 class="leaders-title">Lead Pastor</h5>
+                <p>
+                    JP Stafford is the founding &amp; lead pastor of Restoration Church in Liberty, MO. While a talented communicator
+                    and teacher, he is passionate about speaking the truth as plainly as possible. God has given him a vision and desire
+                    to help people meet Jesus, and each week he shares God's word and how we can apply it to our daily lives.
+                </p>
+                <p>JP lives in Liberty, MO with his wife and 2 children.</p>
+                <h4 class="link"><a href="https://twitter.com/johnpstafford" target="_blank"><img class="img-tag-sm" src="~/Content/img/tags/twitter-tag.png" /> @Html.Raw("@")JohnPStafford</a></h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $().ready(function () {
+            //on page load, if the user clicked "Core" img on Index page, display
+            //"Core Values" as active - else, display "Our Culture"
+            if (localStorage.getItem("prevPath") == "/Home/Index"
+                || localStorage.getItem("prevPath") == "/"
+                || localStorage.getItem("prevPath") == "/Home"
+                || localStorage.getItem("prevPath") == "/Home/") {
+                $('#rc-discover-accordion').accordion({
+                    active: 1,
+                    collapsible: true,
+                    header: "h2",
+                    heightStyle: "content"
+                });
+            } else {
+                $('#rc-discover-accordion').accordion({
+                    active: 0,
+                    collapsible: true,
+                    header: "h2",
+                    heightStyle: "content"
+                });
+            };
+            //remove the local variable after use
+            localStorage.removeItem("prevPath");
+        });
+    </script>
+}

@@ -1,0 +1,192 @@
+﻿@model rcliberty.Web.Models.BandViewModel
+
+<h1 id="rc-events-header">Band Registration</h1>
+
+<div id="rc-events-detail">
+    <h2>1st Annual Battle of the Bands</h2>
+    <h3>$1,000.00 CASH PRIZE</h3>
+    <button class="btn btn-warning" data-toggle="modal" data-target="#band-registration">How Do We Register?</button>
+    <h4><strong class="emphasis">IMPORTANT: </strong><i>all</i>  band members must be ages 21 &amp; under.</h4>
+</div>
+
+<div id="band-registration" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title"><span class="emphasis">Band Registration Instructions</span></h3>
+            </div>
+            <div class="modal-body">
+                <h4>Battle of the <strong>Bands</strong> - Friday, August 3rd</h4>
+                <p>
+                    In order to reserve <span class="emphasis">your spot</span> in the Battle of the Bands,
+                    we must receive <i>both</i> your online registration &amp; online payment through
+                    the payment portal at the bottom of the Band Registration page. Your spot in the event will
+                    <span class="emphasis">not</span> be reserved if we do not receive both registration
+                    &amp; payment, no later than <i>Sunday, July 22nd</i>.
+                    <br />
+                    Payment is <strong>due</strong> upon <span class="emphasis">registering</span>
+                    for the event.
+                </p>
+                <h3>How To Register:</h3>
+                <ol>
+                    <li>Fill out &amp; submit your band's online registration located in the "Band Registration" section of this page.</li>
+                    <li>
+                        Submit $25.00 Band Registration fee through the payment portal ("My Online Donation" at the bottom of this page)
+                        <ul>
+                            <li>Type "25.00" and click "Go". <strong>NOTE:</strong> the payment portal will open in a new tab</li>
+                            <li>
+                                Change the drop down list option from "Tithe/Offering" to <span class="emphasis">"Other"</span>
+                                and add a comment with <span class="emphasis">your band name</span>
+                            </li>
+                            <li>
+                                Fill out the remaining required information (Card Information, Card Holder Information) &amp;
+                                click "Submit".
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>
+                    <i>NOTE: If you've registered &amp; paid the band registration fee and have not heard from us in 5-10 business days, please contact us.</i>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("BandRegistration", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="band-registration" class="form-horizontal">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="container-half-screen field">
+            <div class="text-field">
+                @Html.EditorFor(model => model.BandName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Your Band Name" } })
+            </div>
+        </div>
+
+        <div class="container-half-screen field">
+            <div class="text-field">
+                @Html.EditorFor(model => model.NbrOfMembers, new { htmlAttributes = new { @class = "form-control", @placeholder = "# of members" } })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="container-half-screen field">
+            <div class="text-field">
+                @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contact Name" } })
+            </div>
+        </div>
+
+        <div class="container-half-screen field">
+            <div class="text-field">
+                @Html.EditorFor(model => model.ContactInfo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contact Email" } })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div id="instrument-section">
+            <h3>Please check all instruments that apply</h3>
+
+            <!-- instrument checkboxes -->
+            <div class="instruments">
+                <div class="instrument-label">
+                    @Html.LabelFor(model => model.RhythmGuitar)
+                </div>
+                <div class="instrument-checkbox">
+                    @Html.EditorFor(model => model.RhythmGuitar)
+                </div>
+
+
+                <div class="instrument-label">
+                    @Html.LabelFor(model => model.LeadGuitar)
+                </div>
+                <div class="instrument-checkbox">
+                    @Html.EditorFor(model => model.LeadGuitar)
+                </div>
+
+
+                <div class="instrument-label">
+                    @Html.LabelFor(model => model.BassGuitar)
+                </div>
+                <div class="instrument-checkbox">
+                    @Html.EditorFor(model => model.BassGuitar)
+                </div>
+
+
+                <div class="instrument-label">
+                    @Html.LabelFor(model => model.Drums)
+                </div>
+                <div class="instrument-checkbox">
+                    @Html.EditorFor(model => model.Drums)
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div id="other-instruments">
+            <div>
+                @Html.LabelFor(model => model.Other, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Other)
+            </div>
+            <div class="text-field">
+                @Html.EditorFor(model => model.OtherInstrumentDetails, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   @placeholder = "What other instrument(s) will you be brining?",
+                   @rows = 5
+               }
+           })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div id="nbrOfVocalists" class="field">
+            <h3>How many vocalists will you have?</h3>
+            <div class="text-field">
+                @Html.EditorFor(model => model.NbrOfVocals, new { htmlAttributes = new { @class = "form-control", @placeholder = "# of Vocalists" } })
+            </div>
+        </div>
+
+        <div id="additional-info">
+            <div>
+                @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="text-field">
+                @Html.EditorFor(model => model.Details, new
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control",
+                   @placeholder = "What gear you'll be bringing? Amplifiers, DI boxes, etc.",
+                   @rows = 15
+               }
+           })
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="text-field">
+                <input type="submit" value="Register" class="btn rc-btn" />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+}
