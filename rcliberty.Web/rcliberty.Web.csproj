@@ -209,6 +209,7 @@
     <Content Include="Content\img\baptism_sm-tile.png" />
     <Content Include="Content\img\battle-storm-banner.jpg" />
     <Content Include="Content\img\breakout-banner.jpg" />
+    <Content Include="Content\img\btyf-banner.jpg" />
     <Content Include="Content\img\buttons\btn-attend-white.png" />
     <Content Include="Content\img\buttons\btn-attend-gray.png" />
     <Content Include="Content\img\buttons\btn-connect-white.png" />
