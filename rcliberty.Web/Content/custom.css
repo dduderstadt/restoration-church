@@ -658,6 +658,10 @@ body {
         border-bottom: 1.5em solid #16a4a8;
     }
 
+    #rc-sermons select, #rc-sermons input {
+        color: #333 !important;
+    }
+
         #rc-sermons-table thead tr {
             background-color: #16a4a8;
         }

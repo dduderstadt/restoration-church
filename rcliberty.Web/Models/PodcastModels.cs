@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace rcliberty.Web.Models
@@ -92,18 +94,41 @@ namespace rcliberty.Web.Models
             //setup request
             request.Method = Method.GET;
             request.RequestFormat = DataFormat.Json;
+            //request.RequestFormat = DataFormat.Xml;
             request.AddHeader("Content-Type", "text/javascript");
+            //request.AddHeader("Content-Type", "text/xml");
 
             var response = client.Execute(request);
             var result = JsonConvert.DeserializeObject<Results>(response.Content);
+            //var result = response;
 
             return result.results;
+        }
+
+        public static string GetXmlAsString(XmlDocument xmlDoc)
+        {
+            return xmlDoc.OuterXml;
+        }
+
+        private static XDocument GetSecureXDocument(string url)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls |
+                SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+            var client = new WebClient
+            {
+                Headers = { [HttpRequestHeader.Accept] = "application/xml" }
+            };
+            using (var stream = client.OpenRead(url))
+            {
+                return XDocument.Load(stream);
+            }
         }
 
         public static List<Episode> GetPodcastEpisodes()
         {
             //direct connection (testing)
-            //http://jpstafford.podbean.com/feed/
+            //https://jpstafford.podbean.com/feed/
 
             //TODO podcast by series w/logo (testing)
             //https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog254166/Red_Ink_Jesus_Logo-FB.jpg
@@ -111,7 +136,14 @@ namespace rcliberty.Web.Models
             List<Episode> episodes = new List<Episode>();
 
             Podcast result = SendPodcastRequest().FirstOrDefault();
-            XDocument doc = XDocument.Load(result.FeedUrl);
+            XDocument doc = GetSecureXDocument(result.FeedUrl);
+
+            //Episode test = new Episode();
+            //test.Url = "https://mcdn.podbean.com/mf/web/6hb8xb/Impossible_-_2nd_Opinion8e77o.m4a";
+            //test.Title = "Impossible - 2nd Opinion";
+            //test.PublishDate = DateTime.Today.ToString();
+            //episodes.Add(test);
+
 
             //get data to display from XML tags (.m4a files)
             foreach (XElement e in doc.Descendants("item").Where(x => x.Parent.Name == "channel"))
