@@ -27,8 +27,10 @@ namespace rcliberty.Web.HelpersAndExtensions
         {
             if (DateTime.Now.DayOfWeek != DayOfWeek.Sunday) return false;
 
-            var startTime = ((DateTime.Now.Hour >= 16 && DateTime.Now.Minute > 24));
-            var endTime = ((DateTime.Now.Hour <= 18 && DateTime.Now.Minute < 10));
+            DateTime uStart = DateTime.Now.ToUniversalTime();
+            DateTime uEnd = DateTime.Now.ToUniversalTime();
+            var startTime = ((uStart.Hour >= 16 && uStart.Minute > 24));
+            var endTime = ((uEnd.Hour <= 18 && uEnd.Minute < 10));
 
             return startTime && endTime ? true : false;
         }
