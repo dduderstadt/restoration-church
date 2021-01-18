@@ -1,5 +1,32 @@
 ﻿//////////////////////////////////////////////////////////////////////////////////
 //						
+//						General Guidelines
+//						
+//////////////////////////////////////////////////////////////////////////////////
+
+1. Deployment
+==================================================================================
+
+After successfully making your changes and building your solution/project(s). They
+are ready to be deployed as follows:
+	1. Connect to the domain via FTP
+
+2. Deployment
+==================================================================================
+The following is a listing of the required folders and files needed to render a
+MVC web application using .NET Framework 4.5.2
+	* bin (dir): code is compiled down so the browser can understand
+	* Content (dir): images, css, etc. can be stored here
+	* Scripts (dir): JavaScript files
+	* Views (dir): all of the views for all controllers; this includes the VIEWS web.config
+	* fonts (dir): if applicable (may be in with Content)
+	* any external .cs files that are needed to perform necessary functions (email settings, etc)
+	* favicon.ico: if applicable
+	* Global.asax: determines how to handle server and session events
+	* pacakges.config: a listning of all packages installed and their location (relative to bin)
+	* Web.config (root): the root Web.config file to help render the site appropriately
+//////////////////////////////////////////////////////////////////////////////////
+//						
 //						Identity User Role Management
 //						
 //////////////////////////////////////////////////////////////////////////////////
