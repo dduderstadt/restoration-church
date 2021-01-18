@@ -22,5 +22,15 @@ namespace rcliberty.Web.HelpersAndExtensions
         {
             return (string)html.ViewContext.RouteData.Values["controller"];
         }
+
+        public static bool GetLiveNotification(this HtmlHelper html)
+        {
+            if (DateTime.Now.DayOfWeek != DayOfWeek.Sunday) return false;
+
+            var startTime = ((DateTime.Now.Hour >= 16 && DateTime.Now.Minute > 24));
+            var endTime = ((DateTime.Now.Hour <= 18 && DateTime.Now.Minute < 10));
+
+            return startTime && endTime ? true : false;
+        }
     }
 }

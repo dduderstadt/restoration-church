@@ -93,7 +93,7 @@
                         </a>
                     </li>
                     <li class="@Html.IsActive("Home", "Podcasts")">
-                       <a href="@Url.Action("Podcasts", "Home")">
+                        <a href="@Url.Action("Podcasts", "Home")">
                             Podcasts
                         </a>
                     </li>
@@ -103,6 +103,15 @@
                             Plan Your Visit
                         </a>
                     </li>
+                    <div class="clearfix"></div>
+
+                    @if(Html.GetLiveNotification()) {
+                    <li id="live-notification" style="margin-top: 1%;" class="blink">
+                        <a href="https://www.youtube.com/channel/UClltx-AV8PivXO4JmqRrp2A" target="_blank">
+                            Watch Live
+                        </a>
+                    </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -153,8 +162,8 @@
                 <li class="nav-item">
                     <a class="social-link" href="https://www.facebook.com/restoration.church.liberty/" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="social-link" href="https://twitter.com/Rest_Church1" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                <li class="nav-item" style="margin-left: -5px;">
+                    <a class="social-link" href="https://www.youtube.com/channel/UClltx-AV8PivXO4JmqRrp2A" target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
                 </li>
             </ul>
             <p href="#" id="social" class="social-text" @*onclick="openSideNav()"*@>social</p>
@@ -229,23 +238,12 @@
 
     <div class="bg-overlay"></div>
 
-    @if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday
-        && DateTime.UtcNow.Hour >= 15
-        && DateTime.UtcNow.Hour < 17)
-    {
-        <!-- live notification (live stream modal) -->
-        <div id="live-notification" class="blink">
-            <button type="button" class="btn rc-live-btn" data-toggle="modal" data-target="#live-video"><span class="dot"></span> LIVE</button>
-            <p>Now streaming <span class="emphasis"><br />The Experience</span></p>
-        </div>
-    }
-
     <!-- live-video-modal -->
-    <div id="live-video" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+    <!--<div id="live-video" class="modal fade" role="dialog">
+        <div class="modal-dialog">-->
 
             <!-- content-->
-            <div class="modal-content">
+            <!--<div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">
@@ -256,9 +254,9 @@
                     </h4>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body">-->
                     <!-- The Experience live stream -->
-                    <iframe id="ls_embed_1539231289" src="https://livestream.com/accounts/27837009/events/8408291/player?width=960&height=540&enableInfoAndActivity=true&defaultDrawer=feed&autoPlay=true&mute=false" width="960" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <!--<iframe id="ls_embed_1539231289" src="https://livestream.com/accounts/27837009/events/8408291/player?width=960&height=540&enableInfoAndActivity=true&defaultDrawer=feed&autoPlay=true&mute=false" width="960" height="540" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn rc-btn" data-dismiss="modal">Close</button>
@@ -266,7 +264,7 @@
             </div>
 
         </div>
-    </div>
+    </div>-->
 
     <div class="container body-content">
         @RenderBody()
