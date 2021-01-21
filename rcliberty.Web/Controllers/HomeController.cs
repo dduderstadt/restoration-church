@@ -118,7 +118,7 @@ namespace rcliberty.Web.Controllers
             //configure MailMessage
             MailMessage msg = new MailMessage(
                 email
-                , "hello@rcliberty.com" //update to deployed email - "hello@"
+                                        , "hello@rcliberty.com" //update to deployed email - "hello@"
                                         //, "dduderstadt@rcliberty.com"
                 , "PLAN YOUR VISIT - Guest"
                 , body);

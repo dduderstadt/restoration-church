@@ -13,18 +13,7 @@
 //***************************************
 //============== side nav ===============
 //***************************************
-//$(function () {
-//    $('#social').addClass('hidden');
-//});
-
 var isClosed = true;
-
-$(function () {
-    //document.getElementById('side-nav').style.left = "-80px";
-    isClosed = true;
-    $('#social').removeClass('hidden');
-});
-
 
 function closeSideNav() {
     document.getElementById('side-nav').style.left = "-80px";

@@ -176,22 +176,20 @@ body {
         display: inline-block;
     }
 
-    #live-notification {
-        position: fixed;
-        right: 0;
-        z-index: 2;
-        top: 17%;
-        overflow-x: hidden;
-        margin: 0em 3em;
-        text-align: center;
-        width: 15%;
-        display: inline-block;
-    }
+li#live-notification {
+    background-color: #222;
+    width: 35%;
+    margin-left: 31%;
+ margin-bottom: 18px;
 
-        #live-notification p {
-            color: #fff;
-            padding-top: 0.5em;
-        }
+}
+
+#live-notification a {
+    color: #fff;
+    text-shadow: 1px 1px 1px #fff;
+    border: 2px solid #ff0000;
+    letter-spacing: 10px;
+}
 
     .blink {
         opacity: 1;
